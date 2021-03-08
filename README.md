@@ -1,0 +1,2 @@
+# Chess
+Pierwszym problemem związanym z szachami, który chciałbym przeanalizować jest zależność między czasem wykonania poszczególnego ruchu, a jego zgodnością z silnikiem szachowym (są gotowe skomplikowane programy badające tę zgodność, nie korzystałem z nich na dużym zbiorze danych). Chciałbym by znalazło się tam dopasowanie rozkładu prawdopodobieństwa dla wykonania ruchu z pewnego przedziału procentowego, wyliczenie prawdopodobieństwa wykonania "dobrego" ruchu w zależności od poświęconego mu czasu, dobrze byłoby też uwzględnić format i ranking graczy (system ELO) itd.
