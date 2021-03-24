@@ -1,0 +1,15 @@
+\babel@toc {polish}{}
+\contentsline {chapter}{Wstęp}{3}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}Wstęp teoretyczny???,o literaturze co nie co}{5}{chapter.1}%
+\contentsline {chapter}{\numberline {2}sformuowanie problemów, które chce zbadać}{7}{chapter.2}%
+\contentsline {chapter}{\numberline {3}rozwiązanie problemu}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Dane}{9}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Odfiltrowanie danych}{9}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}Analiza pierwszej rzeczy}{9}{section.3.2}%
+\contentsline {section}{\numberline {3.3}analiza drugiej rzeczy and so on}{9}{section.3.3}%
+\contentsline {chapter}{\numberline {4}wnioski, podsumowanie}{11}{chapter.4}%
+\contentsline {chapter}{\numberline {5}tabelka}{13}{chapter.5}%
+\contentsline {chapter}{\numberline {6}rysunek}{15}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Definicje, lematy, twierdzenia, przykłady i wnioski}{17}{chapter.7}%
+\contentsline {chapter}{\numberline {8}cytowanie}{19}{chapter.8}%
+\contentsline {chapter}{Dodatek}{21}{chapter*.5}%
