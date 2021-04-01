@@ -1,5 +1,50 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: Praca_dyplomowa.aux
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Praca_dyplomowa.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: bibliografia.bib
 Warning--to sort, need author or key in lichess
+You've used 3 entries,
+            2118 wiz_defined-function locations,
+            515 strings with 4382 characters,
+and the built_in function-call counts, 773 in all, are:
+= -- 74
+> -- 26
+< -- 0
++ -- 12
+- -- 8
+* -- 47
+:= -- 128
+add.period$ -- 9
+call.type$ -- 3
+change.case$ -- 12
+chr.to.int$ -- 0
+cite$ -- 4
+duplicate$ -- 30
+empty$ -- 73
+format.name$ -- 8
+if$ -- 163
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 3
+newline$ -- 18
+num.names$ -- 4
+pop$ -- 21
+preamble$ -- 1
+purify$ -- 10
+quote$ -- 0
+skip$ -- 18
+stack$ -- 0
+substring$ -- 41
+swap$ -- 3
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 10
+warning$ -- 1
+while$ -- 6
+width$ -- 4
+write$ -- 33
 (There was 1 warning)

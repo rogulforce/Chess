@@ -139,48 +139,60 @@
 {\backmatter \chapter{Wstęp}}
 We wstępie zapowiadamy, o czym będzie praca. Próbujemy zachęcić czytelnika do dalszej lektury, np. krótko informując, dlaczego wybraliśmy właśnie ten temat i co nas w nim zainteresowało.
 
-\chapter{Wstęp teoretyczny???,o literaturze co nie co}
+\chapter{ZAGADNIENIE TEORETYCZNE I - DOTYCZĄCE SZACHÓW}
+\section{OPISAĆ ZASADY GRY W SZACHY}
+\section{OPISAĆ NOTACJĘ szachową}
+\section{OPISAĆ szachowy system Glicko-2 (oparty na rozkładzie normalnym)}
+\textbf{opisać ogólnie troche historii o systemach rankingowych?}
+System rankingowy ELO został zaprezentowany w latach 50 XX wieku przez Węgierskiego fizyka i szachistę Arpada Elo (1903-1992) \textbf{[CITE]}. Początkowo był używany jedynie w szachach, jednak wraz ze wzrostem jego popularności zaczął być stosowany również w innych \textbf{rozgrywkach}. System ten jest pierwszym systemem mającym podłoże probabilistyczne i jest oparty na rozkładzie normalnym z ustaloną średnią. Przyznaje odpowiednią liczbę punktów zwycięzcy rozgrywki i odbiera przegranemu bazując na różnicy między ich aktualnym rankingiem.
 
-\chapter{sformuowanie problemów, które chce zbadać}
-\chapter{rozwiązanie problemu}
-\section{Dane}
-Dane, \textbf{[...]} zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w plikach o rozmiarze kilkudziesięciu Gb. Każdy z nich zawiera wszystkie gry rozegrane na platformie w ciągu całego miesiąca. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish \textbf{WYJAŚNIĆ CZYM JEST STOCKFISH I EVAL???} i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy. Przykładowy zapis jednej takiej gry został zaprezentowany na rysunku \textbf{XXX}:
+
+System Glicko-2 używany przez stronę \textbf{Lichess.com}, na której danych oparta jest niniejsza praca, opracowany został przez Marka Glickmana jako ulepszenie systemu ELO. Podstawową zmianą jest uwzględnienie historycznych wyników każdego z zawodników w celu ustalenia wariancji aktualnego rankingu. Glickman w swojej pracy z roku 1998 \textbf{[cite]} przedstawia problem dwóch graczy o takim samym rankingu, z których jeden gra regularnie, a drugi wrócił po długiej przerwie. System Glicko-2 przyznając punkt za grę bierze pod uwagę wiarygodność każdego z rankingów. Zawodnikowi grającemu regularnie zostanie przyznane bądź odebrane mniej punktów ze względu na duże potencjalne odchylenie rankingu przeciwnika od zadeklarowanej wartości.
+
+\subsection{z uwzględnieniem ELO na platformie Lichess, z której bierzemy dane}
+\section{OPISAĆ jak działa EVAL}
+\chapter{ZAGADNIENIE TEORETYCZNE II - użyte metody, teoria stojąca za rozwiązaniami problemów}
+\chapter{sformuowanie problemów analitycznych, które chce zbadać}
+\chapter{analiza / rozwiązanie problemów}
+\section{Dane (co zawierają surowe dane)}
+Dane, \textbf{[...]} zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w plikach o rozmiarze kilkudziesięciu Gb. Każdy z nich zawiera wszystkie gry rozegrane na platformie w ciągu całego miesiąca. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish \textbf{WYJAŚNIĆ CZYM JEST STOCKFISH I EVAL ALE TO WCZEŚNIEJ} i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy. Przykładowy zapis jednej takiej gry został zaprezentowany na rysunku \textbf{XXX}:
 \textbf{WSTAWIĆ RYSUNEK Z DANYMI Z EVAL}
-\subsection{Odfiltrowanie danych}
+\subsection{Odfiltrowanie danych (jak zostają pozyskane)}
 \textbf{TUTAJ INFORMATYCZNA CZĘŚĆ O TYM JAK POZYSKAŁEM DANE Z PLIKU}
-\section{Analiza pierwszej rzeczy}
-\section{analiza drugiej rzeczy and so on}
+Pierwszy
+\section{Analiza pierwszego problemu}
+\section{analiza drugiego problemu...  and so on...}
 \chapter{wnioski, podsumowanie}
 
 \chapter{tabelka}
 Tabela \ref{tab:przykladowa} 
 \begin{table}[H]
-\caption{Podstawowa Tabela}
-\centering
-\begin{tabular}{ccc}
-\hline
-\hline                       
-Państwo & PKB (w milionach USD )& Stopa bezrobocia  \\  [0.5ex] 
-\hline 
-Stany Zjednoczone & 75 278 049 & 4,60\%  \\
-Chiny & 11 218 281 & 4,10\%   \\
-Japonia & 4 938 644 & 3,10\%  \\
-Niemcy & 3 466 639 & 6,00\%   \\
-Wielka Brytania & 2 629 188 & 4,60\%  \\ [1ex]  
-\hline 
-\end{tabular}
-\caption*{\textit{Źródło: opracowanie własne}}
-\label{tab:przykladowa2} 
+	\caption{Podstawowa Tabela}
+	\centering
+	\begin{tabular}{ccc}
+		\hline
+		\hline                       
+		Państwo & PKB (w milionach USD )& Stopa bezrobocia  \\  [0.5ex] 
+		\hline 
+		Stany Zjednoczone & 75 278 049 & 4,60\%  \\
+		Chiny & 11 218 281 & 4,10\%   \\
+		Japonia & 4 938 644 & 3,10\%  \\
+		Niemcy & 3 466 639 & 6,00\%   \\
+		Wielka Brytania & 2 629 188 & 4,60\%  \\ [1ex]  
+		\hline 
+	\end{tabular}
+	\caption*{\textit{Źródło: opracowanie własne}}
+	\label{tab:przykladowa2} 
 \end{table}
 \chapter{rysunek}
 Rysunki do pracy dyplomowej należy wstawiać w sposób podobny do wstawiania tabel, z~zasadniczą różnicą polegającą na tym, że podpis powinno umieszczać się centralnie pod rysunkiem, a nie powyżej niego. Numeracja i sposób cytowania pozostają bez zmian, przy czym tabele i rysunki nie mają numeracji wspólnej, np. po Tabeli \ref{tab:przykladowa2} występuje Rysunek \ref{rys1} (o ile jest to pierwszy rysunek rozdziału pierwszego), a nie Rysunek $1.3$.
 
 \begin{figure}[ht]
-
-\centering
-                     
-\includegraphics[scale=0.27]{logo_w13.jpg}
-\caption{Podstawowy Rysunek}\label{rys1}
+	
+	\centering
+	
+	\includegraphics[scale=0.27]{logo_w13.jpg}
+	\caption{Podstawowy Rysunek}\label{rys1}
 \end{figure}
 \label{rys:przykladowy} 
 
@@ -188,10 +200,10 @@ Rysunki do pracy dyplomowej należy wstawiać w sposób podobny do wstawiania ta
 \chapter{Definicje, lematy, twierdzenia, przykłady i wnioski}
 Definicje, lematy, twierdzenia, przykłady i wnioski piszemy w pracy tak:
 \begin{definition}[Martyngał]
-Tu piszemy treść definicji martyngału.
+	Tu piszemy treść definicji martyngału.
 \end{definition}
 \begin{lemma}[]% w nawiasie kwadratowym można napisać jego nazwę
-Tu piszemy treść lematu.
+	Tu piszemy treść lematu.
 \end{lemma}
 \chapter{cytowanie}
 Do cytowania używamy komendy \texttt{cite}. W nawiasie klamrowym podajemy klucz, którego użyliśmy w pliku \emph{bibliografia.bib}. Przykład: \cite{einstein} lub \cite[chap. 2]{latexcompanion}.
