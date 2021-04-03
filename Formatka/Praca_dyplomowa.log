@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.26)  2 APR 2021 00:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.26)  3 APR 2021 16:28
 entering extended mode
 **./Praca_dyplomowa.tex
 (Praca_dyplomowa.tex
@@ -1287,12 +1287,16 @@ l.133 \maketitle
 
 ]
 Rozdzia\l  1.
-[5] [6
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-]
+ [5]
+[6]
 Rozdzia\l  2.
-[7] [8
+[7
+
+
+] [8
 
 
 ]
@@ -1314,17 +1318,17 @@ Rozdzia\l  5.
 Rozdzia\l  6.
 
 LaTeX Warning: Reference `tab:przykladowa' on page 15 undefined on input line 1
-68.
+74.
 
 [15] [16
 
 
 ]
 Rozdzia\l  7.
-<logo_w13.jpg, id=200, 637.38126pt x 683.55376pt>
+<logo_w13.jpg, id=207, 637.38126pt x 683.55376pt>
 File: logo_w13.jpg Graphic file (type jpg)
 <use logo_w13.jpg>
-Package pdftex.def Info: logo_w13.jpg  used on input line 194.
+Package pdftex.def Info: logo_w13.jpg  used on input line 200.
 (pdftex.def)             Requested size: 172.09523pt x 184.56198pt.
 [17 <./logo_w13.jpg>] [18
 
@@ -1337,7 +1341,7 @@ Rozdzia\l  8.
 ]
 Rozdzia\l  9.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-09.
+15.
 (C:\Users\piotr\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1355,21 +1359,27 @@ Package microtype Info: Loading generic protrusion settings for font family
 ] (Praca_dyplomowa.bbl [24
 
 
-]) [25] (Praca_dyplomowa.aux)
+]
+Underfull \hbox (badness 6927) in paragraph at lines 4--8
+[]\T1/lmr/m/n/12 (+20) Lichess com-pu-ter en-gine used from 2014.  []$\T1/lmtt/
+m/n/12 https : / / lichess . org / blog /
+ []
+
+) [25] (Praca_dyplomowa.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Praca_dyplomowa.out' has not changed.
-(rerunfilecheck)             Checksum: 293549F8DB5E46EFD2D9975266564833;4616.
+(rerunfilecheck)             Checksum: BFB75B6B38E974CA502117F7B582059B;4686.
  ) 
 Here is how much of TeX's memory you used:
- 26819 strings out of 479321
- 479789 string characters out of 2856583
- 1134963 words of memory out of 3000000
- 43576 multiletter control sequences out of 15000+600000
- 475980 words of font info for 130 fonts, out of 8000000 for 9000
+ 26829 strings out of 479321
+ 479940 string characters out of 2856583
+ 1135008 words of memory out of 3000000
+ 43580 multiletter control sequences out of 15000+600000
+ 476162 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,14n,130p,821b,2376s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 128i,14n,130p,1112b,2376s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/piotr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C
 :/Users/piotr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C
 :/Users/piotr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}<C:/Us
@@ -1382,9 +1392,9 @@ piotr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/
 piotr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/
 piotr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri8.pfb><C:/Users/p
 iotr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Praca_dyplomowa.pdf (29 pages, 320318 bytes).
+Output written on Praca_dyplomowa.pdf (29 pages, 326363 bytes).
 PDF statistics:
- 299 PDF objects out of 1000 (max. 8388607)
- 56 named destinations out of 1000 (max. 500000)
- 39602 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 308 PDF objects out of 1000 (max. 8388607)
+ 58 named destinations out of 1000 (max. 500000)
+ 39610 words of extra memory for PDF output out of 42996 (max. 10000000)
 

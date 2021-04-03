@@ -147,10 +147,22 @@ We wstępie zapowiadamy, o czym będzie praca. Próbujemy zachęcić czytelnika 
 System rankingowy ELO został zaprezentowany w latach 50 XX wieku przez Węgierskiego fizyka i szachistę Arpada Elo (1903-1992) \textbf{[CITE]}. Początkowo był używany jedynie w szachach, jednak wraz ze wzrostem jego popularności zaczął być stosowany również w innych \textbf{rozgrywkach}. System ten jest pierwszym systemem mającym podłoże probabilistyczne i jest oparty na rozkładzie normalnym z ustaloną średnią. Przyznaje odpowiednią liczbę punktów zwycięzcy rozgrywki i odbiera przegranemu bazując na różnicy między ich aktualnym rankingiem.
 
 
-System Glicko-2 używany przez stronę \textbf{Lichess.com}, na której danych oparta jest niniejsza praca, opracowany został przez Marka Glickmana jako ulepszenie systemu ELO. Podstawową zmianą jest uwzględnienie historycznych wyników każdego z zawodników w celu ustalenia wariancji aktualnego rankingu. Glickman w swojej pracy z roku 1998 \textbf{[cite]} przedstawia problem dwóch graczy o takim samym rankingu, z których jeden gra regularnie, a drugi wrócił po długiej przerwie. System Glicko-2 przyznając punkt za grę bierze pod uwagę wiarygodność każdego z rankingów. Zawodnikowi grającemu regularnie zostanie przyznane bądź odebrane mniej punktów ze względu na duże potencjalne odchylenie rankingu przeciwnika od zadeklarowanej wartości.
+System Glicko-2 używany przez stronę \textbf{Lichess.com}, na danych której oparta jest niniejsza praca, opracowany został przez Marka Glickmana jako ulepszenie systemu ELO. Podstawową zmianą jest uwzględnienie historycznych wyników każdego z zawodników w celu ustalenia wariancji aktualnego rankingu. Glickman w swojej pracy z roku 1998 \textbf{[cite]} przedstawia problem dwóch graczy o takim samym rankingu, z których jeden gra regularnie, a drugi wrócił po długiej przerwie. System Glicko-2 przyznając punkt za grę bierze pod uwagę wiarygodność każdego z rankingów. Zawodnikowi grającemu regularnie zostanie przyznane bądź odebrane mniej punktów ze względu na duże potencjalne odchylenie rankingu przeciwnika od zadeklarowanej wartości. Innymi słowy, w miarę zwiększania się liczby partii gracza, przedział ufności dla jego realnego rankingu zawęża się i przypisany mu ranking zbiega do realnego poziomu i ta wiarygoność przypisanego rankingu jest uwzględniana w zmianie punktów zawodników po zakończeniu partii.
 
+\textbf{WRZUCIĆ MATEMATYKĘ STOJĄCĄ ZA GLICKO-2???}
 \subsection{z uwzględnieniem ELO na platformie Lichess, z której bierzemy dane}
-\section{OPISAĆ jak działa EVAL}
+\section{Funkcja ewaluacji}
+Przed przystąpieniem do opisania funkcji, należy wytłumaczyć działanie silnika szachowego, który dokonuje oceny pozycji.
+\subsection{Stockfish}
+Stockfish jest najpopularniejszym obecnie używanym silnikiem szachowym, zaprojektowanym przez Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad, Stéphane Nicolet, Stefan Geschwentner, and Joost VandeVondele i stale ulepszany jako oprogramowanie typu open-source. Strona \textbf{Lichess.com}\cite{stockfish_lichess} wykorzystuje go do oceny aktualnej pozycji.
+
+Stockfish analizuje poprzez przeszukiwanie za pomocą algorytmu alfa-beta legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych) i na ich podstawie ocenia aktualną pozycję.
+
+\subsection{Ewaluacja}
+Wspomniana wcześniej ewaluacja, wyliczana przez silnik szachowy jest funkcją
+\begin{equation}
+	f()
+\end{equation}
 \chapter{ZAGADNIENIE TEORETYCZNE II - użyte metody, teoria stojąca za rozwiązaniami problemów}
 \chapter{sformuowanie problemów analitycznych, które chce zbadać}
 \chapter{analiza / rozwiązanie problemów}
