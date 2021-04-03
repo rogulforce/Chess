@@ -159,10 +159,25 @@ Stockfish jest najpopularniejszym obecnie używanym silnikiem szachowym, zaproje
 Stockfish analizuje poprzez przeszukiwanie za pomocą algorytmu alfa-beta legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych) i na ich podstawie ocenia aktualną pozycję.
 
 \subsection{Ewaluacja}
-Wspomniana wcześniej ewaluacja, wyliczana przez silnik szachowy jest funkcją
+Wspomniana wcześniej ewaluacja, wyliczana przez silnik szachowy jest wynikiem funkcji
+zależnej od zmiennych:\\
+$f_b,f_c$ oznaczających wartość figur odpowiednio białych i czarnych\\
+$k_b,k_c$ oznaczających bezpieczeństwo króla odpowiednio białych i czarnych\\
+$m_b,m_c$ oznaczających mobilność figur odpowiednio białych i czarnych\\
+$z_b,z_c$ oznaczających potencjalne zagrożenia wykonane odpowiednio białych i czarnych\\
+oraz innych.
+
+Funkcję można dla zapewnienia intuicji zapisać w uproszeniu:
 \begin{equation}
-	f()
+	f(f_b,f_c,k_b,k_c,m_b,m_c,\dots)=c_1(f_b-f_c)+c_2(k_b-k_c)+c_3(m_b-m_c)+\dots
 \end{equation}
+gdzie:
+$c_i$ są stałymi określającymi wagę danej pary zmiennych.
+
+Wraz ze wzrostem wartości funkcji zwiększa się przewaga białych, natomiast wraz z jej spadkiem, przewaga czarnych. Wartość wynosząca 0 oznacza stan równowagi. Dodatkowo, w przypadku nieuniknionego zwycięstwa jednej ze stron w \textit{n} ruchach, wynikiem funkcji zamiast odpowiedniej wartości jest tekst \textit{\#-n} w przypadku wygranej czarnych lub \textit{\#n} w przypadku wygranej białych.
+
+
+
 \chapter{ZAGADNIENIE TEORETYCZNE II - użyte metody, teoria stojąca za rozwiązaniami problemów}
 \chapter{sformuowanie problemów analitycznych, które chce zbadać}
 \chapter{analiza / rozwiązanie problemów}
