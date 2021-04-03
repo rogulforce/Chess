@@ -137,11 +137,35 @@
 %\listoftables
 
 {\backmatter \chapter{Wstęp}}
-We wstępie zapowiadamy, o czym będzie praca. Próbujemy zachęcić czytelnika do dalszej lektury, np. krótko informując, dlaczego wybraliśmy właśnie ten temat i co nas w nim zainteresowało.
+\textbf{We wstępie zapowiadamy, o czym będzie praca. Próbujemy zachęcić czytelnika do dalszej lektury, np. krótko informując, dlaczego wybraliśmy właśnie ten temat i co nas w nim zainteresowało.}
+
+Wraz z rozwojem technologii komputerowej, rozpoczęła się nowa era szachów. Technologia korzystając z dużej mocy obliczeniowej, bezpowrotnie wyprzedziła człowieka w grach deterministycznych,\textbf{ a ostatnio też i tych niedeterministycznych (?)}. Profesjonalni szachiści zaczęli wykorzystywać nowe strategie korzystając z coraz lepszych silników szachowych. Silniki te oceniają wprowadzoną pozycję pod kątem przewagi jednej ze stron. 
+
+W dobie internetu gra w szachy stała się dużo wygodniejsza niż przed laty. Ludzie grają w różnych miejscach i praktycznie o każdej porze. W związku z tym dużo większą popularnością zaczęły cieszyć się szachy szybkie, czyli takie, w których każdy z zawodników ma relatywnie mało czasu na wykonanie wszystkich ruchów. Wiąże się to z dużo większym znaczeniem dysponowania czasem w trakcie gry. W każdym ruchu zawodnik musi ustalić równowagę pomiędzy dokładnością ruchu, a czasem, który jest w stanie na ten ruch poświęcić. 
+
+Przedmiotem badań tej pracy jest analiza zależności między dokładnością ruchu, a czasem, który został na niego poświęcony dla różnych zawodników mających rózny poziom umiejętności 
+
+\textbf{DODAĆ TUTAJ TROCHE I OGÓLNY CEL}
+
+\textbf{W PIERWSZEJ CZĘŚCI - ZAGADNIENIA TEORETYCZNE DOTYCZĄCE SZACHÓW}
+
+\textbf{w DRUGIEJ CZĘŚCI ZAGADNIENIA TEORETYCZNE ZE STATYSTYKI I METODOLOGII}
+
+\textbf{PÓŹNIEJ DOKŁADNE SFORMUOWANIE PROBLEMU}
+
+\textbf{DOKŁADNE ROZWIĄZANIE PROBLEMU}
+
+\textbf{PODSUMOWANIE}
+
 
 \chapter{ZAGADNIENIE TEORETYCZNE I - DOTYCZĄCE SZACHÓW}
-\section{OPISAĆ ZASADY GRY W SZACHY}
-\section{OPISAĆ NOTACJĘ szachową}
+\section{OPISAĆ ZASADY GRY W SZACHY ??}
+Początki szachów nie są znane, jednak ich historia trwa już ok. 1500 lat i zaczyna się w Indiach. Na przestrzeni wieków zasady szachów były wielokrotnie zmieniane. Powszechnie stosowane przepisy pochodzą z roku 1851.
+
+\textbf{krótko na czym polegają szachy i cite gdzie można znaleźć pełne przepisy,isbn:002028540X}
+
+
+\section{OPISAĆ NOTACJĘ szachową????? - nie będę w sumie nic z nią robić, ale jest}
 \section{OPISAĆ szachowy system Glicko-2 (oparty na rozkładzie normalnym)}
 \textbf{opisać ogólnie troche historii o systemach rankingowych?}
 System rankingowy ELO został zaprezentowany w latach 50 XX wieku przez Węgierskiego fizyka i szachistę Arpada Elo (1903-1992) \textbf{[CITE]}. Początkowo był używany jedynie w szachach, jednak wraz ze wzrostem jego popularności zaczął być stosowany również w innych \textbf{rozgrywkach}. System ten jest pierwszym systemem mającym podłoże probabilistyczne i jest oparty na rozkładzie normalnym z ustaloną średnią. Przyznaje odpowiednią liczbę punktów zwycięzcy rozgrywki i odbiera przegranemu bazując na różnicy między ich aktualnym rankingiem.
@@ -151,16 +175,16 @@ System Glicko-2 używany przez stronę \textbf{Lichess.com}, na danych której o
 
 \textbf{WRZUCIĆ MATEMATYKĘ STOJĄCĄ ZA GLICKO-2???}
 \subsection{z uwzględnieniem ELO na platformie Lichess, z której bierzemy dane}
-\section{Funkcja ewaluacji}
+\section{Funkcja oceny}
 Przed przystąpieniem do opisania funkcji, należy wytłumaczyć działanie silnika szachowego, który dokonuje oceny pozycji.
 \subsection{Stockfish}
 Stockfish jest najpopularniejszym obecnie używanym silnikiem szachowym, zaprojektowanym przez Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad, Stéphane Nicolet, Stefan Geschwentner, and Joost VandeVondele i stale ulepszany jako oprogramowanie typu open-source. Strona \textbf{Lichess.com}\cite{stockfish_lichess} wykorzystuje go do oceny aktualnej pozycji.
 
-Stockfish analizuje poprzez przeszukiwanie za pomocą algorytmu alfa-beta legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych) i na ich podstawie ocenia aktualną pozycję.
+Stockfish poprzez przeszukiwanie wg strategii mini-max z odcięciem, za pomocą algorytmu alfa-beta, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych) i na ich podstawie ocenia aktualną pozycję.
 
 \subsection{Ewaluacja}
-Wspomniana wcześniej ewaluacja, wyliczana przez silnik szachowy jest wynikiem funkcji
-zależnej od zmiennych:\\
+Wspomniana wcześniej ewaluacja, wyliczana przez silnik szachowy jest wynikiem liniowej funkcji 
+ważonej sumy cech:\\
 $f_b,f_c$ oznaczających wartość figur odpowiednio białych i czarnych\\
 $k_b,k_c$ oznaczających bezpieczeństwo króla odpowiednio białych i czarnych\\
 $m_b,m_c$ oznaczających mobilność figur odpowiednio białych i czarnych\\
@@ -183,7 +207,7 @@ Wraz ze wzrostem wartości funkcji zwiększa się przewaga białych, natomiast w
 \chapter{analiza / rozwiązanie problemów}
 \section{Dane (co zawierają surowe dane)}
 Dane, \textbf{[...]} zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w plikach o rozmiarze kilkudziesięciu Gb. Każdy z nich zawiera wszystkie gry rozegrane na platformie w ciągu całego miesiąca. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish \textbf{WYJAŚNIĆ CZYM JEST STOCKFISH I EVAL ALE TO WCZEŚNIEJ} i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy. Przykładowy zapis jednej takiej gry został zaprezentowany na rysunku \textbf{XXX}:
-\textbf{WSTAWIĆ RYSUNEK Z DANYMI Z EVAL}
+\textbf{WSTAWIĆ RYSUNEK Z DANYMI Z EVAL i opisać je}
 \subsection{Odfiltrowanie danych (jak zostają pozyskane)}
 \textbf{TUTAJ INFORMATYCZNA CZĘŚĆ O TYM JAK POZYSKAŁEM DANE Z PLIKU}
 Pierwszy
