@@ -1,5 +1,11 @@
 \begin{thebibliography}{1}
 
+\bibitem{stockfish_lichess}
+{Lichess computer engine used from 2014}.
+\newblock
+  \url{https://lichess.org/blog/U4mtoEQAAEEAgZRL/strongest-chess-player-ever}.
+\newblock Accessed: 2010-09-30.
+
 \bibitem{lichess}
 {Lichess database}.
 \newblock \url{https://database.lichess.org/}.

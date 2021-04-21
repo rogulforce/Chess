@@ -137,50 +137,114 @@
 %\listoftables
 
 {\backmatter \chapter{Wstęp}}
-We wstępie zapowiadamy, o czym będzie praca. Próbujemy zachęcić czytelnika do dalszej lektury, np. krótko informując, dlaczego wybraliśmy właśnie ten temat i co nas w nim zainteresowało.
+\textbf{We wstępie zapowiadamy, o czym będzie praca. Próbujemy zachęcić czytelnika do dalszej lektury, np. krótko informując, dlaczego wybraliśmy właśnie ten temat i co nas w nim zainteresowało.}
 
-\chapter{Wstęp teoretyczny???,o literaturze co nie co}
+Wraz z rozwojem technologii komputerowej, rozpoczęła się nowa era szachów. Technologia korzystając z dużej mocy obliczeniowej, bezpowrotnie wyprzedziła człowieka w grach deterministycznych,\textbf{ a ostatnio też i tych niedeterministycznych (?)}. Profesjonalni szachiści zaczęli wykorzystywać nowe strategie korzystając z coraz lepszych silników szachowych. Silniki te oceniają wprowadzoną pozycję pod kątem przewagi jednej ze stron. 
 
-\chapter{sformuowanie problemów, które chce zbadać}
-\chapter{rozwiązanie problemu}
-\section{Dane}
-Dane, \textbf{[...]} zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w plikach o rozmiarze kilkudziesięciu Gb. Każdy z nich zawiera wszystkie gry rozegrane na platformie w ciągu całego miesiąca. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish \textbf{WYJAŚNIĆ CZYM JEST STOCKFISH I EVAL???} i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy. Przykładowy zapis jednej takiej gry został zaprezentowany na rysunku \textbf{XXX}:
-\textbf{WSTAWIĆ RYSUNEK Z DANYMI Z EVAL}
-\subsection{Odfiltrowanie danych}
+W dobie internetu gra w szachy stała się dużo wygodniejsza niż przed laty. Ludzie grają w różnych miejscach i praktycznie o każdej porze. W związku z tym dużo większą popularnością zaczęły cieszyć się szachy szybkie, czyli takie, w których każdy z zawodników ma relatywnie mało czasu na wykonanie wszystkich ruchów. Wiąże się to z dużo większym znaczeniem dysponowania czasem w trakcie gry. W każdym ruchu zawodnik musi ustalić równowagę pomiędzy dokładnością ruchu, a czasem, który jest w stanie na ten ruch poświęcić. 
+
+Przedmiotem badań tej pracy jest analiza zależności między dokładnością ruchu, a czasem, który został na niego poświęcony dla zawodników prezentujących różny poziom umiejętności i dla różnych formatów czasowych.\textbf{ Zbadanie takiej zależności może pozwolić na określenie optymalnego czasu na wykonanie ruchu dla odpowiedniej fazy gry i formatu czasowego.}
+
+\textbf{DODAĆ TUTAJ TROCHE I OGÓLNY CEL}
+
+\textbf{W PIERWSZEJ CZĘŚCI - ZAGADNIENIA TEORETYCZNE DOTYCZĄCE SZACHÓW}
+W pierwszej części pracy przedstawione i wyjaśnione zostaną podstawowe zagadnienia teoretyczne związane z szachami. \textbf{JAKIE?}
+
+\textbf{W DRUGIEJ CZĘŚCI ZAGADNIENIA TEORETYCZNE ZE STATYSTYKI I METODOLOGII}
+ 
+\textbf{PÓŹNIEJ DOKŁADNE SFORMUOWANIE PROBLEMU}
+
+\textbf{DOKŁADNE ROZWIĄZANIE PROBLEMU}
+
+\textbf{PODSUMOWANIE}
+
+
+\chapter{ZAGADNIENIE TEORETYCZNE I - DOTYCZĄCE SZACHÓW}
+\section{OPISAĆ ZASADY GRY W SZACHY ??}
+Początki szachów nie są znane, jednak ich historia trwa już ok. 1500 lat i zaczyna się w Indiach. Na przestrzeni wieków zasady szachów były wielokrotnie zmieniane. Powszechnie stosowane przepisy pochodzą z roku 1851.
+
+\textbf{krótko na czym polegają szachy i cite gdzie można znaleźć pełne przepisy,isbn:002028540X}
+
+
+\section{OPISAĆ NOTACJĘ szachową????? - nie będę w sumie nic z nią robić, ale jest}
+\section{OPISAĆ szachowy system Glicko-2 (oparty na rozkładzie normalnym)}
+\textbf{opisać ogólnie troche historii o systemach rankingowych?}
+System rankingowy ELO został zaprezentowany w latach 50 XX wieku przez Węgierskiego fizyka i szachistę Arpada Elo (1903-1992) \textbf{[CITE]}. Początkowo był używany jedynie w szachach, jednak wraz ze wzrostem jego popularności zaczął być stosowany również w innych \textbf{rozgrywkach}. System ten jest pierwszym systemem mającym podłoże probabilistyczne i jest oparty na rozkładzie normalnym z ustaloną średnią. Przyznaje odpowiednią liczbę punktów zwycięzcy rozgrywki i odbiera przegranemu bazując na różnicy między ich aktualnym rankingiem.
+
+
+System Glicko-2 używany przez stronę \textbf{Lichess.com}, na danych której oparta jest niniejsza praca, opracowany został przez Marka Glickmana jako ulepszenie systemu ELO. Podstawową zmianą jest uwzględnienie historycznych wyników każdego z zawodników w celu ustalenia wariancji aktualnego rankingu. Glickman w swojej pracy z roku 1998 \textbf{[cite]} przedstawia problem dwóch graczy o takim samym rankingu, z których jeden gra regularnie, a drugi wrócił po długiej przerwie. System Glicko-2 przyznając punkt za grę bierze pod uwagę wiarygodność każdego z rankingów. Zawodnikowi grającemu regularnie zostanie przyznane bądź odebrane mniej punktów ze względu na duże potencjalne odchylenie rankingu przeciwnika od zadeklarowanej wartości. Innymi słowy, w miarę zwiększania się liczby partii gracza, przedział ufności dla jego realnego rankingu zawęża się i przypisany mu ranking zbiega do realnego poziomu i ta wiarygoność przypisanego rankingu jest uwzględniana w zmianie punktów zawodników po zakończeniu partii.
+
+\textbf{WRZUCIĆ MATEMATYKĘ STOJĄCĄ ZA GLICKO-2???}
+\subsection{z uwzględnieniem ELO na platformie Lichess, z której bierzemy dane}
+\section{Funkcja oceny}
+Przed przystąpieniem do opisania funkcji, należy wytłumaczyć działanie silnika szachowego, który dokonuje oceny pozycji.
+\subsection{Stockfish}
+Stockfish jest najpopularniejszym obecnie używanym silnikiem szachowym, zaprojektowanym przez Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad, Stéphane Nicolet, Stefan Geschwentner, and Joost VandeVondele i stale ulepszany jako oprogramowanie typu open-source. Strona \textbf{Lichess.com}\cite{stockfish_lichess} wykorzystuje go do oceny aktualnej pozycji.
+
+Stockfish poprzez przeszukiwanie wg strategii mini-max z odcięciem, za pomocą algorytmu alfa-beta, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych) i na ich podstawie ocenia aktualną pozycję.
+
+\subsection{Ewaluacja}
+Wspomniana wcześniej ewaluacja, wyliczana przez silnik szachowy jest wynikiem liniowej funkcji 
+ważonej sumy cech:\\
+$f_b,f_c$ oznaczających wartość figur odpowiednio białych i czarnych\\
+$k_b,k_c$ oznaczających bezpieczeństwo króla odpowiednio białych i czarnych\\
+$m_b,m_c$ oznaczających mobilność figur odpowiednio białych i czarnych\\
+$z_b,z_c$ oznaczających potencjalne zagrożenia wykonane odpowiednio białych i czarnych\\
+oraz innych.
+
+Funkcję można dla zapewnienia intuicji zapisać w uproszeniu:
+\begin{equation}
+	f(f_b,f_c,k_b,k_c,m_b,m_c,\dots)=c_1(f_b-f_c)+c_2(k_b-k_c)+c_3(m_b-m_c)+\dots
+\end{equation}
+gdzie:
+$c_i$ są stałymi określającymi wagę danej pary zmiennych.
+
+Wraz ze wzrostem wartości funkcji zwiększa się przewaga białych, natomiast wraz z jej spadkiem, przewaga czarnych. Wartość wynosząca 0 oznacza stan równowagi. Dodatkowo, w przypadku nieuniknionego zwycięstwa jednej ze stron w \textit{n} ruchach, wynikiem funkcji zamiast odpowiedniej wartości jest tekst \textit{\#-n} w przypadku wygranej czarnych lub \textit{\#n} w przypadku wygranej białych.
+
+
+
+\chapter{ZAGADNIENIE TEORETYCZNE II - użyte metody, teoria stojąca za rozwiązaniami problemów}
+\chapter{sformuowanie problemów analitycznych, które chce zbadać}
+\chapter{analiza / rozwiązanie problemów}
+\section{Dane (co zawierają surowe dane)}
+Dane, \textbf{[...]} zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w plikach o rozmiarze kilkudziesięciu Gb. Każdy z nich zawiera wszystkie gry rozegrane na platformie w ciągu całego miesiąca. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish \textbf{WYJAŚNIĆ CZYM JEST STOCKFISH I EVAL ALE TO WCZEŚNIEJ} i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy. Przykładowy zapis jednej takiej gry został zaprezentowany na rysunku \textbf{XXX}:
+\textbf{WSTAWIĆ RYSUNEK Z DANYMI Z EVAL i opisać je}
+\subsection{Odfiltrowanie danych (jak zostają pozyskane)}
 \textbf{TUTAJ INFORMATYCZNA CZĘŚĆ O TYM JAK POZYSKAŁEM DANE Z PLIKU}
-\section{Analiza pierwszej rzeczy}
-\section{analiza drugiej rzeczy and so on}
+Pierwszy
+\section{Analiza pierwszego problemu}
+\section{analiza drugiego problemu...  and so on...}
 \chapter{wnioski, podsumowanie}
 
 \chapter{tabelka}
 Tabela \ref{tab:przykladowa} 
 \begin{table}[H]
-\caption{Podstawowa Tabela}
-\centering
-\begin{tabular}{ccc}
-\hline
-\hline                       
-Państwo & PKB (w milionach USD )& Stopa bezrobocia  \\  [0.5ex] 
-\hline 
-Stany Zjednoczone & 75 278 049 & 4,60\%  \\
-Chiny & 11 218 281 & 4,10\%   \\
-Japonia & 4 938 644 & 3,10\%  \\
-Niemcy & 3 466 639 & 6,00\%   \\
-Wielka Brytania & 2 629 188 & 4,60\%  \\ [1ex]  
-\hline 
-\end{tabular}
-\caption*{\textit{Źródło: opracowanie własne}}
-\label{tab:przykladowa2} 
+	\caption{Podstawowa Tabela}
+	\centering
+	\begin{tabular}{ccc}
+		\hline
+		\hline                       
+		Państwo & PKB (w milionach USD )& Stopa bezrobocia  \\  [0.5ex] 
+		\hline 
+		Stany Zjednoczone & 75 278 049 & 4,60\%  \\
+		Chiny & 11 218 281 & 4,10\%   \\
+		Japonia & 4 938 644 & 3,10\%  \\
+		Niemcy & 3 466 639 & 6,00\%   \\
+		Wielka Brytania & 2 629 188 & 4,60\%  \\ [1ex]  
+		\hline 
+	\end{tabular}
+	\caption*{\textit{Źródło: opracowanie własne}}
+	\label{tab:przykladowa2} 
 \end{table}
 \chapter{rysunek}
 Rysunki do pracy dyplomowej należy wstawiać w sposób podobny do wstawiania tabel, z~zasadniczą różnicą polegającą na tym, że podpis powinno umieszczać się centralnie pod rysunkiem, a nie powyżej niego. Numeracja i sposób cytowania pozostają bez zmian, przy czym tabele i rysunki nie mają numeracji wspólnej, np. po Tabeli \ref{tab:przykladowa2} występuje Rysunek \ref{rys1} (o ile jest to pierwszy rysunek rozdziału pierwszego), a nie Rysunek $1.3$.
 
 \begin{figure}[ht]
-
-\centering
-                     
-\includegraphics[scale=0.27]{logo_w13.jpg}
-\caption{Podstawowy Rysunek}\label{rys1}
+	
+	\centering
+	
+	\includegraphics[scale=0.27]{logo_w13.jpg}
+	\caption{Podstawowy Rysunek}\label{rys1}
 \end{figure}
 \label{rys:przykladowy} 
 
@@ -188,10 +252,10 @@ Rysunki do pracy dyplomowej należy wstawiać w sposób podobny do wstawiania ta
 \chapter{Definicje, lematy, twierdzenia, przykłady i wnioski}
 Definicje, lematy, twierdzenia, przykłady i wnioski piszemy w pracy tak:
 \begin{definition}[Martyngał]
-Tu piszemy treść definicji martyngału.
+	Tu piszemy treść definicji martyngału.
 \end{definition}
 \begin{lemma}[]% w nawiasie kwadratowym można napisać jego nazwę
-Tu piszemy treść lematu.
+	Tu piszemy treść lematu.
 \end{lemma}
 \chapter{cytowanie}
 Do cytowania używamy komendy \texttt{cite}. W nawiasie klamrowym podajemy klucz, którego użyliśmy w pliku \emph{bibliografia.bib}. Przykład: \cite{einstein} lub \cite[chap. 2]{latexcompanion}.
