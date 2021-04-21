@@ -11,8 +11,8 @@
 \contentsline {chapter}{\numberline {2}ZAGADNIENIE TEORETYCZNE II - użyte metody, teoria stojąca za rozwiązaniami problemów}{7}{chapter.2}%
 \contentsline {chapter}{\numberline {3}sformuowanie problemów analitycznych, które chce zbadać}{9}{chapter.3}%
 \contentsline {chapter}{\numberline {4}analiza / rozwiązanie problemów}{11}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Dane (co zawierają surowe dane)}{11}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Odfiltrowanie danych (jak zostają pozyskane)}{11}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.1}Dane}{11}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Odfiltrowanie danych}{11}{subsection.4.1.1}%
 \contentsline {section}{\numberline {4.2}Analiza pierwszego problemu}{11}{section.4.2}%
 \contentsline {section}{\numberline {4.3}analiza drugiego problemu... and so on...}{11}{section.4.3}%
 \contentsline {chapter}{\numberline {5}wnioski, podsumowanie}{13}{chapter.5}%
@@ -20,4 +20,4 @@
 \contentsline {chapter}{\numberline {7}rysunek}{17}{chapter.7}%
 \contentsline {chapter}{\numberline {8}Definicje, lematy, twierdzenia, przykłady i wnioski}{19}{chapter.8}%
 \contentsline {chapter}{\numberline {9}cytowanie}{21}{chapter.9}%
-\contentsline {chapter}{Dodatek}{23}{chapter*.5}%
+\contentsline {chapter}{Dodatek}{23}{chapter*.6}%
