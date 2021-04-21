@@ -1,1 +1,0 @@
-mini-max strategy: https://www.mimuw.edu.pl/~wjaworski/SI/wyklad4.pdf
