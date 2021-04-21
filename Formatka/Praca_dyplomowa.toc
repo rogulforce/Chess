@@ -12,9 +12,9 @@
 \contentsline {chapter}{\numberline {3}sformuowanie problemów analitycznych, które chce zbadać}{9}{chapter.3}%
 \contentsline {chapter}{\numberline {4}analiza / rozwiązanie problemów}{11}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Dane}{11}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Odfiltrowanie danych}{11}{subsection.4.1.1}%
-\contentsline {section}{\numberline {4.2}Analiza pierwszego problemu}{11}{section.4.2}%
-\contentsline {section}{\numberline {4.3}analiza drugiego problemu... and so on...}{11}{section.4.3}%
+\contentsline {subsection}{\numberline {4.1.1}Odfiltrowanie danych}{12}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Analiza pierwszego problemu}{12}{section.4.2}%
+\contentsline {section}{\numberline {4.3}analiza drugiego problemu... and so on...}{12}{section.4.3}%
 \contentsline {chapter}{\numberline {5}wnioski, podsumowanie}{13}{chapter.5}%
 \contentsline {chapter}{\numberline {6}tabelka}{15}{chapter.6}%
 \contentsline {chapter}{\numberline {7}rysunek}{17}{chapter.7}%

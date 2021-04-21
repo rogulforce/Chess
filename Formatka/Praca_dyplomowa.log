@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.26)  21 APR 2021 14:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.26)  21 APR 2021 16:27
 entering extended mode
 **./Praca_dyplomowa.tex
 (Praca_dyplomowa.tex
@@ -1302,42 +1302,17 @@ Rozdzia\l  3.
 
 ]
 Rozdzia\l  4.
-
-LaTeX Warning: Reference `rys:zapis_gry' on page 11 undefined on input line 210
-.
-
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
 12.
 (C:\Users\piotr\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-
-LaTeX Warning: File `zapis_gry.png' not found on input line 222.
-
-
-! Package pdftex.def Error: File `zapis_gry.png' not found: using draft setting
-.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.222 ...graphics[width=\textwidth]{zapis_gry.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-22.
-(C:\Users\piotr\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- [11]
-[12]
+<zapis_gry.png, id=191, 1440.88312pt x 423.08063pt>
+File: zapis_gry.png Graphic file (type png)
+<use zapis_gry.png>
+Package pdftex.def Info: zapis_gry.png  used on input line 222.
+(pdftex.def)             Requested size: 455.24411pt x 133.67134pt.
+ [11 <./zapis_gry.png>] [12]
 Rozdzia\l  5.
 [13
 
@@ -1356,7 +1331,7 @@ LaTeX Warning: Reference `tab:przykladowa' on page 15 undefined on input line 2
 
 ]
 Rozdzia\l  7.
-<logo_w13.jpg, id=222, 637.38126pt x 683.55376pt>
+<logo_w13.jpg, id=223, 637.38126pt x 683.55376pt>
 File: logo_w13.jpg Graphic file (type jpg)
 <use logo_w13.jpg>
 Package pdftex.def Info: logo_w13.jpg  used on input line 263.
@@ -1371,7 +1346,17 @@ Rozdzia\l  8.
 
 ]
 Rozdzia\l  9.
-[21] [22
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+78.
+(C:\Users\piotr\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [21]
+[22
 
 
 ] [23
@@ -1390,54 +1375,36 @@ m/n/12 https : / / lichess . org / blog /
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `Praca_dyplomowa.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Praca_dyplomowa.out':
-(rerunfilecheck)             Before: 03601C7ED710954501C50C2748EA046A;5108
-(rerunfilecheck)             After:  E3FF83654916CB27E692318F4FE12BAE;4792.
+Package rerunfilecheck Info: File `Praca_dyplomowa.out' has not changed.
+(rerunfilecheck)             Checksum: E3FF83654916CB27E692318F4FE12BAE;4792.
  ) 
 Here is how much of TeX's memory you used:
- 26915 strings out of 479321
- 481689 string characters out of 2856583
- 1135008 words of memory out of 3000000
- 43629 multiletter control sequences out of 15000+600000
+ 26891 strings out of 479321
+ 481429 string characters out of 2856583
+ 1135111 words of memory out of 3000000
+ 43619 multiletter control sequences out of 15000+600000
  477172 words of font info for 140 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,14n,130p,1112b,2376s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{figure.caption.4} has been referenced but does no
-t exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{table.caption.3} has been referenced but does not e
-xist, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.5} has been referenced but does not exist,
- replaced by a fixed one
-
-{C:/Users/piotr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/
-Users/piotr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Use
-rs/piotr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Use
-rs/piotr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/p
-iotr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}<C:/Users/p
-iotr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/p
-iotr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/p
-iotr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/pi
-otr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/pio
-tr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/piot
-r/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/piotr/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/piotr/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/piotr/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri8.pfb><C:/Users/piotr/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/piotr/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on Praca_dyplomowa.pdf (29 pages, 345491 bytes).
+{C:/Users/piotr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C
+:/Users/piotr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/U
+sers/piotr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/U
+sers/piotr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users
+/piotr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}<C:/Users
+/piotr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users
+/piotr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users
+/piotr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/
+piotr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/p
+iotr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/pi
+otr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/piot
+r/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/piot
+r/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/piot
+r/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri8.pfb><C:/Users/piotr
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/piotr
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
+Output written on Praca_dyplomowa.pdf (29 pages, 398248 bytes).
 PDF statistics:
- 334 PDF objects out of 1000 (max. 8388607)
- 64 named destinations out of 1000 (max. 500000)
- 41666 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 333 PDF objects out of 1000 (max. 8388607)
+ 61 named destinations out of 1000 (max. 500000)
+ 41671 words of extra memory for PDF output out of 42996 (max. 10000000)
 
