@@ -206,12 +206,29 @@ Wraz ze wzrostem wartości funkcji zwiększa się przewaga białych, natomiast w
 \chapter{ZAGADNIENIE TEORETYCZNE II - użyte metody, teoria stojąca za rozwiązaniami problemów}
 \chapter{sformuowanie problemów analitycznych, które chce zbadać}
 \chapter{analiza / rozwiązanie problemów}
-\section{Dane (co zawierają surowe dane)}
-Dane, \textbf{[...]} zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w plikach o rozmiarze kilkudziesięciu Gb. Każdy z nich zawiera wszystkie gry rozegrane na platformie w ciągu całego miesiąca. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish \textbf{WYJAŚNIĆ CZYM JEST STOCKFISH I EVAL ALE TO WCZEŚNIEJ} i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy. Przykładowy zapis jednej takiej gry został zaprezentowany na rysunku \textbf{XXX}:
-\textbf{WSTAWIĆ RYSUNEK Z DANYMI Z EVAL i opisać je}
-\subsection{Odfiltrowanie danych (jak zostają pozyskane)}
+\section{Dane}
+Dane, \textbf{[...]} zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w plikach o rozmiarze kilkudziesięciu Gb. Każdy z nich zawiera wszystkie gry rozegrane na platformie w ciągu całego miesiąca. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish \textbf{WYJAŚNIĆ CZYM JEST STOCKFISH I EVAL???} i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy. Przykładowy zapis jednej takiej gry został zaprezentowany na rysunku \ref{rys:zapis_gry}. Informacje potrzebne do rozwiązania problemu to:
+\begin{itemize}
+	\item WhiteElo -- ranking białych
+	\item BlackElo -- ranking czarnych
+	\item TimeControl -- czas na wykonanie ruchów każdego z graczy w formacie  ,,sekundy + sekundy dodane za wykonanie ruchu''
+	\item \% eval -- aktualna przewaga jednej ze stron
+	\item \% clk -- pozostały czas w formacie ,,godziny : minuty : sekundy''
+\end{itemize}
+
+\textbf{napisać o rysunKu Z DANYMI Z EVAL}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{zapis_gry.png}
+	\caption{Przykładowy zapis jednej partii}\label{zapis_gry}
+\end{figure}
+\label{rys:zapis_gry} 
+
+
+\subsection{Odfiltrowanie danych}
 \textbf{TUTAJ INFORMATYCZNA CZĘŚĆ O TYM JAK POZYSKAŁEM DANE Z PLIKU}
-Pierwszy
+
+
 \section{Analiza pierwszego problemu}
 \section{analiza drugiego problemu...  and so on...}
 \chapter{wnioski, podsumowanie}
