@@ -12,5 +12,6 @@
 *.cb2
 .*.lb
 __pycache__
-/dane
-dane
+
+dane/filtered_data_wt_eval.csv
+dane/moves.csv
