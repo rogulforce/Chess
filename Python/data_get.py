@@ -27,7 +27,7 @@ def results_to_table(data: list, df: pd.DataFrame):
     return df
 
 
-def data_get(filename: str, to_filename: str):
+def data_get(filename: str, to_filename: str, break_point: int = 50000000):
     """ function filtering data and saving it in csv format
 
     :param filename: .pgn file with saved games
@@ -39,11 +39,11 @@ def data_get(filename: str, to_filename: str):
         temp_data = []   # temporary held lines
         for i, line in enumerate(f):
 
-            if i > 10000000:
+            if i > break_point:
                 break
             temp_data.append(line)
             if i % 10000 == 0:
-                print(f'{i/100}%')
+                print(f'{100*i/break_point}%')
             if 'eval' in line:
                 # print(temp_data[-19:])
                 df = results_to_table(temp_data[-19:], df)

@@ -46,7 +46,7 @@
 % Tytuł pracy dyplomowej 
 \tytul{Analiza statystyczna czasów na wykonywanie ruchów w
 	szachach} 
-\tytulang{Tytuł pracy dyplomowej w języku angielskim}
+\tytulang{Statistical analysis of times for making moves in chess}
 %
 % Tytuł / stopień / imię i nazwisko opiekuna
 \opiekun{Prof. dr hab. inż. Marcin Magdziarz}
@@ -97,12 +97,12 @@
 %
 % Krótkie streszczenia po polsku i angielsku
 % - nie dłuższe niż 530 znaków.
-\streszczenie{Tutaj piszemy krótkie streszczenie pracy (nie powinno być dłuższe niż 530 znaków).}
-\streszczenieang{Tutaj piszemy krótkie streszczenie pracy w języku angielskim (nie powinno być dłuższe niż 530 znaków).}
+\streszczenie{ROBOCZE: W pracy przeanalizowana zostanie zależność między czasami wykonania poszczególnych ruchów w szachach, a ich zgodnością z silnikiem szachowym. Zbadany zostanie rozkład tych czasów w zależności od poziomu graczy, na tej podstawie obliczone zostanie prawdopodobieństwo wykonania błędnego ruchu (max 530 znaków).}
+\streszczenieang{Tutaj piszemy krótkie streszczenie pracy w języku angielskim (max 530 znaków).}
 %
 % Podajemy najważniejsze słowa kluczowe po polsku i angielsku
 % - w obu przypadkach, nie więcej niż 150 znaków.
-\slowakluczowe{tutaj podajemy najważniejsze słowa kluczowe (łącznie nie powinny być dłuższe niż 150 znaków).}  
+\slowakluczowe{ROBOCZE: analiza statystyczna, szachy, korelacja (max 150 znaków).}  
 \slowakluczoweang{tutaj podajemy najważniejsze słowa kluczowe w języku angielskim (łącznie nie powinny być dłuższe niż 150 znaków)}
 %
 %
@@ -145,52 +145,69 @@ W dobie internetu gra w szachy stała się dużo wygodniejsza niż przed laty. L
 
 Przedmiotem badań tej pracy jest analiza zależności między dokładnością ruchu, a czasem, który został na niego poświęcony dla zawodników prezentujących różny poziom umiejętności i dla różnych formatów czasowych.\textbf{ Zbadanie takiej zależności może pozwolić na określenie optymalnego czasu na wykonanie ruchu dla odpowiedniej fazy gry i formatu czasowego.}
 
-\textbf{DODAĆ TUTAJ TROCHE I OGÓLNY CEL}
+\textbf{DODAĆ TUTAJ TROCHE I OGÓLNY CEL}\\
 
-\textbf{W PIERWSZEJ CZĘŚCI - ZAGADNIENIA TEORETYCZNE DOTYCZĄCE SZACHÓW}
-W pierwszej części pracy przedstawione i wyjaśnione zostaną podstawowe zagadnienia teoretyczne związane z szachami. \textbf{JAKIE?}
 
-\textbf{W DRUGIEJ CZĘŚCI ZAGADNIENIA TEORETYCZNE ZE STATYSTYKI I METODOLOGII}
+\textbf{W PIERWSZEJ CZĘŚCI - ZAGADNIENIA TEORETYCZNE DOTYCZĄCE SZACHÓW}\\
+W pierwszej części pracy przedstawione i wyjaśnione zostaną podstawowe zagadnienia teoretyczne związane z szachami, systemami rankingowymi i silnikami szachowymi. 
+
+
+\textbf{W DRUGIEJ CZĘŚCI ZAGADNIENIA TEORETYCZNE ZE STATYSTYKI I METODOLOGII}\\
+Kolejna część pracy opowiada o zagadnieniach teoretycznych z dziedziny statystyki, zastosowanych w analizie przedstawionych problemów.
  
-\textbf{PÓŹNIEJ DOKŁADNE SFORMUOWANIE PROBLEMU}
+ 
+\textbf{PÓŹNIEJ DOKŁADNE SFORMUOWANIE PROBLEMU}\\
+Główna część pracy zawiera przedstawienie...
 
-\textbf{DOKŁADNE ROZWIĄZANIE PROBLEMU}
+\textbf{DOKŁADNE ROZWIĄZANIE PROBLEMU}\\
+a póżniej rozwiązanie...
 
 \textbf{PODSUMOWANIE}
-
+Ostatnia część pracy podsumowanie, wnioski...
 
 \chapter{ZAGADNIENIE TEORETYCZNE I - DOTYCZĄCE SZACHÓW}
+Niniejszy rozdział poświęcony zostanie zagadnieniom teoretycznym dotyczącym szachów, używanych systemów rankingowych oraz działaniu silników szachowych.
 \section{OPISAĆ ZASADY GRY W SZACHY ??}
-Początki szachów nie są znane, jednak ich historia trwa już ok. 1500 lat i zaczyna się w Indiach. Na przestrzeni wieków zasady szachów były wielokrotnie zmieniane. Powszechnie stosowane przepisy pochodzą z roku 1851.
+Początki szachów nie są znane, jednak ich historia trwa już ok. 1500 lat i zaczyna się w Indiach. Na przestrzeni wieków zasady gry w szachy były wielokrotnie zmieniane. Powszechnie stosowane przepisy pochodzą z roku 1851.\\
 
-\textbf{krótko na czym polegają szachy i cite gdzie można znaleźć pełne przepisy,isbn:002028540X}
+\textbf{krótko na czym polegają szachy i cite gdzie można znaleźć pełne przepisy,isbn:002028540X}\\
 
+Gra odbywa się na kwadratowej planszy o wymiarach 8 na 8 pól. Każdy gracz posiada 16 figur, ustawionych w pozycji startowej i stojących po przeciwnych stronach szachownicy. Zawodnicy wykonują na przemian ruchy dowolną ze swoich figur, zgodnie z jej zasadami poruszania się. W trakcie tury zawodnikowi upływa czas ustalony przed grą. W niektórych wariantach gracz otrzymuje też niewielką ilość czasu za wykonanie każdego ruchu.\\
+
+Wygrana następuje, gdy król jednego z graczy jest atakowany i nie można w legalny sposób nim ruszyć, ani zasłonić jedną ze swoich figur przed atakiem. Pozycję taką nazywa się ,,matem'' Drugim sposobem na wygranie jest skończenie się czasu jednego z graczy, niezależnie od sytuacji na szachownicy. 
+Gra może też zakończyć się remisem. Następuje on, gdy żaden z graczy nie ma na planszy figur, które mogą pozwolić na ,,zamatowanie'' przeciwnika. Inną możliwością jest trzykrotne powtórzenie się na planszy tej samej pozycji. Do remisu doprowadza też sytuacja, w której jednemu z graczy zakończył się czas, a jego przeciwnik nie ma figur pozwalających na wygraną lub gdy jeden z graczy nie ma możliwości wykonania żadnego legalnego ruchu, a jego król nie jest atakowany.
+
+W związku z możliwością przegranej poprzez upłynięcie czasu na zegarze, zawodnicy muszą indywidualnie określić podczas gry, ile czasu są w stanie poświęcić danemu ruchowi, tak by nie stracić na niego zbyt wiele czasu, ale też, żeby ruch był jak najlepszy.
 
 \section{OPISAĆ NOTACJĘ szachową????? - nie będę w sumie nic z nią robić, ale jest}
+
 \section{OPISAĆ szachowy system Glicko-2 (oparty na rozkładzie normalnym)}
 \textbf{opisać ogólnie troche historii o systemach rankingowych?}
-System rankingowy ELO został zaprezentowany w latach 50 XX wieku przez Węgierskiego fizyka i szachistę Arpada Elo (1903-1992) \textbf{[CITE]}. Początkowo był używany jedynie w szachach, jednak wraz ze wzrostem jego popularności zaczął być stosowany również w innych \textbf{rozgrywkach}. System ten jest pierwszym systemem mającym podłoże probabilistyczne i jest oparty na rozkładzie normalnym z ustaloną średnią. Przyznaje odpowiednią liczbę punktów zwycięzcy rozgrywki i odbiera przegranemu bazując na różnicy między ich aktualnym rankingiem.
+System rankingowy ELO został zaprezentowany w latach pięćdziesiątych dwudziestego wieku przez Węgierskiego fizyka i szachistę Arpada Elo (1903-1992) \textbf{[CITE]}. Początkowo był używany jedynie w szachach, jednak wraz ze wzrostem jego popularności zaczął być stosowany również w innych \textbf{rozgrywkach}. System ten jest pierwszym systemem mającym podłoże probabilistyczne i jest oparty na rozkładzie normalnym z ustaloną średnią. Przyznaje odpowiednią liczbę punktów zwycięzcy rozgrywki i odbiera przegranemu bazując na różnicy między ich aktualnym rankingiem.
 
 
-System Glicko-2 używany przez stronę \textbf{Lichess.com}, na danych której oparta jest niniejsza praca, opracowany został przez Marka Glickmana jako ulepszenie systemu ELO. Podstawową zmianą jest uwzględnienie historycznych wyników każdego z zawodników w celu ustalenia wariancji aktualnego rankingu. Glickman w swojej pracy z roku 1998 \textbf{[cite]} przedstawia problem dwóch graczy o takim samym rankingu, z których jeden gra regularnie, a drugi wrócił po długiej przerwie. System Glicko-2 przyznając punkt za grę bierze pod uwagę wiarygodność każdego z rankingów. Zawodnikowi grającemu regularnie zostanie przyznane bądź odebrane mniej punktów ze względu na duże potencjalne odchylenie rankingu przeciwnika od zadeklarowanej wartości. Innymi słowy, w miarę zwiększania się liczby partii gracza, przedział ufności dla jego realnego rankingu zawęża się i przypisany mu ranking zbiega do realnego poziomu i ta wiarygoność przypisanego rankingu jest uwzględniana w zmianie punktów zawodników po zakończeniu partii.
+System Glicko-2 używany przez stronę \textbf{Lichess.com}, na danych której oparta jest niniejsza praca, opracowany został przez Marka Glickmana jako ulepszenie systemu ELO. Podstawową zmianą jest uwzględnienie historycznych wyników każdego z zawodników w celu ustalenia wariancji aktualnego rankingu. Glickman w swojej pracy z roku 1998 \textbf{[cite]} przedstawia problem dwóch graczy o takim samym rankingu, z których jeden gra regularnie, a drugi wrócił do gry po długiej przerwie. System Glicko-2 przyznając punkt za grę bierze pod uwagę wiarygodność każdego z rankingów. Zawodnikowi grającemu regularnie zostanie przyznane bądź odebrane mniej punktów ze względu na duże potencjalne odchylenie rankingu przeciwnika od zadeklarowanej wartości. Innymi słowy, w miarę zwiększania się liczby partii gracza, przedział ufności dla jego realnego rankingu zawęża się i przypisany mu ranking zbiega do realnego poziomu i wiarygoność przypisanego rankingu jest uwzględnian w przyznawaniu i odbieraniu punktów zawodnikom po zakończeniu partii.
 
 \textbf{WRZUCIĆ MATEMATYKĘ STOJĄCĄ ZA GLICKO-2???}
+x
 \subsection{z uwzględnieniem ELO na platformie Lichess, z której bierzemy dane}
+
+\textbf{Tutaj jakiś wykresik może jak wygląda rozkład rankingu zawodników na platformie Lichess ???}
 \section{Funkcja oceny}
 Przed przystąpieniem do opisania funkcji, należy wytłumaczyć działanie silnika szachowego, który dokonuje oceny pozycji.
 \subsection{Stockfish}
-Stockfish jest najpopularniejszym obecnie używanym silnikiem szachowym, zaprojektowanym przez Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad, Stéphane Nicolet, Stefan Geschwentner, and Joost VandeVondele i stale ulepszany jako oprogramowanie typu open-source. Strona \textbf{Lichess.com}\cite{stockfish_lichess} wykorzystuje go do oceny aktualnej pozycji.
+Stockfish jest jednym z najlepszych i najpopularniejszym obecnie używanym silnikiem szachowym, zaprojektowanym przez Marco Costalba, Joona Kiiski, Gary Linscott, Tord Romstad, Stéphane Nicolet, Stefan Geschwentner, and Joost VandeVondele i stale ulepszany jako oprogramowanie typu open-source. Strona \textbf{Lichess.com}\cite{stockfish_lichess} wykorzystuje go do analizy i oceny aktualnej pozycji
 
-Stockfish poprzez przeszukiwanie wg strategii mini-max z odcięciem, za pomocą algorytmu alfa-beta, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych) i na ich podstawie ocenia aktualną pozycję.
+Stockfish poprzez przeszukiwanie wg strategii mini-max z odcięciem, za pomocą algorytmu alfa-beta, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych wykonanych zaczynając z analizowanej pozycji) i na ich podstawie ocenia aktualną pozycję, określając przewagę jednego z graczy
 
 \subsection{Ewaluacja}
 Wspomniana wcześniej ewaluacja, wyliczana przez silnik szachowy jest wynikiem liniowej funkcji 
-ważonej sumy cech:\\
+ważonej sumy cech, na którą składają się między innymi:\\
 $f_b,f_c$ oznaczających wartość figur odpowiednio białych i czarnych\\
 $k_b,k_c$ oznaczających bezpieczeństwo króla odpowiednio białych i czarnych\\
 $m_b,m_c$ oznaczających mobilność figur odpowiednio białych i czarnych\\
 $z_b,z_c$ oznaczających potencjalne zagrożenia wykonane odpowiednio białych i czarnych\\
-oraz innych.
+
 
 Funkcję można dla zapewnienia intuicji zapisać w uproszeniu:
 \begin{equation}
@@ -199,9 +216,7 @@ Funkcję można dla zapewnienia intuicji zapisać w uproszeniu:
 gdzie:
 $c_i$ są stałymi określającymi wagę danej pary zmiennych.
 
-Wraz ze wzrostem wartości funkcji zwiększa się przewaga białych, natomiast wraz z jej spadkiem, przewaga czarnych. Wartość wynosząca 0 oznacza stan równowagi. Dodatkowo, w przypadku nieuniknionego zwycięstwa jednej ze stron w \textit{n} ruchach, wynikiem funkcji zamiast odpowiedniej wartości jest tekst \textit{\#-n} w przypadku wygranej czarnych lub \textit{\#n} w przypadku wygranej białych.
-
-
+Wraz ze wzrostem wartości funkcji zwiększa się przewaga białych, natomiast wraz z jej spadkiem, przewaga czarnych. Wartość wynosząca 0 oznacza stan równowagi. Dodatkowo, w przypadku nieuniknionego zwycięstwa jednej ze stron w \textit{n} ruchach, wynikiem funkcji zamiast odpowiedniej wartości liczbowej jest tekst \textit{\#-n} w przypadku wygranej czarnych lub \textit{\#n} w przypadku wygranej białych, oznaczający nieuchronną wygraną jednego z graczy po wykonaniu \textit{n} odpowiednich ruchów.
 
 
 \subsubsection{rodzaje błędów szachowych}
@@ -238,21 +253,24 @@ LEPIEJ OPISANE NA WIKI ANG
 
 
 \chapter{ZAGADNIENIE TEORETYCZNE II - użyte metody, teoria stojąca za rozwiązaniami problemów}
+Niniejszy rozdział poświęcony zostanie zagadnieniom teoretycznym z dziedziny statystyki, zastosowanych w analizie przedstawionych problemów.
+\section{zagadnienie 1...}
+
 \chapter{sformuowanie problemów analitycznych, które chce zbadać}
 
 \chapter{analiza / rozwiązanie problemów}
 \section{Dane}
-Dane, \textbf{[...]} zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w plikach o rozmiarze kilkudziesięciu Gb. Każdy z nich zawiera wszystkie gry rozegrane na platformie w ciągu całego miesiąca. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish \textbf{WYJAŚNIĆ CZYM JEST STOCKFISH I EVAL???} i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy. Przykładowy zapis jednej takiej gry został zaprezentowany na rysunku \ref{rys:zapis_gry}. Informacje potrzebne do rozwiązania problemu to:
+Dane, \textbf{[...]} zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w plikach o rozmiarze kilkudziesięciu Gb. Każdy z nich zawiera wszystkie gry rozegrane na platformie w ciągu całego miesiąca. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy oraz określenie części ruchów przez silnik jako błędne.  Przykładowy zapis jednej takiej gry został zaprezentowany na rysunku \ref{rys:zapis_gry}. Informacje potrzebne do analizy to:
 \begin{itemize}
 	\item WhiteElo -- ranking białych
 	\item BlackElo -- ranking czarnych
 	\item TimeControl -- czas na wykonanie ruchów każdego z graczy w formacie  ,,sekundy + sekundy dodane za wykonanie ruchu''
 	\item \% eval -- aktualna przewaga jednej ze stron
+	\item zapis partii ze wskazaniem błędnych ruchów w ocenie silnika
 	\item \% clk -- pozostały czas w formacie ,,godziny : minuty : sekundy''
 \end{itemize}
 
-\textbf{napisać o rysunKu Z DANYMI Z EVAL}
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{zapis_gry.png}
 	\caption{Przykładowy zapis jednej partii}\label{zapis_gry}
@@ -263,26 +281,43 @@ Dane, \textbf{[...]} zostały pobrane z platformy Lichess \cite{lichess}. Są on
 \subsection{Odfiltrowanie danych}
 \textbf{TUTAJ INFORMATYCZNA CZĘŚĆ O TYM JAK POZYSKAŁEM DANE Z PLIKU}
 
+wyciągnięcie danych które posiadają ocenę silnika
+
+dla każdej gry, dla każdego ruchu:
+> znalezienie oceny silnika
+> ustalenie czasu poświęconego na wykonanie ruchu
+
+stworzenie bazy danych (póki co pracuje na części danych, bo obliczenia są wygodniejsze):
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{danee.png}
+	\caption{xxxs}\label{xxxs}
+\end{figure}
+
 
 \section{Analiza pierwszego problemu}
 Pierwszym problemem, który zostanie poruszony jest zbadanie statystycznej zależności jakości wykonanego ruchu wg oceny silnika Stockfish od czasu potrzebnego na jego wykonanie.
 
 TUTAJ rozkłady, 
 
+np dla formatu 60+0 (60 sekund, brak dodawanego czasu po wykonaniu ruchu)
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{sample60.png}
+	\caption{xxx}\label{xxx}
+\end{figure}
+
+
 oś x -> czas
 
 oś y -> nieznormalizowana liczba ruchów typu 'blunder' (te najcięższe pomyłki)\newline
 
-rozkład wykładniczy...\newline 
+
+rozkład gamma... (?)\newline 
 
 
-np dla formatu 300+0 (300 sekund, brak dodawanego czasu po wykonaniu ruchu)
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=\textwidth]{sample_300.png}
-	\caption{xxx}\label{xxx}
-\end{figure}
 
 TO DO: 
 
@@ -301,8 +336,12 @@ czy różnica pomiędzy formatem z dodawanym czasem po ruchu, a bez dodawanego c
 \section{analiza drugiego problemu...}
 tutaj statystyczne prawdopodobieństwo wykonania złego ruchu pod warunkiem poświęceniu mu konkretnego czasu,\newline
 
-tj, w formacie czasowym 60+0 na ruch zostały poświęcone 4 sekundy, jaka jest szansa, że został popełniony błąd \newline
-
+np, w formacie czasowym 60+0 na ruch zostały poświęcone 4 sekundy, jaka jest szansa, że został popełniony błąd \newline
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{p_od_czasu.png}
+	\caption{aaa}\label{aaa}
+\end{figure}
 CEL: 
 ile powinno się poświęcić czasu na ruch by obniżyć prawdopodobieństwo wykonania błędu?\newline
 
@@ -312,6 +351,13 @@ ile powinno się poświęcić czasu na ruch by obniżyć prawdopodobieństwo wyk
 
 
 \section{analiza trzeciego problemu...  and so on...}
+w którym ruchu jest największa szansa na popełnienie błędu?
+dla wszystkich rang
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{p_od_ruchu.png}
+	\caption{aaa}\label{aaa}
+\end{figure}
 \chapter{wnioski, podsumowanie}
 
 \chapter{tabelka}

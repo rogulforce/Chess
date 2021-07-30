@@ -13,5 +13,5 @@
 .*.lb
 __pycache__
 
-dane/filtered_data_wt_eval.csv
-dane/moves.csv
+dane/
+dane
