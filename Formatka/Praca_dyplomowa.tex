@@ -1,4 +1,4 @@
-% !TeX spellcheck = de_DE
+% !TeX spellcheck = pl_PL-Polish
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Niniejszy plik przedstawia przykładowy skład 
 % pracy dyplomowej na Wydziale Matematyki PWr. 
@@ -203,8 +203,43 @@ Wraz ze wzrostem wartości funkcji zwiększa się przewaga białych, natomiast w
 
 
 
+
+\subsubsection{rodzaje błędów szachowych}
+\textbf{OPISAĆ DEFINICJE INNACURACY, MISTAKE I BLUNDER}
+
+% https://en.wikipedia.org/wiki/Chess_annotation_symbols
+
+W notacji szachowej obok zapisanego ruchu mogą pojawić się symbole określające jakość danego ruchu. Dla analizowanych danych, ruch oceniany jest przez silnik szachowy za pomocą skomplikowanych algorytmów.
+
+
+(opisać te algorytmy w urposzczeniu - tj. blunder gdy delta eval jest wieksze niż pewna wartość (np. 2), ale tylko gdy sytuajca nie jest przesądzona,
+np zmiana 0 -> 2.5 BLUNDER, zmiana 22 -> 25, nie BLUNDER)
+
+?? - duży błąd
+ 
+OPIS
+ 
+ 
+ ? - pomyłka
+ 
+ OPIS
+ 
+ ?! - WĄTPLIWE POSUNIĘCIE
+ 
+ !? - posunięcie zasługujące na uwagę
+ 
+ ! -  bardzo dobre posunięcie
+ 
+ !! wyśmienite posunięcie
+
+LEPIEJ OPISANE NA WIKI ANG 
+
+
+
+
 \chapter{ZAGADNIENIE TEORETYCZNE II - użyte metody, teoria stojąca za rozwiązaniami problemów}
 \chapter{sformuowanie problemów analitycznych, które chce zbadać}
+
 \chapter{analiza / rozwiązanie problemów}
 \section{Dane}
 Dane, \textbf{[...]} zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w plikach o rozmiarze kilkudziesięciu Gb. Każdy z nich zawiera wszystkie gry rozegrane na platformie w ciągu całego miesiąca. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish \textbf{WYJAŚNIĆ CZYM JEST STOCKFISH I EVAL???} i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy. Przykładowy zapis jednej takiej gry został zaprezentowany na rysunku \ref{rys:zapis_gry}. Informacje potrzebne do rozwiązania problemu to:
@@ -230,7 +265,53 @@ Dane, \textbf{[...]} zostały pobrane z platformy Lichess \cite{lichess}. Są on
 
 
 \section{Analiza pierwszego problemu}
-\section{analiza drugiego problemu...  and so on...}
+Pierwszym problemem, który zostanie poruszony jest zbadanie statystycznej zależności jakości wykonanego ruchu wg oceny silnika Stockfish od czasu potrzebnego na jego wykonanie.
+
+TUTAJ rozkłady, 
+
+oś x -> czas
+
+oś y -> nieznormalizowana liczba ruchów typu 'blunder' (te najcięższe pomyłki)\newline
+
+rozkład wykładniczy...\newline 
+
+
+np dla formatu 300+0 (300 sekund, brak dodawanego czasu po wykonaniu ruchu)
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{sample_300.png}
+	\caption{xxx}\label{xxx}
+\end{figure}
+
+TO DO: 
+
+sprawdzenie zmian dla rankingu graczy, różnicy rankingu graczy
+
+porównanie z czasem na wykonanie każdego ruchu\newline
+
+
+
+TO DO: 
+
+czy różnica pomiędzy formatem z dodawanym czasem po ruchu, a bez dodawanego czasu jest widoczna?
+
+
+
+\section{analiza drugiego problemu...}
+tutaj statystyczne prawdopodobieństwo wykonania złego ruchu pod warunkiem poświęceniu mu konkretnego czasu,\newline
+
+tj, w formacie czasowym 60+0 na ruch zostały poświęcone 4 sekundy, jaka jest szansa, że został popełniony błąd \newline
+
+CEL: 
+ile powinno się poświęcić czasu na ruch by obniżyć prawdopodobieństwo wykonania błędu?\newline
+
+\textbf{Tego jeszcze nie analizowałem}
+
+
+
+
+\section{analiza trzeciego problemu...  and so on...}
 \chapter{wnioski, podsumowanie}
 
 \chapter{tabelka}
