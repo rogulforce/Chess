@@ -260,7 +260,7 @@ Niniejszy rozdział poświęcony zostanie zagadnieniom teoretycznym z dziedziny 
 
 \chapter{analiza / rozwiązanie problemów}
 \section{Dane}
-Dane, \textbf{[...]} zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w plikach o rozmiarze kilkudziesięciu Gb. Każdy z nich zawiera wszystkie gry rozegrane na platformie w ciągu całego miesiąca. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy oraz określenie części ruchów przez silnik jako błędne.  Przykładowy zapis jednej takiej gry został zaprezentowany na rysunku \ref{rys:zapis_gry}. Informacje potrzebne do analizy to:
+Dane potrzebne do analizy zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w plikach o rozmiarze kilkudziesięciu Gb. Każdy z nich zawiera wszystkie gry rozegrane na platformie w maju 2019 roku. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy oraz określenie części ruchów przez silnik jako błędne. Dodatkowo silnik określa jakość wykonanego ruchu wg własnych kryteriów. Przykładowy zapis jednej takiej gry został zaprezentowany na rysunku \ref{rys:zapis_gry}. Informacje potrzebne do analizy to:
 \begin{itemize}
 	\item WhiteElo -- ranking białych
 	\item BlackElo -- ranking czarnych
@@ -268,35 +268,74 @@ Dane, \textbf{[...]} zostały pobrane z platformy Lichess \cite{lichess}. Są on
 	\item \% eval -- aktualna przewaga jednej ze stron
 	\item zapis partii ze wskazaniem błędnych ruchów w ocenie silnika
 	\item \% clk -- pozostały czas w formacie ,,godziny : minuty : sekundy''
+	\item result -- wynik partii
 \end{itemize}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{zapis_gry.png}
-	\caption{Przykładowy zapis jednej partii}\label{zapis_gry}
+	\caption{Przykładowy zapis jednej partii, zmienić na aktualny}
+	\label{rys:zapis_gry} 
 \end{figure}
-\label{rys:zapis_gry} 
+
 
 
 \subsection{Odfiltrowanie danych}
-\textbf{TUTAJ INFORMATYCZNA CZĘŚĆ O TYM JAK POZYSKAŁEM DANE Z PLIKU}
 
-wyciągnięcie danych które posiadają ocenę silnika
+Pierwszym krokiem potrzebnym do wykonania analizy jest odfiltrowanie danych.
+Po podzieleniu tekstu na kolejne gry, odfiltrowane zostały jedynie te, które zostały wcześniej ocenione przez silnik. Następnie dla każdej z nich przeanalizowany został każdy ruch, do którego zostały przypisane następujące atrybuty:
+\begin{itemize}
+	\item score -- ocena ruchu wg silnika Stockfish
+	\item WhiteElo -- ranking białych
+	\item BlackElo -- ranking czarnych
+	\item TimeControl -- czas na wykonanie ruchów każdego z graczy w formacie  ,,sekundy + sekundy dodane za wykonanie ruchu''
+	\item color -- gracz, wykonujący dany ruch
+	\item move -- numer ruchu w danej partii
+	\item result - wynik partii
+\end{itemize}
 
-dla każdej gry, dla każdego ruchu:
-> znalezienie oceny silnika
-> ustalenie czasu poświęconego na wykonanie ruchu
-
-stworzenie bazy danych (póki co pracuje na części danych, bo obliczenia są wygodniejsze):
+Stworzona baza zawiera 9 737 663 posunięć ze 154 981 gier, co daje średnią 31.41 ruchu na grę (jeden ruch oznacza posunięcie białych i czarnych). Fragment bazy przedstawiony został na rysunku \ref{rys:baza_ruchow}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{danee.png}
-	\caption{xxxs}\label{xxxs}
+	\caption{zmienić żeby nie było whiteratingdif}
+	\label{rys:baza_ruchow}
 \end{figure}
 
 
+
 \section{Analiza pierwszego problemu}
-Pierwszym problemem, który zostanie poruszony jest zbadanie statystycznej zależności jakości wykonanego ruchu wg oceny silnika Stockfish od czasu potrzebnego na jego wykonanie.
+Pierwszym problemem, który zostanie poruszony jest zbadanie statystycznej zależności jakości wykonanego ruchu wg oceny silnika Stockfish od czasu potrzebnego na jego wykonanie. W celu uzyskania bardziej precyzyjnych wyników pierwsze 4 ruchy (zarówno białych jak i czarnych) nie będą brane pod uwagę. Są one elementem teorii otwarć szachowych \textbf{ref ISBN 0-19-280049-3}, w związku z czym wykonywane są zazwyczaj bardzo szybko i ze znikomą szansą popełnienia błędu, co może spowodować zaburzenie danych.
+
+\begin{table}[H]
+	\caption{baza ruchów z gier na portalu Lichess z maja 2019, 6 najpopularniejszych formatów}
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}Format czasowy \\ sekundy+sekundy przyznawane po wykonaniu ruchu\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}liczba ruchów \\ w bazie\end{tabular}} \\
+		&                                                                                   \\ \hline
+		600+0 & 1 813 841\\
+		300+0 & 1 409 904\\
+		\hphantom{0}60+0 & 1 251 388 \\
+		900+15 & 1 104 458 \\
+		180+0 & 1 057 292\\
+		300+3 & 941 262\\  \hline
+	\end{tabular}
+	\label{tab:formaty} 
+\end{table}
+
+Analizowane będzie sześć najpopularniejszych formatów granych na platformie Lichess. Są one przedstawione w tabeli \ref{tab:formaty}. Przy analizie z uwzględnieniem rankingu graczy, zastosowane będą podziały kwartylowe wg rankingu białych, rozkład rankingu wraz z zaznaczonymi kwartylami pokazany jest na rysunku \ref{rys:rozklad_elo}. Jak widać zbiega on do rozkładu normalnego. Anomalia dla rankingu 1500 związana jest z tym, że jest to ranking przyznawany każdemu graczowi przy jego pierwszej rozgrywce na platformie.
+
+\begin{figure}[H]
+	\centering
+	%\includegraphics[width=\textwidth]{sample60.png}
+	\caption{tutaj grafika rozkładu ELO}
+	\label{rys:rozklad_elo}
+\end{figure}
+
+
+
+
 
 TUTAJ rozkłady, 
 
