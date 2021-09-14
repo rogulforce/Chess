@@ -197,7 +197,7 @@ Przed przystąpieniem do opisania funkcji, należy wytłumaczyć działanie siln
 \subsection{Stockfish}
 Stockfish jest jednym z najlepszych i najpopularniejszym obecnie używanym silnikiem szachowym, którego zaprojektowali Joost VandeVondele, Joon Kiiski, Marco Costalb, Tord Romstad, Gary Linscott, Stefan Geschwentner i Stéphane Nicolet i stale ulepszany jako oprogramowanie typu open-source. Strona \textbf{Lichess.com}\cite{stockfish_lichess} tak jak większość stron internetowych poświęconych szachom on-line, wykorzystuje go do analizy i oceny aktualnej pozycji.
 
-Stockfish poprzez przeszukiwanie wg strategii mini-max z odcięciem, za pomocą algorytmu alfa-beta, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych wykonanych zaczynając z analizowanej pozycji) i na ich podstawie ocenia aktualną pozycję, określając przewagę jednego z graczy
+Stockfish poprzez przeszukiwanie według strategii mini-max z odcięciem, za pomocą algorytmu alfa-beta, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych wykonanych zaczynając z analizowanej pozycji) i na ich podstawie ocenia aktualną pozycję, określając przewagę jednego z graczy
 
 \subsection{Ewaluacja}
 Wspomniana wcześniej ewaluacja, wyliczana przez silnik szachowy jest wynikiem liniowej funkcji 
@@ -245,7 +245,7 @@ Podstawowym problemem podjętym w pracy jest analiza zależności pomiędzy czas
 Zwieńczeniem pracy będzie podjęcie próby wyznaczenia optymalnego czasu na wykonanie ruchu, tak, by zminimalizować ryzyko popełnienia dużego błędu.
 
 \section{Dane}
-Dane potrzebne do analizy zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w pliku o rozmiarze ponad 72 Gb. Zawiera on wszystkie gry (ponad 35 milionów) rozegrane na platformie w maju 2019 roku. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy oraz określenie części ruchów przez silnik jako błędne. Dodatkowo silnik określa jakość wykonanego ruchu wg własnych kryteriów (opisane w sekcji \ref{sec:mysection} na stronie \pageref{sec:mysection}). Przykładowy zapis jednej takiej gry z pliku został zaprezentowany na rysunku \ref{rys:zapis_gry}. Informacje potrzebne do analizy to:
+Dane potrzebne do analizy zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w pliku o rozmiarze ponad 72 Gb. Zawiera on wszystkie gry (ponad 35 milionów) rozegrane na platformie w maju 2019 roku. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy oraz określenie części ruchów przez silnik jako błędne. Dodatkowo silnik określa jakość wykonanego ruchu według własnych kryteriów (opisane w sekcji \ref{sec:mysection} na stronie \pageref{sec:mysection}). Przykładowy zapis jednej takiej gry z pliku został zaprezentowany na rysunku \ref{rys:zapis_gry}. Informacje potrzebne do analizy to:
 \begin{itemize}
 	\item WhiteElo -- ranking białych
 	\item BlackElo -- ranking czarnych
@@ -270,7 +270,7 @@ Istotnym problemem związanym z danymi jest dokładność pozostałego czasu jed
 Pierwszym krokiem potrzebnym do wykonania analizy jest odfiltrowanie danych.
 Po rozdzieleniu pliku tekstowego na kolejne gry, pozostawione zostały jedynie te, które zostały wcześniej ocenione przez silnik. Następnie dla każdej z nich przeanalizowany został każdy ruch, do którego zostały przypisane następujące atrybuty:
 \begin{itemize}
-	\item score -- ocena ruchu wg silnika Stockfish
+	\item score -- ocena ruchu według silnika Stockfish
 	\item WhiteElo -- ranking białych
 	\item BlackElo -- ranking czarnych
 	\item TimeControl -- czas na wykonanie ruchów każdego z graczy w formacie  ,,sekundy + sekundy dodane za wykonanie ruchu''
@@ -290,7 +290,7 @@ Stworzona baza zawiera 9 737 663 posunięć ze 154 981 gier, co daje średnią 3
 
 
 \section{Analiza pierwszego problemu}
-Pierwszym problemem, który zostanie poruszony jest zbadanie statystycznej zależności jakości wykonanego ruchu wg oceny silnika Stockfish od czasu potrzebnego na jego wykonanie. W celu uzyskania bardziej precyzyjnych wyników pierwsze 4 ruchy (zarówno białych jak i czarnych) nie będą brane pod uwagę. Są one elementem teorii otwarć szachowych [\textbf{ref ISBN 0-19-280049-3}], w związku z czym wykonywane są zazwyczaj bardzo szybko i ze znikomą szansą popełnienia błędu, co może spowodować zaburzenie danych. Dodatkowo na stronie Lichess.com pierwszy ruch obydwu zawodników zawsze zabiera 0 sekund.
+Pierwszym problemem, który zostanie poruszony jest zbadanie statystycznej zależności jakości wykonanego ruchu według oceny silnika Stockfish od czasu potrzebnego na jego wykonanie. W celu uzyskania bardziej precyzyjnych wyników pierwsze 4 ruchy (zarówno białych jak i czarnych) nie będą brane pod uwagę. Są one elementem teorii otwarć szachowych [\textbf{ref ISBN 0-19-280049-3}], w związku z czym wykonywane są zazwyczaj bardzo szybko i ze znikomą szansą popełnienia błędu, co może spowodować zaburzenie danych. Dodatkowo na stronie Lichess.com pierwszy ruch obydwu zawodników zawsze zabiera 0 sekund.
 
 \begin{table}[H]
 	\caption{baza ruchów z gier na portalu Lichess z maja 2019, 6 najpopularniejszych formatów}
@@ -309,13 +309,75 @@ Pierwszym problemem, który zostanie poruszony jest zbadanie statystycznej zale�
 	\label{tab:formaty} 
 \end{table}
 
-W pracy, analizowane będzie sześć najpopularniejszych formatów czasowych granych na platformie Lichess. Są one przedstawione w tabeli \ref{tab:formaty}. Przy analizie z uwzględnieniem rankingu graczy, zastosowane będą podziały kwartylowe wg rankingu białych, rozkład rankingu wraz z zaznaczonymi kwartylami pokazany jest na rysunku \ref{rys:rozklad_elo}. Jak widać zbiega on do rozkładu normalnego. Anomalia dla rankingu 1500 związana jest z tym, że jest to ranking przyznawany każdemu graczowi przy jego pierwszej rozgrywce na platformie.
+W pracy, analizowane będą dwa najpopularniejsze formaty czasowe grane na platformie Lichess. Są one przedstawione w tabeli \ref{tab:formaty}. Przy analizie z uwzględnieniem rankingu graczy, zastosowane będą podziały kwartylowe. Rozkład rankingu wraz z zaznaczonymi kwartylami pokazany jest na rysunku \ref{rys:rozklad_elo}. Jak widać zbiega on do rozkładu normalnego. Anomalia dla rankingu 1500 związana jest z tym, że jest to ranking przyznawany każdemu graczowi przy jego pierwszej rozgrywce na platformie.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{ranking.png}
 	\caption{rozkład rankingu zawodników wraz z zaznaczonymi kwartylami}
 	\label{rys:rozklad_elo}
 \end{figure}
+
+W późniejszej części pracy pojawią się wykresy i analizy, w których dziedziną będzie numer wykonywanego ruchu. W związku z małą liczbą danych dla późniejszych ruchów, analizowane będą jedynie te poniżej 58, jako, że wynik 95\% gier pojawia się maksymalnie w 57 ruchach. Rozkład długości gier z bazy danych przedstawiony jest na rysunku \ref{rys:dlugosc_gier}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{dlugosc_gry.png}
+	\caption{rozkład długości gier wraz z zaznaczonym kwantylem rzędu 0.95,  dla gier z formatu 300+0 oraz 600+0.}
+	\label{rys:dlugosc_gier}
+\end{figure}
+
+Pierwszym elementem analizy, który pozwoli na określenie wstępnej różnicy między ruchami oznaczonymi jako ,,duży błąd'', a zbiorem wszystkich ruchów jest sprawdzenie zależności między ruchem, a średnim czasem na jego wykonanie dla obydwu zbiorów. Intuicja każe wskazywać, że błąd popełniamy poświęcając mniej czasu na ruch. Jak widać na rysunku \ref{rys:sr_czas_na_ruch}, dla każdego analizowanego ruchu, ruch oznaczony jako błędny zajął statystycznie więcej czasu - zarówno dla formatu 300+0 jak i 600+0, co przeczy intuicji.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{sr_czas_na_ruch.png}
+	\caption{średni czas na wykonanie ruchu dla analizowanych formatów czasowych. Osobno wszystkie ruchy i ruchy oznaczone przez silnik jako ,,duży błąd''.}
+	\label{rys:sr_czas_na_ruch}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\textbf{PLAN:}\\
+\textbf{porównanie: zależność x -  numer ruchu, y czas na wykonanie - dla wszystkich ruchów i tylko dla ruchów blunder}\\
+
+\textbf{porównanie rozkładu czasu wykonania wszystkich ruchów oraz dla ruchów blunder\\
+wskazanie różnicy}\\
+
+\textbf{zależność x - numer ruchu, y - szansa na blunder}\\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Po przyjrzeniu się danym można zauważyć, że pochodzą one z rozkładu logarytmicznie-normalnego, co można uwarunkować tym, że w zdecydowanej większości pozycji zawodnik potrzebuje chwili na odpowiedź na ruch przeciwnika, tj 
