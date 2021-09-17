@@ -241,11 +241,32 @@ Niniejszy rozdział poświęcony zostanie zagadnieniom teoretycznym z dziedziny 
 
 \chapter{sformułowanie i rozwiązanie problemów analitycznych}
 \section{sformułowanie problemów}
-Podstawowym problemem podjętym w pracy jest analiza zależności pomiędzy czasem na wykonanie ruchu, a jego dokładnością. Główny nacisk kładziony zostanie na ruchy oznaczone przez silnik jako ,,duży błąd'', co można uargumentować tym, że właśnie te ruchy mają największy wpływ na grę, szczególnie biorąc pod uwagę szachy szybkie, gdzie czasu na ruch jest zdecydowanie mniej, czego wynikiem jest to, że takie ruchy pojawiają się znacznie częściej. Dodatkową osią ujętą w rozważaniach będzie ranking zawodników i jego wpływ na rozkłady danych. Sprawdzona i wzięta pod uwagę zostanie również zależność między numerem ruchu, a czasem na wykonanie oraz jego dokładnością.
-Zwieńczeniem pracy będzie podjęcie próby wyznaczenia optymalnego czasu na wykonanie ruchu, tak, by zminimalizować ryzyko popełnienia dużego błędu.
+Podstawowym problemem podjętym w pracy jest analiza zależności pomiędzy czasem poświęconym na wykonanie ruchu, a jego dokładnością. Główny nacisk kładziony zostanie na ruchy oznaczone przez silnik jako ,,duży błąd'', co można uargumentować tym, że właśnie te ruchy mają największy wpływ na grę, szczególnie biorąc pod uwagę szachy szybkie, gdzie czasu na ruch jest zdecydowanie mniej, czego wynikiem jest to, że błędne ruchy pojawiają się znacznie częściej. Dodatkową osią ujętą w rozważaniach będzie ranking zawodników i jego wpływ na rozkłady danych. Sprawdzona i wzięta pod uwagę zostanie również zależność między numerem ruchu, a czasem na wykonanie oraz jego dokładnością.
+\textbf{ZMIENIĆ!} Zwieńczeniem pracy będzie podjęcie próby wyznaczenia optymalnego czasu na wykonanie ruchu, tak, by zminimalizować ryzyko popełnienia dużego błędu.
 
 \section{Dane}
-Dane potrzebne do analizy zostały pobrane z platformy Lichess \cite{lichess}. Są one przechowywane w pliku o rozmiarze ponad 72 Gb. Zawiera on wszystkie gry (ponad 35 milionów) rozegrane na platformie w maju 2019 roku. Ponadto, ok. 7\% gier zostało wcześniej przeanalizowane przez silnik szachowy Stockfish i posiadają dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy oraz określenie części ruchów przez silnik jako błędne. Dodatkowo silnik określa jakość wykonanego ruchu według własnych kryteriów (opisane w sekcji \ref{sec:mysection} na stronie \pageref{sec:mysection}). Przykładowy zapis jednej takiej gry z pliku został zaprezentowany na rysunku \ref{rys:zapis_gry}. Informacje potrzebne do analizy to:
+Dane potrzebne do analizy zostały pobrane z platformy Lichess \cite{lichess}, która zapisuje i udostępnia wszystkie rozgrywane gry. Brane pod uwagę będą wszystkie gry (ponad 35 milionów) rozegrane na platformie w maju 2019 roku.
+
+W pracy analizowane będą dwa najpopularniejsze formaty czasowe grane na platformie Lichess. Są one przedstawione w tabeli \ref{tab:formaty}.
+Pierwszy z nich - ,,600+0'' oznacza grę, w której kazdy z graczy posiada 600 sekund na wykonanie wszystkich swoich ruchów, bez inkrementu (dodawanego czasu po zagraniu posunięcia). Analogicznie wygląda format 300+0, z tym, że czas zmiejszony jest o połowę -  do pięciu minut.
+\begin{table}[H]
+	\caption{baza gier na portalu Lichess z maja 2019, 6 najpopularniejszych formatów}
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline
+		\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}Format czasowy \\ sekundy+sekundy przyznawane po wykonaniu ruchu\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}procent gier \\ w bazie\end{tabular}} \\
+		&                                                                                   \\ \hline
+		600+0 & 18,63\% \\
+		300+0 & 14,48\%\\
+		\hphantom{0}60+0 & 12,85\% \\
+		900+15 & 11,34\% \\
+		180+0 & 10,86\% \\
+		300+3 & 9,67\% \\  \hline
+	\end{tabular}
+	\label{tab:formaty} 
+\end{table}
+Po zakończeniu gry na platformie, każdy gracz ma możliwość zbadać swoją grę przy użyciu silnika szachowego Stockfish. Około 7\% gier z bazy zawiera taką analizę. Posiadają one dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy w danym momencie gry. 
+Dodatkowo silnik określa jakość wykonanego ruchu według własnych kryteriów  (opisane w sekcji \ref{sec:mysection} na stronie \pageref{sec:mysection}).  Przykładowy zapis jednej takiej gry z pliku został zaprezentowany na rysunku  \ref{rys:zapis_gry}. Informacje potrzebne do analizy to:
 \begin{itemize}
 	\item WhiteElo -- ranking białych
 	\item BlackElo -- ranking czarnych
@@ -255,22 +276,22 @@ Dane potrzebne do analizy zostały pobrane z platformy Lichess \cite{lichess}. S
 	\item \% clk -- pozostały czas w formacie ,,godziny : minuty : sekundy''
 	\item result -- wynik partii
 \end{itemize}
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{zapis_gry.png}
 	\caption{Przykładowy zapis jednej partii zawierającej ocenę silnika Stockfish}
 	\label{rys:zapis_gry} 
 \end{figure}
-
-Istotnym problemem związanym z danymi jest dokładność pozostałego czasu jedynie do sekund, co zaburza lekko ich istotę, szczególnie podczas analizy gier w krótszym formacie czasowym, gdzie części sekundy są bardziej znaczące. Dodatkowo ruch, który oznaczony został jako n sekund w rzeczywistości jest ruchem z przedziału obustronnie otwartego (n-1,n+1) sekund. Przy większej liczbie danych nie ma to jednak większego znaczenia, ponieważ zgodnie z Prawem Wielkich Liczb można takie dane uśrednić do \textit{n}. Jedynym problemem, który może się pojawić jest późniejsze sprawdzenie zgodności danych z rozkładem. 
+Istotnym problemem związanym z danymi jest dokładność pozostałego czasu jedynie do sekund, co zaburza lekko ich istotę, szczególnie podczas analizy gier w krótszym formacie czasowym (jak np. ,,60+0''), gdzie ułamki sekundy są  znaczące. Dodatkowo ruch, który oznaczony został jako n sekund w rzeczywistości jest ruchem z przedziału obustronnie otwartego (n-1,n+1) sekund. Przy dużej liczbie danych nie ma to jednak większego znaczenia, ponieważ zgodnie z Prawem Wielkich Liczb można takie dane uśrednić do \textit{n} \textbf{cite???}. Jedynym problemem, który może się pojawić jest późniejsze sprawdzenie zgodności danych z rozkładem. 
 
 \subsection{Odfiltrowanie danych}
 
 Pierwszym krokiem potrzebnym do wykonania analizy jest odfiltrowanie danych.
-Po rozdzieleniu pliku tekstowego na kolejne gry, pozostawione zostały jedynie te, które zostały wcześniej ocenione przez silnik. Następnie dla każdej z nich przeanalizowany został każdy ruch, do którego zostały przypisane następujące atrybuty:
+Po rozdzieleniu pliku tekstowego na kolejne gry, pozostawione zostały jedynie te, które zostały wcześniej ocenione przez silnik oraz grane były w formacie ,,300+0'' lub ,,600+0''. Następnie przygotowany wcześniej program zbadał każdy ruch każdej gry i przypisał do niego następujące atrybuty:
 \begin{itemize}
+	\item game\_ID -- numer gry
 	\item score -- ocena ruchu według silnika Stockfish
+	\item delta\_time -- czas na wykonanie danego ruchu
 	\item WhiteElo -- ranking białych
 	\item BlackElo -- ranking czarnych
 	\item TimeControl -- czas na wykonanie ruchów każdego z graczy w formacie  ,,sekundy + sekundy dodane za wykonanie ruchu''
@@ -279,45 +300,28 @@ Po rozdzieleniu pliku tekstowego na kolejne gry, pozostawione zostały jedynie t
 	\item result - wynik partii
 \end{itemize}
 
-Stworzona baza zawiera 9 737 663 posunięć ze 154 981 gier, co daje średnią 31.41 ruchu na grę (jeden ruch oznacza posunięcie białych i czarnych). Fragment bazy przedstawiony został na rysunku \ref{rys:baza_ruchow}. 
+Stworzona baza zawiera 17 524 012 posunięć ze 275 994 gier, co daje średnią 31,75 ruchu na grę (jeden ruch oznacza posunięcie białych i czarnych). Fragment bazy przedstawiony został na rysunku \ref{rys:baza_ruchow}. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{danee.png}
-	\caption{fragment bazy ruchów wraz z oceną silnika}
+	\caption{Fragment bazy zawierającej ruchy z gier o formatach czasowych ,,300+0'' i ,,600+0''.}
 	\label{rys:baza_ruchow}
 \end{figure}
 
 
 
-\section{Analiza pierwszego problemu}
-Pierwszym problemem, który zostanie poruszony jest zbadanie statystycznej zależności jakości wykonanego ruchu według oceny silnika Stockfish od czasu potrzebnego na jego wykonanie. W celu uzyskania bardziej precyzyjnych wyników pierwsze 4 ruchy (zarówno białych jak i czarnych) nie będą brane pod uwagę. Są one elementem teorii otwarć szachowych [\textbf{ref ISBN 0-19-280049-3}], w związku z czym wykonywane są zazwyczaj bardzo szybko i ze znikomą szansą popełnienia błędu, co może spowodować zaburzenie danych. Dodatkowo na stronie Lichess.com pierwszy ruch obydwu zawodników zawsze zabiera 0 sekund.
 
-\begin{table}[H]
-	\caption{baza ruchów z gier na portalu Lichess z maja 2019, 6 najpopularniejszych formatów}
-	\centering
-	\begin{tabular}{|l|r|}
-		\hline
-		\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}Format czasowy \\ sekundy+sekundy przyznawane po wykonaniu ruchu\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}liczba ruchów \\ w bazie\end{tabular}} \\
-		&                                                                                   \\ \hline
-		600+0 & 1 813 841\\
-		300+0 & 1 409 904\\
-		\hphantom{0}60+0 & 1 251 388 \\
-		900+15 & 1 104 458 \\
-		180+0 & 1 057 292\\
-		300+3 & 941 262\\  \hline
-	\end{tabular}
-	\label{tab:formaty} 
-\end{table}
+\section{Analiza pierwszego problemu OKREŚLIĆ JAKIEGO???}
+Pierwszym problemem, który zostanie poruszony jest zbadanie statystycznej zależności jakości wykonanego ruchu według oceny silnika Stockfish od czasu potrzebnego na jego wykonanie. W celu uzyskania bardziej precyzyjnych wyników pierwsze 4 ruchy (po 4 posunięcia białych i czarnych) nie będą brane pod uwagę. Są one elementem teorii otwarć szachowych [CITE??? \textbf{ref ISBN 0-19-280049-3}], w związku z czym wykonywane są zazwyczaj bardzo szybko i ze znikomą szansą popełnienia błędu, co może powodować zaburzenie danych. Dodatkowo na stronie Lichess.com pierwszy ruch obydwu zawodników zawsze zabiera 0 sekund.
 
-W pracy, analizowane będą dwa najpopularniejsze formaty czasowe grane na platformie Lichess. Są one przedstawione w tabeli \ref{tab:formaty}. Przy analizie z uwzględnieniem rankingu graczy, zastosowane będą podziały kwartylowe. Rozkład rankingu wraz z zaznaczonymi kwartylami pokazany jest na rysunku \ref{rys:rozklad_elo}. Jak widać zbiega on do rozkładu normalnego. Anomalia dla rankingu 1500 związana jest z tym, że jest to ranking przyznawany każdemu graczowi przy jego pierwszej rozgrywce na platformie.
+Przy analizie z uwzględnieniem rankingu graczy, zastosowane będą podziały kwartylowe. Rozkład rankingu wraz z zaznaczonymi kwartylami pokazany jest na rysunku \ref{rys:rozklad_elo}. Jak widać zbiega on do rozkładu normalnego. Anomalia dla rankingu 1500 związana jest z tym, że jest to ranking przyznawany każdemu graczowi przy jego pierwszej rozgrywce na platformie.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{ranking.png}
 	\caption{rozkład rankingu zawodników wraz z zaznaczonymi kwartylami}
 	\label{rys:rozklad_elo}
 \end{figure}
-
-W późniejszej części pracy pojawią się wykresy i analizy, w których dziedziną będzie numer wykonywanego ruchu. W związku z małą liczbą danych dla późniejszych ruchów, analizowane będą jedynie te poniżej 58, jako, że wynik 95\% gier pojawia się maksymalnie w 57 ruchach. Rozkład długości gier z bazy danych przedstawiony jest na rysunku \ref{rys:dlugosc_gier}.
+W późniejszej części pracy pojawią się wykresy i analizy, w których dziedziną będzie numer wykonywanego ruchu. W związku z bardzo małą liczbą danych dla późniejszych ruchów, ich analiza jest zaburzona i niewiarygodna. Dlatego analizowane będą jedynie ruchy z indeksem poniżej 59, jako, że wynik 95\% gier pojawia się maksymalnie w 58 ruchach. Rozkład długości gier z bazy danych, który obrazuje przedstawioną sytuację zamieszczony jest na rysunku \ref{rys:dlugosc_gier}.
 
 \begin{figure}[H]
 	\centering
@@ -326,13 +330,33 @@ W późniejszej części pracy pojawią się wykresy i analizy, w których dzied
 	\label{rys:dlugosc_gier}
 \end{figure}
 
-Pierwszym elementem analizy, który pozwoli na określenie wstępnej różnicy między ruchami oznaczonymi jako ,,duży błąd'', a zbiorem wszystkich ruchów jest sprawdzenie zależności między ruchem, a średnim czasem na jego wykonanie dla obydwu zbiorów. Intuicja każe wskazywać, że błąd popełniamy poświęcając mniej czasu na ruch. Jak widać na rysunku \ref{rys:sr_czas_na_ruch}, dla każdego analizowanego ruchu, ruch oznaczony jako błędny zajął statystycznie więcej czasu - zarówno dla formatu 300+0 jak i 600+0, co przeczy intuicji.
-
+Pierwszym elementem analizy, który pozwoli na określenie wstępnej różnicy między ruchami oznaczonymi jako ,,duży błąd'', a zbiorem wszystkich ruchów jest sprawdzenie zależności między indeksem ruchu, a średnim czasem na jego wykonanie dla obydwu zbiorów. Intuicja wskazuje, że błąd popełniamy poświęcając mniej czasu na ruch. Jak widać na rysunku \ref{rys:sr_czas_na_ruch}, dla każdego analizowanego ruchu, ruch oznaczony jako błędny zajął statystycznie więcej czasu - zarówno dla formatu 300+0 jak i 600+0, co przeczy intuicji. Można zauważyć, że dla obydwu zbiorów początkowo niska średnia osiąga swój szczyt w okolicach dwudziestego ruchu, by później stopniowo się zmniejszać. Ma to związek z tym, że początkowe posunięcia są elementem teorii szachowej. Duża część graczy nauczyła się kilku, kilkunastu, bądź w przypadku gry na najwyższym poziomie - nawet ponad dwudziestu pierwszych ruchów niektórych otwarć. W związku z tym początkowe ruchy grane są relatywnie szybko. Końcowe posunięcia natomiast nie mogą zająć zbyt dużo czasu, ponieważ jest go zazwyczaj zbyt mało na zegarze, by gracz mógł sobie na to pozwolić. Dlatego też od pewnego momentu, wraz ze wzrostem indeksu średni czas poświęcony na ruch zbiega do zera. Zaznaczone na rysunku rozstępy międzykwartylowe dla każdego ruchu wskazują na znacznie większą wariancję czasu na wykonanie błędnego ruchu porównując do zbioru wszystkich ruchów. Potwierdza to rysunek \ref{rys:std_czas_na_ruch} pokazujący odchylenie standardowe dla kolejnych ruchów. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{sr_czas_na_ruch.png}
-	\caption{średni czas na wykonanie ruchu dla analizowanych formatów czasowych. Osobno wszystkie ruchy i ruchy oznaczone przez silnik jako ,,duży błąd''.}
+	\caption{Średni czas na wykonanie ruchu dla analizowanych formatów czasowych wraz z zaznaczonym rozstępem międzykwartylowym. Osobno wszystkie ruchy i ruchy oznaczone przez silnik jako ,,duży błąd''.}
 	\label{rys:sr_czas_na_ruch}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{std_czas_na_ruch.png}
+	\caption{Odchylenie standardowe czasu na wykonanie ruchu dla analizowanych formatów czasowych. Osobno wszystkie ruchy i ruchy oznaczone przez silnik jako ,,duży błąd''.}
+	\label{rys:std_czas_na_ruch}
+\end{figure}
+Rysunki \ref{rys:sr_czas_na_ruch_ELO_1} i \ref{rys:sr_czas_na_ruch_ELO_2} wprowadzają do rozważań różnicę między średnim czasem na wykonanie ruchu dla graczy z poszczególnych przedziałów rankingowych. Można zauważyć, że zarówno w przypadku zbioru wszystkich ruchów (rysunek \ref{rys:sr_czas_na_ruch_ELO_1}) jak i pozdbioru ruchów błędnych (rysunek \ref{rys:sr_czas_na_ruch_ELO_2}), słabsi gracze mają tendencję do dłuższych rozważań nad początkowymi ruchami. Wraz ze wzrostem rankingu wydłuża się średni czas na wykonanie ruchu dla ruchów z indeksem od 20 do 30 - czyli tych, gdzie średnia jest najwyższa. Przy końcowych posunięciach, posunięcia zajmują podobną ilość czasu dla wszystkich rankingów. Warto zwrócić uwagę, że odsetek 25\% najniżej notowanych graczy przez zbyt długie początkowe ruchy zmuszona jest ruszać się szybciej w późniejszych posunięciach. Szczególnie widoczne jest to na pierwszym wykresie rysunku \ref{rys:sr_czas_na_ruch_ELO_2}. 
+
+Niezależnie od rankingu, średnia poświęconego czasu dla posunięć oznaczonych przez silnik jako ,,duży błąd'' jest w każdym momencie wyższa niż dla zbioru wszystkich ruchów. \textbf{przesunięcie wykresu dla najsłabszego rankingu???}, \textbf{różnica miedzy 300 a 600 (PRAWIE ŻADNA, PRZESKALOWANE ALE NIE LINIOWO)}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{sr_czas_na_ruch_ELO_1.png}
+	\caption{Średni czas na wykonanie ruchu dla dla graczy z różnych przedziałów rankingowych. Wszystkie posunięcia.}
+	\label{rys:sr_czas_na_ruch_ELO_1}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{sr_czas_na_ruch_ELO_2.png}
+	\caption{Średni czas na wykonanie ruchu dla dla graczy z różnych przedziałów rankingowych. Posunięcia oznaczone przez silnik jako ,,duży błąd''.}
+	\label{rys:sr_czas_na_ruch_ELO_2}
 \end{figure}
 
 
@@ -340,6 +364,11 @@ Pierwszym elementem analizy, który pozwoli na określenie wstępnej różnicy m
 
 
 
+
+\textbf{DALSZA CZĘŚĆ WYWODU???}
+
+
+\textbf{POMYSŁ! WZIĘCIE LOSOWE RUCHY Z ROZKŁADU TAKIEGO JAK ROZKŁAD RUCHÓW BLUNDER I SPRAWDZENIE RÓŻNICY MIĘDZY BLUNDER A LOSOWYMI RUCHAMI}
 
 
 
@@ -482,7 +511,7 @@ Rysunki do pracy dyplomowej należy wstawiać w sposób podobny do wstawiania ta
 \chapter{Definicje, lematy, twierdzenia, przykłady i wnioski}
 Definicje, lematy, twierdzenia, przykłady i wnioski piszemy w pracy tak:
 \begin{definition}[Martyngał]
-	Tu piszemy treść definicji martyngału.
+	Tu piszemy taratreść definicji martyngału.
 \end{definition}
 \begin{lemma}[]% w nawiasie kwadratowym można napisać jego nazwę
 	Tu piszemy treść lematu.

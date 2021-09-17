@@ -10,28 +10,32 @@ def line_filter(line: str) -> bool:
     return False
 
 
-def results_to_table(data: list, df: pd.DataFrame):
+def results_to_table(data: list, df: pd.DataFrame, formats: list):
     """ function filtering and cleaning data
 
     :param data: list of last 19 rows from file
     :param df: dataframe to save results
+    :param formats: list of formats to find in filename
     :return: df
     """
-    results = []
+
     if data[0][:6] == '[Event':
-        for i in [0, 6, 9, 10, 11, 12, 13, 14, 15, 16]:
-            results.append(re.search(r"\"(.*?)\"", data[i])[0][1:-1])
-        results.append(data[-1])
-        df = df.append(pd.DataFrame([results]), ignore_index=True)
+        if any(f in data[15] for f in formats):
+            results = []
+            for i in [6, 9, 10, 15]:
+                results.append(re.search(r"\"(.*?)\"", data[i])[0][1:-1])
+            results.append(data[-1])
+            df = df.append(pd.DataFrame([results]), ignore_index=True)
 
     return df
 
 
-def data_get(filename: str, to_filename: str, break_point: int = 50000000):
+def data_get(filename: str, to_filename: str, formats: list = ('300+0','600+0'), break_point: int = 5000000):
     """ function filtering data and saving it in csv format
 
     :param filename: .pgn file with saved games
     :param to_filename: .csv file to save results
+    :param formats: list of formats to find in filename
     :return: None
     """
     with open(file=filename, mode='r', encoding='utf-8') as f:
@@ -46,13 +50,12 @@ def data_get(filename: str, to_filename: str, break_point: int = 50000000):
                 print(f'{100*i/break_point}%')
             if 'eval' in line:
                 # print(temp_data[-19:])
-                df = results_to_table(temp_data[-19:], df)
+                df = results_to_table(temp_data[-19:], df, formats)
                 temp_data.clear()
                 # if line_filter(line) is True:
                 # data.write(line)
-    df = df.rename(columns={0: 'Event', 1: 'Result', 2: 'WhiteElo', 3: 'BlackElo', 4: 'WhiteRatingDiff',
-                            5: 'BlackRatingDiff', 6: 'ECO', 7: 'Opening', 8: 'TimeControl', 9: 'Termination',
-                            10: 'Game'})
+    df = df.rename(columns={0: 'Result', 1: 'WhiteElo', 2: 'BlackElo', 3: 'TimeControl',
+                            4: 'Game'})
     create_csv(df, to_filename)
     return
 
