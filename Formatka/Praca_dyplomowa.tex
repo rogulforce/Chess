@@ -344,8 +344,6 @@ Pierwszym elementem analizy, który pozwoli na określenie wstępnej różnicy m
 	\label{rys:std_czas_na_ruch}
 \end{figure}
 Rysunki \ref{rys:sr_czas_na_ruch_ELO_1} i \ref{rys:sr_czas_na_ruch_ELO_2} wprowadzają do rozważań różnicę między średnim czasem na wykonanie ruchu dla graczy z poszczególnych przedziałów rankingowych. Można zauważyć, że zarówno w przypadku zbioru wszystkich ruchów (rysunek \ref{rys:sr_czas_na_ruch_ELO_1}) jak i pozdbioru ruchów błędnych (rysunek \ref{rys:sr_czas_na_ruch_ELO_2}), słabsi gracze mają tendencję do dłuższych rozważań nad początkowymi ruchami. Wraz ze wzrostem rankingu wydłuża się średni czas na wykonanie ruchu dla ruchów z indeksem od 20 do 30 - czyli tych, gdzie średnia jest najwyższa. Przy końcowych posunięciach, posunięcia zajmują podobną ilość czasu dla wszystkich rankingów. Warto zwrócić uwagę, że odsetek 25\% najniżej notowanych graczy przez zbyt długie początkowe ruchy zmuszona jest ruszać się szybciej w późniejszych posunięciach. Szczególnie widoczne jest to na pierwszym wykresie rysunku \ref{rys:sr_czas_na_ruch_ELO_2}. 
-
-Niezależnie od rankingu, średnia poświęconego czasu dla posunięć oznaczonych przez silnik jako ,,duży błąd'' jest w każdym momencie wyższa niż dla zbioru wszystkich ruchów. \textbf{przesunięcie wykresu dla najsłabszego rankingu???}, \textbf{różnica miedzy 300 a 600 (PRAWIE ŻADNA, PRZESKALOWANE ALE NIE LINIOWO)}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{sr_czas_na_ruch_ELO_1.png}
@@ -358,12 +356,56 @@ Niezależnie od rankingu, średnia poświęconego czasu dla posunięć oznaczony
 	\caption{Średni czas na wykonanie ruchu dla dla graczy z różnych przedziałów rankingowych. Posunięcia oznaczone przez silnik jako ,,duży błąd''.}
 	\label{rys:sr_czas_na_ruch_ELO_2}
 \end{figure}
+Niezależnie od rankingu, średnia poświęconego czasu dla posunięć oznaczonych przez silnik jako ,,duży błąd'' jest w każdym momencie wyższa niż dla zbioru wszystkich ruchów. 
+Warto również zauważyć, że wykresy dla obydwu formatów czasowych wyglądają podobnie. 
+
+By móc przeanalizować zależność między rozgrywanym formatem, a wzrostem średniego czasu poświęconego na ruch, powstał wykres umieszczony na rysunku \ref{rys:stosunek_sr_czas}. Dopasowane metodą najmniejszych kwadratów \textbf{OPISANĄ W ROZDZIALE TEORIA2???} proste regresji \textbf{DODAĆ COŚ O RESIDUACH I ODCHYLENIACH?, można zrobić też proste ze wszystkich danych,a nie ze średniej} obrazują różnice w zachowanych trendach. Czas w formacie 600+0 jest dokładnie 2 razy dłuższy niż w formacie 300+0, jednak średni czas na wykonanie ruchu jest w pierwszym przypadku około 1,7 raza wyższy. Wartość stosunku jednak nie jest stała i wzrasta wraz z indeksem ruchu. Dla zbioru wszystkich posunięć dopasowana prosta regresji wskazuje na stosunek około 1,65 dla tych początkowych, do 1,85 przy końcowych. Znacznie większa rozpiętość w stosunku widoczna jest dla posunięć oznaczonych jako ,,duży błąd''. Stosunek wynosi około 1,55 dla początkowych wartości i powyżej 2 dla ruchów z indeksem powyżej 55. Warto zauważyć, że dla obu zbiorów w formacie 600+0 gracze nie są zmuszeni do podejmowania decyzji pod dużą presją czasu. Szczególnie różnicę tę da się zauważyć dla ruchów błędnych, nad którymi gracz musi się statystycznie dłużej zastanowić (rysunek \ref{rys:sr_czas_na_ruch} na stronie \pageref{rys:sr_czas_na_ruch}). Gracz posiadając 2 razy więcej czasu w tym formacie i myśląc nad każdym ruchem średnio od 1.55 do 1.95 raza dłużej,  ma w każdym momencie gry do dyspozycji statystycznie większy ułamek początkowego czasu niż w przypadku gry w formacie 300+0. Zestawienie pozostałego czasu pokazane jest na pierwszym wykresie na rysunku rysunku \ref{rys:pozostaly_czas}. Widać dość sporą różnicę w średnim pozostałym czasie narastającą podczas przebiegu gry. Drugi wykres zamieszczony na rysunku ukazuje różnicę w prawdopodobieństwie popełnienia błędu w konkretnym ruchu dla obu formatów. Warto zauważyć, że mimo znacznie większego czasu do dyspozycji w przypadku formatu ,,600+0'', do 20 ruchu szansa na błąd jest niemalże identyczna jak w przypadku formatu ,,300+0'' -- Krzywe odbiegają od siebie nieznacznie. W okolicach od 20 do 40 ruchu, szansa na popełnienie błędu w formacie ,,300+0'' jest około 5-10\% większa. Dobrze jest w tym miejscu dodać, że jest to przedział, w którym błędów występuje najwięcej.
+
+\textbf{jakiś bayes później? }
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{stosunek_sr_czas.png}
+	\caption{Stosunek średniego czasu na wykonanie ruchu w formacie 600+0 do czasu w formacie 300+0. Zaznaczone proste regresji obrazujące trend.}
+	\label{rys:stosunek_sr_czas}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{pozostaly_czas.png}
+	\caption{
+		Pierwszy wykres -- zestawienie średniego pozostałego czasu w formatach 600+0 oraz 300+0. W celu lepszego porównania zastosowane osobne osie dla każdego formatu. Drugi wykres -- empiryczne prawdopodobieństwo popełnienia błędu w konkretnym ruchu.}
+	\label{rys:pozostaly_czas}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{prawd_blad_ELO.png}
+	\caption{
+		blblalsdlasdlasldlad.}
+	\label{rys:prawd_blad_ELO}
+\end{figure}
+Różnica w prawdopodobieństwie popełnienia błędu pomiędzy poszczególnymi formatami nie jest tak duża jak ta pomiędzy rankingiem graczy. Na rysunku \ref{rys:prawd_blad_ELO} można zauważyć, że dla zarówno dla formatu ,,600+0'' jak i ,,300+0'' słabsi gracze mają tendencję do popełniania większej liczby błędów w początkowej fazie gry, niż ich wyżej notowani koledzy. Statystycznie, będąc w grupie 25\% najniżej notowanych graczy ma się około 6 razy większe prawdopodobieństwo na popełnienie błędu w 10 posunięciu, niż osoba z grupy 25\% najwyżej notowanych graczy. Format gry ma na to niewielki wpływ. Można wysunąć wniosek, że w przypadku gry pomiędzy dwoma takimi zawodnikami, dwukrotnie zwiększenie czasu niżej notowanego gracza z 5 do 10 minut będzie miało minimalny wpływ na finalny wynik gry (przy założeniu, że liczba ,,dużych błędów'' jest mocno skorelowana z wynikiem gry). krzywe zaczynają do siebie zbiegać od okolic 20 ruchu, by stać się praktycznie nierozróżnialne w okolicach 40 ruchu.
+
+Wykres zależności prawdopodobieństwa od ruchu jest tym bardziej ,,spłaszczony'' im wyższa jest notacja elo zawodników. Brak szybkiego wzrostu dla początkowych posunięć sprawia, że statystyczne prawdopodobieństwo popełnienia ,,dużego błędu'' w pierwszych 10 ruchach niesamowicie różni się dla poszczególnych grup rankingowych. Tabela \ref{tab:blad_w_n_ruchach} przedstawia różnicę w szansie na popełnienie przynajmniej jednego błędu w pierwszych 10, 20 i 30 ruchach dla graczy z określonych przedziałów rankingowych i gier w określonym formacie. Przykładowo, dla osoby z grupy 25\% najniżej notowanych graczy grającej w formacie ,,600+0'', szansa na popełnienie błędu w 10 pierwszych ruchach wynosi aż 43,46\%, natomiast dla grupy 25\% najlepszych graczy jest to jedynie 6,76\%. Różnica ta zmniejsza się znacząco, gdy weźmie się pod uwagę większą liczbę pierwszych ruchów. Dla 20, jest to kolejno 85,50\% i 40,78\%, a dla 30 -- 95,32\% i 70,27\%. Wartości te wyglądają podobnie dla formatu 300+0.
+\begin{table}[H]
+	\caption{Szansa na popełnienie błędu w pierwszych \textit{n} ruchach dla gracza z określonego przedziału rankingowego z rozdzieleniem na formaty ,,600+0'' i ,,300+0''}
+	\centering
+	\begin{tabular}{|l|r|r|r|r|r|r|l}
+		\cline{1-7}
+		\textbf{\begin{tabular}[c]{@{}l@{}}\textit{n} pierwszych \\ ruchów\end{tabular}} & \multicolumn{2}{l|}{\textbf{n = 10}}                                      & \multicolumn{2}{l|}{\textbf{n = 20}}                                      & \multicolumn{2}{l|}{\textbf{n = 30}}                                      & \textbf{} \\ \cline{1-7}
+		\textbf{centyl\hphantom{ } \textbackslash \hphantom{ } format}                                   & \multicolumn{1}{l|}{\textbf{600+0}} & \multicolumn{1}{l|}{\textbf{300+0}} & \multicolumn{1}{l|}{\textbf{600+0}} & \multicolumn{1}{l|}{\textbf{300+0}} & \multicolumn{1}{l|}{\textbf{600+0}} & \multicolumn{1}{l|}{\textbf{300+0}} &           \\ \cline{1-7}
+		\textbf{0-25\%}                                                         & 43,36\%                             & 40,72\%                             & 85,50\%                             & 84,33\%                             & 95,32\%                             & 94,96\%                             &           \\ \cline{1-7}
+		\textbf{25\%-50\%}                                                      & 25,52\%                             & 22,09\%                             & 71,56\%                             & 68,63\%                             & 89,38\%                             & 88,66\%                             &           \\ \cline{1-7}
+		\textbf{50\%-75\%}                                                      & 15,58\%                             & 12,42\%                             & 58,86\%                             & 56,27\%                             & 83,08\%                             & 82,93\%                             &           \\ \cline{1-7}
+		\textbf{75\%-100\%}                                                     & 6,76\%                              & 5,63\%                              & 40,78\%                             & 38,66\%                             & 70,27\%                             & 70,40\%                             &           \\ \cline{1-7}
+	\end{tabular}
+	\label{tab:blad_w_n_ruchach} 
+\end{table}
+W pierwszej części tabeli, dla 10 pierwszych ruchów, co ciekawe, prawdopodobieństwo popełnienia błędu w dłuższym formacie czasowym jest wyższe niż w krótszym, niezależnie od rankingu zawodnika. Dla większej liczby pierwszych ruchów tendencja jest odwrotna - krótszy format oznacza statystycznie większą szansę na choć 1 popełniony błąd. \textbf{coś tu dodać jeszcze????}
 
 
 
 
-
-
+	
 
 \textbf{DALSZA CZĘŚĆ WYWODU???}
 
