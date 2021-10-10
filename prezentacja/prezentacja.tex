@@ -162,28 +162,29 @@
 		\end{itemize}
 	\end{itemize}
 \end{frame}
+
+\begin{frame}{wstępna analiza}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=8cm]{../Formatka/danee.png}
+		\caption{Fragment bazy zawierającej ruchy z gier o formatach czasowych ,,300+0'' i ,,600+0''.}
+		\label{rys:baza_ruchow}
+	\end{figure}
+\end{frame}
+
 \begin{frame}{dane}
 		\begin{itemize}
 	\item czego nie ma w danych?
 		\begin{itemize}
 		\item digitalizacja czasu -- czas na posunięcie zaokrąglony do pełnych sekund
-		\item brak informacji i odpowiedniej miary dotyczącej sytuacji na szachownicy
+		\item brak informacji i odpowiedniej miary dotyczącej skomplikowania sytuacji na szachownicy
 	\end{itemize}
 	\end{itemize}
 \end{frame}
 
 
-\begin{frame}{dane}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=8cm]{../Formatka/danee.png}
-	\caption{Fragment bazy zawierającej ruchy z gier o formatach czasowych ,,300+0'' i ,,600+0''.}
-	\label{rys:baza_ruchow}
-\end{figure}
-\end{frame}
 
-
-\begin{frame}{analiza problemu - wstępny przegląd danych}
+\begin{frame}{Analiza problemu - wstępny przegląd danych}
 
 	\begin{figure}[H]
 		\centering
@@ -193,7 +194,7 @@
 	\end{figure}
 \end{frame}
 
-\begin{frame}{analiza problemu - wstępny przegląd danych}
+\begin{frame}{Analiza problemu - wstępny przegląd danych}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=8cm]{../Formatka/dlugosc_gry.png}
@@ -202,18 +203,187 @@
 	\end{figure}
 \end{frame}
 
+\begin{frame}{Zależność między indeksem ruchu, a poświęconym czasem}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=11cm]{../Formatka/sr_czas_na_ruch.png}
+		\caption{Średni czas na wykonanie ruchu dla analizowanych formatów czasowych wraz z zaznaczonym rozstępem międzykwartylowym. Osobno wszystkie ruchy i ruchy oznaczone przez silnik jako błąd.}
+		\label{rys:sr_czas_na_ruch}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Zależność między indeksem ruchu, a poświęconym czasem}
+	Po oznaczeniu:\\ 
+	\textit{D} jako zmienną określającą skomplikowanie pozycji,\\ \textit{T} - zmienną określającą czas na wykonanie ruchu w danej pozycji,\\ \textit{B} - zdarzenie polegające na tym, że posunięcie jest błędne\\
+	 i przy założeniu, że \textit{T} jest silnie dodatnio skorelowane z \textit{R}, według prawdopodobieństwa otrzymujemy:
+	\begin{equation*}
+		P(B|D>d_0) > P(B|D\leq d_0) \rightarrow P(B|T>t_0) > P(B|T\leq t_0)
+	\end{equation*}
+	gdzie $d_0$ i $t_0$ określają punkty, od których według wybranej miary można określić, że pozycja jest skomplikowana ($D>d_0$) i czas na wykonanie posunięcia jest długi ($T>t_0$).
+	
+	
+	Może to tłumaczyć wyższą średnią czasu na wykonanie błędnego posunięcia w porównaniu do zbioru wszystkich posunięć.
+\end{frame}
+
+\begin{frame}{Zależność między indeksem ruchu, a poświęconym czasem}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=11cm]{../Formatka/std_czas_na_ruch.png}
+	\caption{Odchylenie standardowe czasu na wykonanie ruchu dla analizowanych formatów czasowych. Osobno wszystkie ruchy i ruchy oznaczone przez silnik jako błąd.}
+	\label{rys:std_czas_na_ruch}
+\end{figure}
+\end{frame}
+\begin{frame}{Zależność między indeksem ruchu, a poświęconym czasem}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=11cm]{../Formatka/sr_czas_na_ruch_ELO_1.png}
+		\caption{Średni czas na wykonanie ruchu dla dla graczy z różnych przedziałów rankingowych. Wszystkie posunięcia.}
+		\label{rys:sr_czas_na_ruch_ELO_1}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Zależność między indeksem ruchu, a poświęconym czasem}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=11cm]{../Formatka/sr_czas_na_ruch_ELO_2.png}
+		\caption{Średni czas na wykonanie ruchu dla dla graczy z różnych przedziałów rankingowych. Posunięcia oznaczone przez silnik jako błąd.}
+		\label{rys:sr_czas_na_ruch_ELO_2}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Zależność między indeksem ruchu, a poświęconym czasem}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=7cm]{../Formatka/stosunek_sr_czas.png}
+	\caption{Stosunek średniego czasu na wykonanie ruchu w formacie 600+0 do czasu w formacie 300+0. Zaznaczone proste regresji obrazujące trend.}
+	\label{rys:stosunek_sr_czas}
+\end{figure}
+\end{frame}
 
 
+\begin{frame}{Zależność między indeksem ruchu, a poświęconym czasem}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=11cm]{../Formatka/pozostaly_czas.png}
+		\caption{
+			Pierwszy wykres -- zestawienie średniego pozostałego czasu w formatach 600+0 oraz 300+0. W celu lepszego porównania zastosowane osobne osie dla każdego formatu. Drugi wykres -- empiryczne prawdopodobieństwo popełnienia błędu w konkretnym ruchu.}
+		\label{rys:pozostaly_czas}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Zależność między indeksem ruchu, a poświęconym czasem}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=11cm]{../Formatka/prawd_blad_ELO.png}
+	\caption{Prawdopodobieństwo popełnienia błędu w konkretnym ruchu dla różnych przedziałów rankingowych.}
+	\label{rys:prawd_blad_ELO}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Zależność między indeksem ruchu, a poświęconym czasem}
+	\begin{equation*}
+		X_i =
+		\begin{cases}
+			1, & \text{gdy w $i$-tym ruchu został popełniony błąd}\\
+			0, & \text{gdy w $i$-tym ruchu nie został popełniony błąd}
+		\end{cases}       
+	\end{equation*}
+\begin{multline*}
+	\begin{split}
+		& P(X_1 = 1 \vee X_2 = 1 \vee \dots \vee X_n = 1) =\\
+		& = 1 - P(X_1 = 0, X_2 = 0,\dots, X_n = 0) = \\
+		& = P(X_1 = 0)P(X_2 = 0)\dots P(X_n = 0) = \\
+		& = \prod_{i=1}^{n}P(X_i=0)
+	\end{split}
+\end{multline*}
+\end{frame}
+
+\begin{frame}{Zależność między indeksem ruchu, a poświęconym czasem}
+	\scriptsize
+	\begin{table}[H]
+		\caption{Szansa na popełnienie błędu w pierwszych \textit{n} ruchach dla gracza z określonego przedziału rankingowego z rozdzieleniem na formaty ,,600+0'' i ,,300+0''}
+		\centering
+		\begin{tabular}{|l|r|r|r|r|r|r|l}
+			\cline{1-7}
+			\textbf{\begin{tabular}[c]{@{}l@{}}\textit{n} pierwszych \\ ruchów\end{tabular}} & \multicolumn{2}{l|}{\textbf{n = 10}}                                      & \multicolumn{2}{l|}{\textbf{n = 20}}                                      & \multicolumn{2}{l|}{\textbf{n = 30}}                                      & \textbf{} \\ \cline{1-7}
+			\textbf{centyl\hphantom{ } \textbackslash \hphantom{ } format}                                   & \multicolumn{1}{l|}{\textbf{600+0}} & \multicolumn{1}{l|}{\textbf{300+0}} & \multicolumn{1}{l|}{\textbf{600+0}} & \multicolumn{1}{l|}{\textbf{300+0}} & \multicolumn{1}{l|}{\textbf{600+0}} & \multicolumn{1}{l|}{\textbf{300+0}} &           \\ \cline{1-7}
+			\textbf{0-25\%}                                                         & 43,36\%                             & 40,72\%                             & 85,50\%                             & 84,33\%                             & 95,32\%                             & 94,96\%                             &           \\ \cline{1-7}
+			\textbf{25\%-50\%}                                                      & 25,52\%                             & 22,09\%                             & 71,56\%                             & 68,63\%                             & 89,38\%                             & 88,66\%                             &           \\ \cline{1-7}
+			\textbf{50\%-75\%}                                                      & 15,58\%                             & 12,42\%                             & 58,86\%                             & 56,27\%                             & 83,08\%                             & 82,93\%                             &           \\ \cline{1-7}
+			\textbf{75\%-100\%}                                                     & 6,76\%                              & 5,63\%                              & 40,78\%                             & 38,66\%                             & 70,27\%                             & 70,40\%                             &           \\ \cline{1-7}
+		\end{tabular}
+		\label{tab:blad_w_n_ruchach} 
+	\end{table}
+\normalsize
+\end{frame}
+
+\begin{frame}{Zależność między czasem poświęconym na ruch, a jego oceną}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=11cm]{../Formatka/rozklad_czasu.png}
+	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0''. Osobno wszystkie posunięcia i posunięcia błędne}
+	\label{rys:rozklad_czasu}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Zależność między czasem poświęconym na ruch, a jego oceną}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=11cm]{../Formatka/rozklad_lognorm.png}
+		\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym rozkładem log-normalnym.}
+		\label{rys:rozklad_lognorm}
+	\end{figure}
+\end{frame}
+\begin{frame}{Zależność między czasem poświęconym na ruch, a jego oceną}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=11cm]{../Formatka/rozklad_lognorm2.png}
+		\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym rozkładem log-normalnym. Zestaw ruchów błędnych.}
+		\label{rys:rozklad_lognorm2}
+	\end{figure}
+\end{frame}
 
 \section{Podsumowanie}
 
 \begin{frame}{Wnioski}
+	\begin{itemize}
+		\item 95\% gier kończy się w 57 ruchach
+		\item błąd dla każdego elo dla każdego posunięcia zajmuje średnio dłużej, ma też zawsze większą wariancje
+		\item wszystkie ruchy: lepsi gracze szybciej wykonują ruchy początkowe, dłużej te z największą szansą na błąd (ok 20)
+		\item największa szansa na błąd -- okolice 20 ruchu
+		\item odnośnie dwóch poprzednich, lepsi gracze najmniej popełniają błędów w okolicach 20 ruchu
+		\item największa szansa na błąd -- różnice dla elo (dużo błędów na początku 
+		dla słabych graczy później się stabilizuje)
+	\end{itemize}
 \end{frame}
 
+\begin{frame}{Wnioski}
+	\begin{itemize}
+		\item lepsi gracze DŁUŻEJ wykonują ruchy BŁĘDNE
+		\item różnice między formatami - w 600+0 ruchy zajmują nieliniowo więcej czasu, w 300+0 gracze są zmuszeni szybko wykonywać ruchy późniejsze.
+		\item 10 pierwszych ruchów, istotna różnica w popełnieniu rażącego błędu między graczami słabymi a dobrymi
+	\end{itemize}
+\end{frame}
+
+
 \begin{frame}{Dalsza praca}
+	\begin{itemize}
+		\item stworzenie odpowiedniej miary i wzięcie pod uwagę poziomu skomplikowania pozycji
+		\begin{itemize}
+			\item potrzebna dużo większa moc obliczeniowa	
+		\end{itemize}
+	
+		\item stworzenie odpowiedniej miary do określania błędów (innej niż Stockfish)
+		\begin{itemize}
+			\item sprawdzenie zgodności wyników
+			\item potrzebna dużo większa moc obliczeniowa	
+		\end{itemize}
+	\end{itemize}
+	
 \end{frame}
 
 \begin{frame}{Pytania?}
+	całość pracy dostępna pod adresem:\\ \url{https://github.com/rogulforce/Chess}
 \end{frame}
 
 \end{document}

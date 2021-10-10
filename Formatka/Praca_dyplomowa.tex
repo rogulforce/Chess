@@ -239,6 +239,9 @@ W części pracy na wykresach pojawiać się będzie oznaczenie ,,duży błąd''
 Niniejszy rozdział poświęcony zostanie zagadnieniom teoretycznym z dziedziny statystyki, zastosowanych w analizie przedstawionych problemów.
 \section{rozkład lognormalny}
 \section{metoda najmniejszych kwadratów}
+\section{metoda momentów}
+W szcagólności: wyznaczenie paramentrów rozkładu log-normalnego za pomocą metody momentów: \textbf{(podać same wyniki)}
+\textbf{[cite Weisstein, Eric W. "Log Normal Distribution". mathworld.wolfram.com. Retrieved 2020-09-13 (https://mathworld.wolfram.com/LogNormalDistribution.html)]}
 \chapter{sformułowanie i rozwiązanie problemów analitycznych}
 \section{sformułowanie problemów}
 Podstawowym problemem podjętym w pracy jest analiza zależności pomiędzy czasem poświęconym na wykonanie ruchu, a jego dokładnością. Główny nacisk kładziony zostanie na ruchy oznaczone przez silnik jako błąd, co można uargumentować tym, że właśnie te ruchy mają największy wpływ na grę, szczególnie biorąc pod uwagę szachy szybkie, gdzie czasu na ruch jest zdecydowanie mniej, czego wynikiem jest to, że błędne ruchy pojawiają się znacznie częściej. Dodatkową osią ujętą w rozważaniach będzie ranking zawodników i jego wpływ na rozkłady danych. Sprawdzona i wzięta pod uwagę zostanie również zależność między numerem ruchu, a czasem na wykonanie oraz jego dokładnością.
@@ -405,13 +408,30 @@ By móc przeanalizować zależność między rozgrywanym formatem, a wzrostem ś
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{prawd_blad_ELO.png}
-	\caption{
-		blblalsdlasdlasldlad.}
+	\caption{Prawdopodobieństwo popełnienia błędu w konkretnym ruchu dla różnych przedziałów rankingowych.}
 	\label{rys:prawd_blad_ELO}
 \end{figure}
 Różnica w prawdopodobieństwie popełnienia błędu pomiędzy poszczególnymi formatami nie jest tak duża jak ta pomiędzy rankingiem graczy. Na rysunku \ref{rys:prawd_blad_ELO} można zauważyć, że dla zarówno dla formatu ,,600+0'' jak i ,,300+0'' słabsi gracze mają tendencję do popełniania większej liczby błędów w początkowej fazie gry, niż ich wyżej notowani koledzy. Statystycznie, będąc w grupie 25\% najniżej notowanych graczy ma się około 6 razy większe prawdopodobieństwo na popełnienie błędu w 10 posunięciu, niż osoba z grupy 25\% najwyżej notowanych graczy. Format gry ma na to niewielki wpływ. Można wysunąć wniosek, że w przypadku gry pomiędzy dwoma takimi zawodnikami, dwukrotnie zwiększenie czasu niżej notowanego gracza z 5 do 10 minut będzie miało minimalny wpływ na finalny wynik gry (przy założeniu, że liczba błędów jest mocno skorelowana z wynikiem gry). krzywe zaczynają do siebie zbiegać od okolic 20 ruchu, by stać się praktycznie nierozróżnialne w okolicach 40 ruchu.
 
-Wykres zależności prawdopodobieństwa od ruchu jest tym bardziej ,,spłaszczony'' im wyższa jest notacja elo zawodników. Brak szybkiego wzrostu dla początkowych posunięć sprawia, że statystyczne prawdopodobieństwo popełnienia  błędu w pierwszych 10 ruchach niesamowicie różni się dla poszczególnych grup rankingowych. Tabela \ref{tab:blad_w_n_ruchach} przedstawia różnicę w szansie na popełnienie przynajmniej jednego błędu w pierwszych 10, 20 i 30 ruchach dla graczy z określonych przedziałów rankingowych i gier w określonym formacie. Przykładowo, dla osoby z grupy 25\% najniżej notowanych graczy grającej w formacie ,,600+0'', szansa na popełnienie błędu w 10 pierwszych ruchach wynosi aż 43,46\%, natomiast dla grupy 25\% najlepszych graczy jest to jedynie 6,76\%. Różnica ta zmniejsza się znacząco, gdy weźmie się pod uwagę większą liczbę pierwszych ruchów. Dla 20, jest to kolejno 85,50\% i 40,78\%, a dla 30 -- 95,32\% i 70,27\%. Wartości te wyglądają podobnie dla formatu 300+0.
+Wykres zależności prawdopodobieństwa od ruchu jest tym bardziej ,,spłaszczony'' im wyższa jest notacja elo zawodników. Brak szybkiego wzrostu dla początkowych posunięć sprawia, że statystyczne prawdopodobieństwo popełnienia błędu w pierwszych 10 ruchach niesamowicie różni się dla poszczególnych grup rankingowych.  Po oznaczeniu przez $X_i$ zmienną losową określającą popełnienie błędu w \textit{i}-tym posunięciu:
+\begin{equation*}
+X_i =
+\begin{cases}
+	1, & \text{gdy w $i$-tym ruchu został popełniony błąd}\\
+	0, & \text{gdy w $i$-tym ruchu nie został popełniony błąd}
+\end{cases}       
+\end{equation*}
+oraz założeniu, że $X_i$ oraz $X_j$ są niezależne dla $i \neq j$ (drugie przejście w równaniu poniżej \textbf{cite Jacek Jakubowski, Rafał Sztencel: Wstęp do teorii prawdopodobieństwa. Warszawa: Script, 2001. str 43 ISBN 83-904564-5-1}) możemy zbadać empiryczne prawdopodobieństwo popełnienia choć jednego błędu w \textit{n} pierwszych ruchach.
+
+\begin{multline}
+	\begin{split}
+	& P(X_1 = 1 \vee X_2 = 1 \vee \dots \vee X_n = 1)  = 1 - P(X_1 = 0, X_2 = 0,\dots, X_n = 0) = \\
+	& = P(X_1 = 0)P(X_2 = 0)\dots P(X_n = 0) = \prod_{i=1}^{n}P(X_i=0)
+	\end{split}
+\end{multline}
+Przy czym $P(X_i=0)$ można wyznaczyć empirycznie na podstawie danych.\\
+
+ Tabela \ref{tab:blad_w_n_ruchach} przedstawia różnicę w szansie na popełnienie przynajmniej jednego błędu w pierwszych 10, 20 i 30 ruchach dla graczy z określonych przedziałów rankingowych i gier w określonym formacie. Przykładowo, dla osoby z grupy 25\% najniżej notowanych graczy grającej w formacie ,,600+0'', szansa na popełnienie błędu w 10 pierwszych ruchach wynosi aż 43,46\%, natomiast dla grupy 25\% najlepszych graczy jest to jedynie 6,76\%. Różnica ta zmniejsza się znacząco, gdy weźmie się pod uwagę większą liczbę pierwszych ruchów. Dla 20, jest to kolejno 85,50\% i 40,78\%, a dla 30 -- 95,32\% i 70,27\%. Wartości te wyglądają podobnie dla formatu 300+0.
 \begin{table}[H]
 	\caption{Szansa na popełnienie błędu w pierwszych \textit{n} ruchach dla gracza z określonego przedziału rankingowego z rozdzieleniem na formaty ,,600+0'' i ,,300+0''}
 	\centering
@@ -426,23 +446,36 @@ Wykres zależności prawdopodobieństwa od ruchu jest tym bardziej ,,spłaszczon
 	\end{tabular}
 	\label{tab:blad_w_n_ruchach} 
 \end{table}
-W pierwszej części tabeli, dla 10 pierwszych ruchów, co ciekawe, prawdopodobieństwo popełnienia błędu w dłuższym formacie czasowym jest wyższe niż w krótszym, niezależnie od rankingu zawodnika. Dla większej liczby pierwszych ruchów tendencja jest odwrotna - krótszy format oznacza statystycznie większą szansę na choć 1 popełniony błąd. \textbf{coś tu dodać jeszcze????}
+W pierwszej części tabeli, dla 10 pierwszych ruchów, co ciekawe, prawdopodobieństwo popełnienia błędu w dłuższym formacie czasowym jest znacznie wyższe niż w krótszym, niezależnie od rankingu zawodnika. Dla większej liczby pierwszych ruchów ta różnica się zmniejsza, jednak cały czas dłuższy format oznacza statystycznie większą szansę na choć 1 popełniony błąd, co wydaje się być sprzeczne z intuicją, ponieważ gracze mają 2 razy więcej czasu na wszystkie posunięcia. \textbf{coś tu dodać jeszcze????}
 
 
 \subsection{zależność między czasem poświęconym na ruch, a jego oceną}
 
 
 Kolejny problemem, który zostanie zbadany jest zależność pomiędzy czasem poświęconym na ruch, a jego oceną. Tak jak i we wcześniejszych częściach wartość oceny silnika rozróżniana będzie jedynie na ruchy oznaczone jako błąd i te bez takiego oznaczenia.
-
-Pierwszym spojrzeniem na wymienioną wyżej zależność będzie przeanalizowanie rozkładu czasu na wykonanie ruchu osobno dla zbioru wszystkich ruchów i dla tych błędnych. Jak można zauważyć na rysunku \ref{rys:rozklad_czasu}, w każdym rozważanym formacie czasowym różnica w rozkładzie dla zbioru wszystkich ruchów i zbioru ruchów błędnych jest zauważalna. Oba zbiory mają zachowane podobne tendencje -- najwięcej ruchów zagrywana jest w ciągu dwóch do czterech sekund
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{rozklad_czasu.png}
-	\caption{
-		blblalsdlasdlasldlad.}
+	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0''. Osobno wszystkie posunięcia i posunięcia błędne}
 	\label{rys:rozklad_czasu}
 \end{figure}
+
+Pierwszym spojrzeniem na wymienioną wyżej zależność będzie przeanalizowanie rozkładu czasu na wykonanie ruchu osobno dla zbioru wszystkich ruchów i dla tych błędnych. Jak można zauważyć na rysunku \ref{rys:rozklad_czasu}, w każdym rozważanym formacie czasowym różnica w rozkładzie dla zbioru wszystkich ruchów i zbioru ruchów błędnych jest zauważalna. Oba zbiory mają zachowane podobne tendencje -- najwięcej posunięć zagrywana jest w ciągu dwóch do czterech sekund. W każdym ze zbiorów wraz ze wzrostem czasu na wykonanie posunięcia, empiryczna gęstość rozkładu się zmniejsza. Ruchów błędnych jest widocznie mniej w porównaniu do zbioru wszystkich ruchów w przedziale od 0 do ok. 8 sekund. Natomiast w przedziale od ok. 8 do 30 sekund, posunięcia błędne są spotykane częściej.
+Po przyjrzeniu się danym można zauważyć, że pochodzą one z rozkładu logarytmicznie-normalnego, co można uwarunkować tym, że w zdecydowanej większości pozycji zawodnik potrzebuje chwili na odpowiedź na posunięcie przeciwnika, ponieważ samo zarejestrowanie zmiany na planszy i fizyczne wykonanie posunięcia (przesunięcie figury na konkretne pole za pomocą myszki dla komputerów lub przeciągnięcie palcem dla smartfonów) zajmuje pewien czas, wykluczając sytuacje, w których zawodnik dokonuje tzw. ,,premove'', czyli podejmuje decyzję o wykonaniu konkretnego posunięcia zajmującego 0 sekund jeszcze przed zagraniem przeciwnika. Dla formatów ,,300+0'' i ,,600+0'' jest to jednak rzadkością - szczególnie podczas środkowej części gry.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{rozklad_lognorm.png}
+	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym rozkładem log-normalnym.}
+	\label{rys:rozklad_lognorm}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{rozklad_lognorm2.png}
+	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym rozkładem log-normalnym. Zestaw ruchów błędnych.}
+	\label{rys:rozklad_lognorm2}
+\end{figure}
+Za pomocą metody momentów \textbf{[cite]} opisanej w rozdziale \textbf{NR ROZDZIAŁU, opisać ją jakoś?} do każdego zbioru danych został dopasowany rozkład log-normalny. Na rysunku \ref{rys:rozklad_lognorm}  ... Na rysunku \ref{rys:rozklad_lognorm2}  ... 
 
 \textbf{PLAN:}\\
 
@@ -485,7 +518,7 @@ osobno rankingi przeanalizować}\\
 
 
 
-Po przyjrzeniu się danym można zauważyć, że pochodzą one z rozkładu logarytmicznie-normalnego, co można uwarunkować tym, że w zdecydowanej większości pozycji zawodnik potrzebuje chwili na odpowiedź na ruch przeciwnika, tj 
+
 
 
 

@@ -1,3 +1,14 @@
-\beamer@slide {rys:baza_ruchow}{15}
+\beamer@slide {rys:baza_ruchow}{14}
 \beamer@slide {rys:rozklad_elo}{16}
 \beamer@slide {rys:dlugosc_gier}{17}
+\beamer@slide {rys:sr_czas_na_ruch}{18}
+\beamer@slide {rys:std_czas_na_ruch}{20}
+\beamer@slide {rys:sr_czas_na_ruch_ELO_1}{21}
+\beamer@slide {rys:sr_czas_na_ruch_ELO_2}{22}
+\beamer@slide {rys:stosunek_sr_czas}{23}
+\beamer@slide {rys:pozostaly_czas}{24}
+\beamer@slide {rys:prawd_blad_ELO}{25}
+\beamer@slide {tab:blad_w_n_ruchach}{27}
+\beamer@slide {rys:rozklad_czasu}{28}
+\beamer@slide {rys:rozklad_lognorm}{29}
+\beamer@slide {rys:rozklad_lognorm2}{30}
