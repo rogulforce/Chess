@@ -9,24 +9,24 @@ Warning--to sort, need author or key in stockfish_lichess
 Warning--to sort, need author or key in lichess
 You've used 4 entries,
             2118 wiz_defined-function locations,
-            518 strings with 4514 characters,
-and the built_in function-call counts, 941 in all, are:
-= -- 91
-> -- 27
+            516 strings with 4409 characters,
+and the built_in function-call counts, 783 in all, are:
+= -- 74
+> -- 16
 < -- 0
-+ -- 13
-- -- 8
-* -- 52
-:= -- 147
++ -- 10
+- -- 4
+* -- 29
+:= -- 125
 add.period$ -- 12
 call.type$ -- 4
-change.case$ -- 15
+change.case$ -- 13
 chr.to.int$ -- 0
 cite$ -- 6
-duplicate$ -- 37
-empty$ -- 96
-format.name$ -- 8
-if$ -- 205
+duplicate$ -- 36
+empty$ -- 86
+format.name$ -- 4
+if$ -- 173
 int.to.chr$ -- 0
 int.to.str$ -- 4
 missing$ -- 3
@@ -34,18 +34,18 @@ newline$ -- 23
 num.names$ -- 4
 pop$ -- 31
 preamble$ -- 1
-purify$ -- 12
+purify$ -- 10
 quote$ -- 0
 skip$ -- 23
 stack$ -- 0
-substring$ -- 46
+substring$ -- 22
 swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 14
 warning$ -- 2
-while$ -- 6
+while$ -- 4
 width$ -- 5
-write$ -- 42
+write$ -- 41
 (There were 2 warnings)

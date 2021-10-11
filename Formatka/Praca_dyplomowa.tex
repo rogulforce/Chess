@@ -183,10 +183,10 @@ W związku z możliwością przegranej poprzez upłynięcie czasu na zegarze, za
 
 \section{System rankingowy Glicko-2}
 \textbf{opisać ogólnie troche historii o systemach rankingowych?}
-System rankingowy ELO - pierwowzór systemu Glicko-2, został zaprezentowany w latach pięćdziesiątych dwudziestego wieku przez Węgierskiego fizyka i szachistę Arpada Elo (1903-1992) \textbf{[CITE]}. Początkowo był używany jedynie w szachach, jednak wraz ze wzrostem jego popularności zaczął być stosowany również w innych rozgrywkach z możliwością pomiaru poziomu zawodników. System ten jest pierwszym systemem mającym podłoże probabilistyczne i jest oparty na rozkładzie normalnym z ustaloną średnią. Przyznaje odpowiednią liczbę punktów zwycięzcy rozgrywki i odbiera przegranemu bazując na różnicy między ich aktualnym rankingiem.
+System rankingowy ELO - pierwowzór systemu Glicko-2, został zaprezentowany w latach pięćdziesiątych dwudziestego wieku przez Węgierskiego fizyka i szachistę Arpada Elo (1903-1992) \textbf{\cite[rozdział 1]{elo}}. Początkowo był używany jedynie w szachach, jednak wraz ze wzrostem jego popularności zaczął być stosowany również w innych rozgrywkach z możliwością pomiaru poziomu zawodników. System ten jest pierwszym systemem mającym podłoże probabilistyczne i jest oparty na rozkładzie normalnym z ustaloną średnią. Przyznaje odpowiednią liczbę punktów zwycięzcy rozgrywki i odbiera przegranemu bazując na różnicy między ich aktualnym rankingiem.
 
 
-System Glicko-2 \textbf{[cite]} używany przez stronę \textbf{Lichess.com}, na danych której oparta jest niniejsza praca, opracowany został przez Marka Glickmana jako ulepszenie systemu ELO. Podstawową zmianą jest uwzględnienie historycznych wyników każdego z zawodników w celu ustalenia wariancji aktualnego rankingu. Glickman w swojej pracy z roku 1998 przedstawia problem dwóch graczy o takim samym rankingu, z których jeden gra regularnie, a drugi wrócił do gry po długiej przerwie. System Glicko-2 przyznając punkt za grę bierze pod uwagę wiarygodność każdego z rankingów. Zawodnikowi grającemu regularnie zostanie przyznane bądź odebrane mniej punktów ze względu na duże potencjalne odchylenie rankingu przeciwnika od zadeklarowanej wartości. Innymi słowy, w miarę zwiększania się liczby partii gracza, przedział ufności dla jego realnego rankingu zawęża się i przypisany mu ranking zbiega do realnego poziomu i wiarygodność przypisanego rankingu jest uwzględniaan w przyznawaniu i odbieraniu punktów zawodnikom po zakończeniu partii.
+System Glicko-2  używany przez stronę \textbf{Lichess.com}, na danych której oparta jest niniejsza praca, opracowany został przez Marka Glickmana jako ulepszenie systemu ELO. Podstawową zmianą jest uwzględnienie historycznych wyników każdego z zawodników w celu ustalenia wariancji aktualnego rankingu. Glickman w swojej pracy z roku 1999 \textbf{\cite{glicko}} przedstawia problem dwóch graczy o takim samym rankingu, z których jeden gra regularnie, a drugi wrócił do gry po długiej przerwie. System Glicko-2 przyznając punkt za grę bierze pod uwagę wiarygodność każdego z rankingów. Zawodnikowi grającemu regularnie zostanie przyznane bądź odebrane mniej punktów ze względu na duże potencjalne odchylenie rankingu przeciwnika od zadeklarowanej wartości. Innymi słowy, w miarę zwiększania się liczby partii gracza, przedział ufności dla jego realnego rankingu zawęża się i przypisany mu ranking zbiega do realnego poziomu i wiarygodność przypisanego rankingu jest uwzględniaan w przyznawaniu i odbieraniu punktów zawodnikom po zakończeniu partii.
 
 \textbf{WRZUCIĆ MATEMATYKĘ STOJĄCĄ ZA GLICKO-2???}
 x
@@ -195,7 +195,7 @@ x
 \section{Funkcja oceny}
 Przed przystąpieniem do opisania funkcji, należy wytłumaczyć działanie silnika szachowego, który dokonuje oceny pozycji.
 \subsection{Stockfish}
-Stockfish \textbf{[CITE]} jest jednym z najlepszych i najpopularniejszym obecnie używanym silnikiem szachowym, którego zaprojektowali Joost VandeVondele, Joon Kiiski, Marco Costalb, Tord Romstad, Gary Linscott, Stefan Geschwentner i Stéphane Nicolet i stale ulepszany jako oprogramowanie typu open-source. Strona \textbf{Lichess.com}\cite{stockfish_lichess} tak jak większość stron internetowych poświęconych szachom on-line, wykorzystuje go do analizy i oceny aktualnej pozycji.
+Stockfish \textbf{\cite{stockfish}} jest jednym z najlepszych i najpopularniejszym obecnie używanym silnikiem szachowym, którego zaprojektowali Joost VandeVondele, Joon Kiiski, Marco Costalb, Tord Romstad, Gary Linscott, Stefan Geschwentner i Stéphane Nicolet i stale ulepszany jako oprogramowanie typu open-source. Strona \textbf{Lichess.com}, tak jak większość stron internetowych poświęconych szachom on-line, wykorzystuje go \textbf{\cite{stockfish_lichess}} do analizy i oceny aktualnej pozycji.
 
 Stockfish poprzez przeszukiwanie według strategii mini-max \textbf{[cite]} z odcięciem, za pomocą algorytmu alfa-beta \textbf{[cite]}, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych wykonanych zaczynając z analizowanej pozycji) i na ich podstawie ocenia aktualną pozycję, określając przewagę jednego z graczy
 
@@ -594,27 +594,6 @@ dla wszystkich rang
 \end{itemize}
 
 
-\chapter{tabelka}
-Tabela \ref{tab:przykladowa} 
-\begin{table}[H]
-	\caption{Podstawowa Tabela}
-	\centering
-	\begin{tabular}{ccc}
-		\hline
-		\hline                       
-		Państwo & PKB (w milionach USD )& Stopa bezrobocia  \\  [0.5ex] 
-		\hline 
-		Stany Zjednoczone & 75 278 049 & 4,60\%  \\
-		Chiny & 11 218 281 & 4,10\%   \\
-		Japonia & 4 938 644 & 3,10\%  \\
-		Niemcy & 3 466 639 & 6,00\%   \\
-		Wielka Brytania & 2 629 188 & 4,60\%  \\ [1ex]  
-		\hline 
-	\end{tabular}
-	\caption*{\textit{Źródło: opracowanie własne}}
-	\label{tab:przykladowa2} 
-\end{table}
-
 \chapter{Definicje, lematy, twierdzenia, przykłady i wnioski}
 Definicje, lematy, twierdzenia, przykłady i wnioski piszemy w pracy tak:
 \begin{definition}[Martyngał]
@@ -623,8 +602,7 @@ Definicje, lematy, twierdzenia, przykłady i wnioski piszemy w pracy tak:
 \begin{lemma}[]% w nawiasie kwadratowym można napisać jego nazwę
 	Tu piszemy treść lematu.
 \end{lemma}
-\chapter{cytowanie}
-Do cytowania używamy komendy \texttt{cite}. W nawiasie klamrowym podajemy klucz, którego użyliśmy w pliku \emph{bibliografia.bib}. Przykład: \cite{einstein} lub \cite[chap. 2]{latexcompanion}.
+
 
 %{\backmatter \chapter{Podsumowanie}}
 %Podsumowanie w pracach matematycznych nie jest obligatoryjne. Warto jednak na zakończenie krótko napisać, co udało nam się %zrobić w pracy, a czasem także o tym, czego nie udało się zrobić.

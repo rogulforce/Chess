@@ -4,22 +4,21 @@
 {Lichess computer engine used from 2014}.
 \newblock
   \url{https://lichess.org/blog/U4mtoEQAAEEAgZRL/strongest-chess-player-ever}.
-\newblock Accessed: 2010-09-30.
+\newblock Dostęp: 30/05/2021.
 
 \bibitem{lichess}
 {Lichess database}.
 \newblock \url{https://database.lichess.org/}.
-\newblock Accessed: 2010-09-30.
+\newblock Accessed: 30/05/2021.
 
-\bibitem{einstein}
-Albert Einstein.
-\newblock {Zur Elektrodynamik bewegter K{\"o}rper}. ({German}) [{On} the
-  electrodynamics of moving bodies].
-\newblock {\em Annalen der Physik}, 322(10):891--921, 1905.
+\bibitem{elo}
+Arpad~E. Elo.
+\newblock {\em The rating of chessplayers, Past \& Present (second edition)}.
+\newblock FIDE, New York, United States, 1986.
 
-\bibitem{latexcompanion}
-Michel Goossens, Frank Mittelbach, and Alexander Samarin.
-\newblock {\em The \LaTeX\ Companion}.
-\newblock Addison-Wesley, Reading, Massachusetts, 1993.
+\bibitem{glicko}
+Mark Glickman.
+\newblock The glicko system.
+\newblock {\em Boston University}, 1999.
 
 \end{thebibliography}
