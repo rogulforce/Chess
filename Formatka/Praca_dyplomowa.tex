@@ -197,7 +197,7 @@ Przed przystąpieniem do opisania funkcji, należy wytłumaczyć działanie siln
 \subsection{Stockfish}
 Stockfish \textbf{\cite{stockfish}} jest jednym z najlepszych i najpopularniejszym obecnie używanym silnikiem szachowym, którego zaprojektowali Joost VandeVondele, Joon Kiiski, Marco Costalb, Tord Romstad, Gary Linscott, Stefan Geschwentner i Stéphane Nicolet i stale ulepszany jako oprogramowanie typu open-source. Strona \textbf{Lichess.com}, tak jak większość stron internetowych poświęconych szachom on-line, wykorzystuje go \textbf{\cite{stockfish_lichess}} do analizy i oceny aktualnej pozycji.
 
-Stockfish poprzez przeszukiwanie według strategii mini-max \textbf{[cite]} z odcięciem, za pomocą algorytmu alfa-beta \textbf{[cite]}, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych wykonanych zaczynając z analizowanej pozycji) i na ich podstawie ocenia aktualną pozycję, określając przewagę jednego z graczy
+Stockfish poprzez przeszukiwanie według strategii mini-max \textbf{[cite: E. Vilkas, "Axiomatic definition of the value of a matrix game" Theory Probabl. Appl. , 8 (1963) pp. 304–307 Teor. Veroyatnost. i Primenen. , 8 : 3 (1963) pp. 324–327 MR0154750 Zbl 0279.90044]} z odcięciem, za pomocą algorytmu alfa-beta \textbf{[cite]}, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych wykonanych zaczynając z analizowanej pozycji) i na ich podstawie ocenia aktualną pozycję, określając przewagę jednego z graczy
 
 \subsection{Ewaluacja}
 Wspomniana wcześniej ewaluacja, wyliczana przez silnik szachowy jest wynikiem liniowej funkcji 
@@ -225,7 +225,7 @@ Wraz ze wzrostem wartości funkcji zwiększa się przewaga białych, natomiast w
 W notacji szachowej obok zapisanego ruchu mogą pojawić się symbole określające jakość danego ruchu. Dla analizowanych danych, ruch oceniany jest przez silnik szachowy za pomocą skomplikowanych algorytmów, których głównym składnikiem jest zmiana oceny pozycji na szachownicy przez silnik.
 Przykładowo, gdy przed ruchem czarnych ocena pozycji wynosiła -2, a po ruchu 3, silnik oceni ruch jako błąd, jednakże jeśli wcześniejsza ocena wynosiła -18, a po ruchu -13, silnik nie oznaczy ruchu jako błędny, ponieważ przewaga czarnych i tak jest bardzo znacząca.
 
-Wśród licznych oznaczeń silnika, w pracy analizowane będą następujące oznaczenia\textbf{[cite: Corpus ID: 53767853 Secrets of Rook Endings J. Nunn Published 1992 Computer Science]}:
+Wśród licznych oznaczeń silnika, w pracy analizowane będą następujące oznaczenia\cite{symbols}:
 \begin{itemize}
 	\item ??\hphantom{!} -- błąd (ang. \textit{blunder})
 	\item ?\hphantom{?!}  -- pomyłka (ang. \textit{mistake}), posunięcie błędne w mniejszym stopniu niż ,,błąd''
@@ -241,6 +241,7 @@ Niniejszy rozdział poświęcony zostanie zagadnieniom teoretycznym z dziedziny 
 \section{metoda najmniejszych kwadratów}
 \section{metoda momentów}
 W szcagólności: wyznaczenie paramentrów rozkładu log-normalnego za pomocą metody momentów: \textbf{(podać same wyniki)}
+\cite{lognorm}
 \textbf{[cite Weisstein, Eric W. "Log Normal Distribution". mathworld.wolfram.com. Retrieved 2020-09-13 (https://mathworld.wolfram.com/LogNormalDistribution.html)]}
 \chapter{sformułowanie i rozwiązanie problemów analitycznych}
 \section{sformułowanie problemów}
@@ -354,7 +355,7 @@ Pierwszym elementem analizy, który pozwoli na określenie wstępnej różnicy m
 Przyczyną tego może być zaliczanie do zbioru wszystkich ruchów posunięć oczywistych, zajmujących niewielką ilość czasu, następujących dla pozycji, w której gracze na każdym poziomie zaawansowania rzadko kiedy popełniają błędy.
 Kolejną przyczyną takiego stanu rzeczy może być oczywista zależność skomplikowania pozycji od szansy na popełnienie błędu. W trudnych sytuacjach na szachownicy błędów pojawia się po prostu więcej, a trudnych sytuacji najwięcej jest w środkowej części partii, przez mnogość figur i możliwych legalnych ruchów. Trudno też znaleźć takie pozycje, ponieważ zależą one od przyjętej miary, o czym pisze D. H. Holding w swojej pracy zatytuowanej \textit{,,Evaluation of Chess Positions''} \textbf{CITE Holding, D. H. (1979). The Evaluation of Chess Positions. Simulation \& Games, 10(2), 207–221. doi:10.1177/104687817901000205}  Dlatego też, co widoczne jest na wykresie, w środkowej części gry, posunięcia zajmują najwięcej czasu.
 
-Po oznaczeniu \textit{D} jako zmienną określającą skomplikowanie pozycji, \textit{T} - zmienną określającą czas na wykonanie ruchu w danej pozycji, \textit{B} - zdarzenie polegające na tym, że posunięcie jest błędne i przy założeniu, że \textit{T} jest silnie dodatnio skorelowane z \textit{R}, według prawdopodobieństwa otrzymujemy \textbf{SPRAWDZIĆ TO JESZCZE!}:
+Po oznaczeniu \textit{D} jako zmienną określającą skomplikowanie pozycji, \textit{T} - zmienną określającą czas na wykonanie ruchu w danej pozycji, \textit{B} - zdarzenie polegające na tym, że posunięcie jest błędne i przy założeniu, że \textit{T} jest silnie dodatnio skorelowane z \textit{D}, według prawdopodobieństwa otrzymujemy \textbf{SPRAWDZIĆ TO JESZCZE!}:
 \begin{equation}
 	P(B|D>d_0) > P(B|D\leq d_0) \rightarrow P(B|T>t_0) > P(B|T\leq t_0)
 \end{equation}

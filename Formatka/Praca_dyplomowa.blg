@@ -5,47 +5,48 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: bibliografia.bib
+Warning--to sort, need author or key in stockfish
 Warning--to sort, need author or key in stockfish_lichess
 Warning--to sort, need author or key in lichess
-You've used 4 entries,
+You've used 7 entries,
             2118 wiz_defined-function locations,
-            516 strings with 4409 characters,
-and the built_in function-call counts, 783 in all, are:
-= -- 74
-> -- 16
+            531 strings with 4900 characters,
+and the built_in function-call counts, 1385 in all, are:
+= -- 135
+> -- 31
 < -- 0
-+ -- 10
-- -- 4
-* -- 29
-:= -- 125
-add.period$ -- 12
-call.type$ -- 4
-change.case$ -- 13
++ -- 17
+- -- 8
+* -- 46
+:= -- 218
+add.period$ -- 23
+call.type$ -- 7
+change.case$ -- 24
 chr.to.int$ -- 0
-cite$ -- 6
-duplicate$ -- 36
-empty$ -- 86
-format.name$ -- 4
-if$ -- 173
+cite$ -- 10
+duplicate$ -- 57
+empty$ -- 153
+format.name$ -- 8
+if$ -- 311
 int.to.chr$ -- 0
-int.to.str$ -- 4
+int.to.str$ -- 7
 missing$ -- 3
-newline$ -- 23
-num.names$ -- 4
-pop$ -- 31
+newline$ -- 40
+num.names$ -- 8
+pop$ -- 57
 preamble$ -- 1
-purify$ -- 10
+purify$ -- 18
 quote$ -- 0
-skip$ -- 23
+skip$ -- 40
 stack$ -- 0
-substring$ -- 22
-swap$ -- 4
+substring$ -- 37
+swap$ -- 7
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 14
-warning$ -- 2
-while$ -- 4
-width$ -- 5
-write$ -- 41
-(There were 2 warnings)
+type$ -- 26
+warning$ -- 3
+while$ -- 8
+width$ -- 8
+write$ -- 74
+(There were 3 warnings)

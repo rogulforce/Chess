@@ -1,0 +1,18 @@
+\begin{thebibliography}{1}
+
+\bibitem{stockfish}
+{Repozytorium zawierające kod źródłowy silnika Stockfish}.
+\newblock \url{https://github.com/official-stockfish/Stockfishr}.
+\newblock Dostęp: 11/10/2021.
+
+\bibitem{elo}
+Arpad~E. Elo.
+\newblock {\em The rating of chessplayers, Past \& Present (second edition)}.
+\newblock FIDE, New York, United States, 1986.
+
+\bibitem{glicko}
+Mark Glickman.
+\newblock The glicko system.
+\newblock {\em Boston University}, 1999.
+
+\end{thebibliography}

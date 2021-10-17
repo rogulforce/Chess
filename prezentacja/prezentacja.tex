@@ -11,6 +11,7 @@
 	szachach}
 \institute[Pwr]{Politechnika Wrocławska}
 \begin{document}
+	\bibliographystyle{plain}
 \begin{frame}[plain]
     \maketitle
     \begin{center}
@@ -63,7 +64,7 @@
 %%% Kluczowe wyniki innych autorów
 \begin{frame}{Kluczowe wyniki innych autorów}
 	\begin{itemize}
-		\item System Elo \textbf{[cite]} (Arpad Elo)
+		\item System Elo \cite{elo} (Arpad Elo)
 	\end{itemize}
 \end{frame}
 
@@ -76,8 +77,8 @@
 
 \begin{frame}{Kluczowe wyniki innych autorów}
 	\begin{itemize}
-		\item System Elo \textbf{[cite]} (Arpad Elo)
-		\item System Glicko-2 \textbf{[cite]} (Mark Glickman)
+		\item System Elo \cite{elo} (Arpad Elo)
+		\item System Glicko-2 \cite{glicko}  (Mark Glickman)
 	\end{itemize}
 \end{frame}
 
@@ -93,22 +94,12 @@
 
 \begin{frame}{Kluczowe wyniki innych autorów}
 	\begin{itemize}
-		\item System Elo \textbf{[cite]} (Arpad Elo)
-		\item System Glicko-2 \textbf{[cite]} (Mark Glickman)
-		\item Silnik Stockfish \textbf{[cite]}
+		\item System Elo \cite{elo} (Arpad Elo)
+		\item System Glicko-2 \cite{glicko} (Mark Glickman)
+		\item Silnik Stockfish \cite{stockfish}
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Potrzebne oznaczenia}
-	\begin{itemize}
-		\item \textbf{ruch} składa się z dwóch posunięć - 1 białych i 1 czarnych
-			\begin{itemize}
-			\item wyjątkiem może być ostatni ruch, gdy po posunięciu białych nastąpił koniec partii.
-			\end{itemize}
-		\item oznaczenia posunięcia jako ,,błąd'' i ,,duży błąd'' są tożsame
-		\item oznaczenie ,,pomyłka'' jest rozróżnialne od oznaczenia ,,błąd'' -- drugie jest wg silnika gorszym posunięciem
-	\end{itemize}
-\end{frame}
 
 
 \begin{frame}{Silnik Stockfish}
@@ -139,6 +130,16 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{Potrzebne oznaczenia}
+	\begin{itemize}
+		\item \textbf{ruch} składa się z dwóch posunięć - 1 białych i 1 czarnych
+		\begin{itemize}
+			\item wyjątkiem może być ostatni ruch, gdy po posunięciu białych nastąpił koniec partii.
+		\end{itemize}
+		\item oznaczenia posunięcia jako ,,błąd'' i ,,duży błąd'' są tożsame
+		\item oznaczenie ,,pomyłka'' jest rozróżnialne od oznaczenia ,,błąd'' -- drugie jest wg silnika gorszym posunięciem
+	\end{itemize}
+\end{frame}
 
 
 \section{Wyniki własne}
@@ -215,7 +216,7 @@
 \begin{frame}{Zależność między indeksem ruchu, a poświęconym czasem}
 	Po oznaczeniu:\\ 
 	\textit{D} jako zmienną określającą skomplikowanie pozycji,\\ \textit{T} - zmienną określającą czas na wykonanie ruchu w danej pozycji,\\ \textit{B} - zdarzenie polegające na tym, że posunięcie jest błędne\\
-	 i przy założeniu, że \textit{T} jest silnie dodatnio skorelowane z \textit{R}, według prawdopodobieństwa otrzymujemy:
+	 i przy założeniu, że \textit{T} jest silnie dodatnio skorelowane z \textit{D}, według prawdopodobieństwa otrzymujemy:
 	\begin{equation*}
 		P(B|D>d_0) > P(B|D\leq d_0) \rightarrow P(B|T>t_0) > P(B|T\leq t_0)
 	\end{equation*}
@@ -348,20 +349,48 @@
 \begin{frame}{Wnioski}
 	\begin{itemize}
 		\item 95\% gier kończy się w 57 ruchach
-		\item błąd dla każdego elo dla każdego posunięcia zajmuje średnio dłużej, ma też zawsze większą wariancje
-		\item wszystkie ruchy: lepsi gracze szybciej wykonują ruchy początkowe, dłużej te z największą szansą na błąd (ok 20)
-		\item największa szansa na błąd -- okolice 20 ruchu
-		\item odnośnie dwóch poprzednich, lepsi gracze najmniej popełniają błędów w okolicach 20 ruchu
-		\item największa szansa na błąd -- różnice dla elo (dużo błędów na początku 
-		dla słabych graczy później się stabilizuje)
+		\item błędne posunięcie zajmuje średnio dłużej niż standardowe 
+		\begin{itemize}
+			\item dla każdego rankingu i numeru ruchu
+			\item błędne posunięcie ma też zawsze większą wariancje
+		\end{itemize}
+		\item największa szansa na błąd umiejscowiona jest w okolicach 20 ruchu
+		\item gracze z wyższym rankingiem szybciej wykonują ruchy początkowe, dłużej te z największą szansą na błąd
+		\begin{itemize}
+			\item w odniesieniu do graczy z niższym rankingiem
+			\item więcej czasu poświęconego na posunięcie\\ w okolicy 20 ruchu $\rightarrow$ mniejsza szansa na błąd
+		\end{itemize}
+		
+		
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Wnioski}
 	\begin{itemize}
+		\item największa szansa na błąd
+		\begin{itemize}
+			\item słabsi gracze -- dużo więcej błędów na początku (ruchy 1 -- 20)
+			\item słabsi gracze -- więcej błędów w środkowej części gry (ruchy 20 -- 30)
+			\item słabsi gracze -- podobna liczba błędów w fazie końcowej (ruchy 30+)
+		\end{itemize} 
 		\item lepsi gracze DŁUŻEJ wykonują ruchy BŁĘDNE
-		\item różnice między formatami - w 600+0 ruchy zajmują nieliniowo więcej czasu, w 300+0 gracze są zmuszeni szybko wykonywać ruchy późniejsze.
-		\item 10 pierwszych ruchów, istotna różnica w popełnieniu rażącego błędu między graczami słabymi a dobrymi
+		\item różnice między formatami
+		\begin{itemize}
+			\item dla ,,600+0'' ruchy zajmują nieliniowo więcej czasu, niż dla ,,300+0'' 
+			\item dla ,,300+0'' gracze są zmuszeni szybko wykonywać ruchy późniejsze.
+		\end{itemize} 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Wnioski}
+	\begin{itemize}
+		\item 10 pierwszych ruchów (otwarcie), 
+		\begin{itemize}
+			\item istotna różnica w popełnieniu przynajmniej jednego  błędu między rankingami
+			\item przykładowo: format ,,300+0''\\ 
+			\phantom{4}5,63\% szansy na błąd dla graczy powyżej centylu 75, \\
+			40,72\% szansy na błąd dla graczy poniżej centylu 75, \\
+		\end{itemize}	
 	\end{itemize}
 \end{frame}
 
@@ -382,8 +411,12 @@
 	
 \end{frame}
 
+\begin{frame}{Bibliografia}
+	\bibliography{bibliografia} 
+\end{frame}
+
 \begin{frame}{Pytania?}
-	całość pracy dostępna pod adresem:\\ \url{https://github.com/rogulforce/Chess}
+	%całość pracy dostępna pod adresem:\\ \url{https://github.com/rogulforce/Chess}
 \end{frame}
 
 \end{document}
