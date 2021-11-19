@@ -97,13 +97,13 @@
 %
 % Krótkie streszczenia po polsku i angielsku
 % - nie dłuższe niż 530 znaków.
-\streszczenie{ROBOCZE: W pracy przeanalizowana zostanie zależność między czasami wykonania poszczególnych ruchów w szachach, a ich zgodnością z silnikiem szachowym. Zbadany zostanie rozkład tych czasów w zależności od poziomu graczy, na tej podstawie obliczone zostanie prawdopodobieństwo wykonania błędnego ruchu (max 530 znaków).}
-\streszczenieang{Tutaj piszemy krótkie streszczenie pracy w języku angielskim (max 530 znaków).}
+\streszczenie{W pracy przedstawiona zostanie analiza zależności między czasami wykonania poszczególnych posunięć w szachach, ich numerem oraz jakością, biorąc jako miarę zgodność z silnikiem szachowym. Analiza statystyczna zostanie wykonana ze szczególnym uwzględnieniem różnic wynikających z poziomu rankingowego graczy oraz formatu czasowego poszczególnych partii.}
+\streszczenieang{The paper presents an analysis of the relationship between the times of taking individual chess moves, their number and quality, taking as a measure compliance with the chess engine. Statistical analysis will be performed with particular emphasis on the differences resulting from the rankin level of players and the time format of individual games.}
 %
 % Podajemy najważniejsze słowa kluczowe po polsku i angielsku
 % - w obu przypadkach, nie więcej niż 150 znaków.
-\slowakluczowe{ROBOCZE: analiza statystyczna, szachy, korelacja (max 150 znaków).}  
-\slowakluczoweang{tutaj podajemy najważniejsze słowa kluczowe w języku angielskim (łącznie nie powinny być dłuższe niż 150 znaków)}
+\slowakluczowe{analiza statystyczna, szachy, korelacja, statystyka, probabilistyka, błędy szachowe}  
+\slowakluczoweang{statistical analysis, chess, correlation, statistics, probabilistics, chess blunder}
 %
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -141,15 +141,14 @@
 
 Wraz z rozwojem technologii komputerowej, rozpoczęła się nowa era szachów. Technologia korzystając z dużej mocy obliczeniowej, bezpowrotnie wyprzedziła człowieka w grach deterministycznych, do których zaliczają się szachy. Profesjonalni szachiści zaczęli wykorzystywać nowe strategie korzystając z coraz lepszych silników szachowych. Silniki te oceniają wprowadzoną pozycję pod kątem przewagi jednej ze stron. 
 
-W dobie internetu gra w szachy stała się dużo wygodniejsza niż przed laty. Ludzie grają w różnych miejscach i praktycznie o każdej porze. W związku z tym większą popularnością zaczęły cieszyć się szachy szybkie, czyli takie, w których każdy z zawodników ma relatywnie mało czasu na wykonanie wszystkich ruchów. Wiąże się to ze znacznie większym znaczeniem dysponowania czasem w trakcie gry. W każdym ruchu zawodnik musi ustalić równowagę pomiędzy dokładnością ruchu, a czasem, który jest w stanie na ten ruch poświęcić. 
+W dobie internetu gra w szachy stała się dużo wygodniejsza i znacznie przystępniejsza niż przed laty. Ludzie grają w różnych miejscach i praktycznie o każdej porze. W związku z tym większą popularnością zaczęły cieszyć się szachy szybkie, czyli takie, w których każdy z zawodników ma relatywnie mało czasu na wykonanie wszystkich ruchów. Wiąże się to ze znacznie większym znaczeniem zarządzania czasem w trakcie gry. Za każdym razem zawodnik musi ustalić równowagę pomiędzy dokładnością posunięcia, a czasem, który jest w stanie na nie poświęcić. 
 
-Przedmiotem badań tej pracy jest analiza zależności między dokładnością ruchu, a czasem, który został na niego poświęcony dla zawodników prezentujących różny poziom umiejętności i dla różnych formatów czasowych.\textbf{ Zbadanie takiej zależności może pozwolić na określenie optymalnego czasu na wykonanie ruchu dla odpowiedniej fazy gry i formatu czasowego.}
-
-\textbf{DODAĆ TUTAJ TROCHE I OGÓLNY CEL}\\
-
+Przedmiotem badań tej pracy jest analiza zależności między dokładnością posunięcia, czasem na niego poświęconym oraz jego numerem. Rozważania zostaną podzielone ze względu na poziom umiejętności zawodników w danej partii oraz jej format czasowy. Dodatkowo przedstawiona będzie konfrontacja wyników statystycznych poszczególnych grup, by móc ustalić wiodące trendy wynikające ze wzrostu punktów rankingowych zawodnika oraz wydłużania, bądź skracania formatu czasowego.
 
 \textbf{W PIERWSZEJ CZĘŚCI - ZAGADNIENIA TEORETYCZNE DOTYCZĄCE SZACHÓW}\\
-W pierwszej części pracy przedstawione i dość obszernie wyjaśnione zostaną podstawowe zagadnienia teoretyczne związane z szachami, systemami rankingowymi i silnikami szachowymi.
+W pierwszej części pracy przedstawione i dość obszernie wyjaśnione zostaną podstawowe zagadnienia teoretyczne związane z grą w szachy, systemami rankingowymi i silnikami szachowymi. Przedstawione zostaną zasady gry w szachy ze szczególnym uwzględnieniem konkretnych elementów, których niewiedza nie pozwoliłaby na pełne przyswojenie przedstawionej w tej pracy analizy.
+
+W nastepnym kroku opisany zostanie system \textit{Elo}, a także wzorujący się na nim system \textit{Glicko-2}, który używany jest do przypisania rankingu każdemu z graczy znajdujących się w bazie danych używanej do analiz. Ostatnim elementem będzie przedstawienie  silnika szachowego \textit{Stockfish} i jego wkładu w - kluczową dla analizy statystycznej - funkcję oceny posunięcia.
 
 
 \textbf{W DRUGIEJ CZĘŚCI ZAGADNIENIA TEORETYCZNE ZE STATYSTYKI I METODOLOGII}\\
@@ -157,20 +156,20 @@ Kolejna część pracy opowiada o zagadnieniach teoretycznych z dziedziny statys
  
  
 \textbf{PÓŹNIEJ DOKŁADNE SFORMUOWANIE PROBLEMU}\\
-Główna część pracy zawiera przedstawienie zależności...
+Główna część pracy składać się będzie z trzech części. W pierwszej z nich odnaleźć będzie można dokładne sformułowanie problemów, które są przedmiotem badań niniejszej pracy. Następnie uwidocznione zostaną dane, na których bazuje późniejsza analiza.  \textbf{COŚ O DANYCH JESZCZE}
 
 \textbf{DOKŁADNE ROZWIĄZANIE PROBLEMU}\\
 a póżniej rozwiązanie...
 
-\textbf{PODSUMOWANIE}\\
+\textbf{WNIOSKI, PODSUMOWANIE}\\
 W końcowej części pracy [...] podsumowanie, wnioski...
 
-\chapter{ZAGADNIENIE TEORETYCZNE I - DOTYCZĄCE SZACHÓW}
+\chapter{Zagadnienia teoretyczne dotyczące gry w szachy}
 Niniejszy rozdział poświęcony zostanie zagadnieniom teoretycznym dotyczącym szachów, używanych systemów rankingowych oraz działaniu silników szachowych.
-\section{ZASADY GRY W SZACHY}
+\section{Zasady gry w szachy}
 Początki szachów nie są znane, jednak ich historia trwa już ok. 1500 lat i zaczyna się w Indiach. Na przestrzeni wieków zasady gry w szachy były wielokrotnie zmieniane. Powszechnie stosowane przepisy pochodzą z roku 1851.\\
 
-\textbf{krótko na czym polegają szachy i cite gdzie można znaleźć pełne przepisy,isbn:002028540X}\\
+\textbf{\textbf{krótko na czym polegają szachy i cite gdzie można znaleźć pełne przepisy,isbn:002028540X}\\}
 
 Gra odbywa się na kwadratowej planszy o wymiarach 8 na 8 pól. Każdy gracz posiada 16 figur, ustawionych w pozycji startowej i stojących po przeciwnych stronach szachownicy. Zawodnicy wykonują na przemian ruchy dowolną ze swoich figur, zgodnie z jej zasadami poruszania się. W trakcie tury zawodnikowi upływa czas ustalony przed grą. W niektórych wariantach gracz otrzymuje też niewielką ilość czasu za wykonanie każdego ruchu.\\
 
@@ -235,11 +234,16 @@ W części pracy na wykresach pojawiać się będzie oznaczenie ,,duży błąd''
 
 
 
-\chapter{ZAGADNIENIE TEORETYCZNE II - użyte metody, teoria stojąca za rozwiązaniami problemów}
+\chapter{Zagadnienia teoretyczne dotyczące analizy statystycznej}
 Niniejszy rozdział poświęcony zostanie zagadnieniom teoretycznym z dziedziny statystyki, zastosowanych w analizie przedstawionych problemów.
 \section{rozkład lognormalny}
+x
 \section{metoda najmniejszych kwadratów}
+x
 \section{metoda momentów}
+x
+\section{prosta regresji???}
+
 W szcagólności: wyznaczenie paramentrów rozkładu log-normalnego za pomocą metody momentów: \textbf{(podać same wyniki)}
 \cite{lognorm}
 \textbf{[cite Weisstein, Eric W. "Log Normal Distribution". mathworld.wolfram.com. Retrieved 2020-09-13 (https://mathworld.wolfram.com/LogNormalDistribution.html)]}
