@@ -137,44 +137,44 @@
 %\listoftables
 
 {\backmatter \chapter{Wstęp}}
-\textbf{We wstępie zapowiadamy, o czym będzie praca. Próbujemy zachęcić czytelnika do dalszej lektury, np. krótko informując, dlaczego wybraliśmy właśnie ten temat i co nas w nim zainteresowało.}
+%\textbf{We wstępie zapowiadamy, o czym będzie praca. Próbujemy zachęcić czytelnika do dalszej lektury, np. krótko informując, dlaczego wybraliśmy właśnie ten temat i co nas w nim zainteresowało.}
+
 
 Wraz z rozwojem technologii komputerowej, rozpoczęła się nowa era szachów. Technologia korzystając z dużej mocy obliczeniowej, bezpowrotnie wyprzedziła człowieka w grach deterministycznych, do których zaliczają się szachy. Profesjonalni szachiści zaczęli wykorzystywać nowe strategie korzystając z coraz lepszych silników szachowych. Silniki te oceniają wprowadzoną pozycję pod kątem przewagi jednej ze stron. 
 
+
 W dobie internetu gra w szachy stała się dużo wygodniejsza i znacznie przystępniejsza niż przed laty. Ludzie grają w różnych miejscach i praktycznie o każdej porze. W związku z tym większą popularnością zaczęły cieszyć się szachy szybkie, czyli takie, w których każdy z zawodników ma relatywnie mało czasu na wykonanie wszystkich ruchów. Wiąże się to ze znacznie większym znaczeniem zarządzania czasem w trakcie gry. Za każdym razem zawodnik musi ustalić równowagę pomiędzy dokładnością posunięcia, a czasem, który jest w stanie na nie poświęcić. 
+
 
 Przedmiotem badań tej pracy jest analiza zależności między dokładnością posunięcia, czasem na niego poświęconym oraz jego numerem. Rozważania zostaną podzielone ze względu na poziom umiejętności zawodników w danej partii oraz jej format czasowy. Dodatkowo przedstawiona będzie konfrontacja wyników statystycznych poszczególnych grup, by móc ustalić wiodące trendy wynikające ze wzrostu punktów rankingowych zawodnika oraz wydłużania, bądź skracania formatu czasowego.
 
-\textbf{W PIERWSZEJ CZĘŚCI - ZAGADNIENIA TEORETYCZNE DOTYCZĄCE SZACHÓW}\\
+
+%\textbf{W PIERWSZEJ CZĘŚCI - ZAGADNIENIA TEORETYCZNE DOTYCZĄCE SZACHÓW}\\
 W pierwszej części pracy przedstawione i dość obszernie wyjaśnione zostaną podstawowe zagadnienia teoretyczne związane z grą w szachy, systemami rankingowymi i silnikami szachowymi. Przedstawione zostaną zasady gry w szachy ze szczególnym uwzględnieniem konkretnych elementów, których niewiedza nie pozwoliłaby na pełne przyswojenie przedstawionej w tej pracy analizy.
 
 W nastepnym kroku opisany zostanie system \textit{Elo}, a także wzorujący się na nim system \textit{Glicko-2}, który używany jest do przypisania rankingu każdemu z graczy znajdujących się w bazie danych używanej do analiz. Ostatnim elementem będzie przedstawienie  silnika szachowego \textit{Stockfish} i jego wkładu w - kluczową dla analizy statystycznej - funkcję oceny posunięcia.
 
 
-\textbf{W DRUGIEJ CZĘŚCI ZAGADNIENIA TEORETYCZNE ZE STATYSTYKI I METODOLOGII}\\
-Kolejna część pracy opowiada o zagadnieniach teoretycznych z dziedziny statystyki, zastosowanych w analizie przedstawionych problemów.
+%\textbf{W DRUGIEJ CZĘŚCI ZAGADNIENIA TEORETYCZNE ZE STATYSTYKI I METODOLOGII}\\
+Kolejna część pracy opowiada o zagadnieniach teoretycznych z dziedziny statystyki, zastosowanych w analizie przedstawionych problemów. \textbf{DODAĆ JAKIE}
  
  
-\textbf{PÓŹNIEJ DOKŁADNE SFORMUOWANIE PROBLEMU}\\
-Główna część pracy składać się będzie z trzech części. W pierwszej z nich odnaleźć będzie można dokładne sformułowanie problemów, które są przedmiotem badań niniejszej pracy. Następnie uwidocznione zostaną dane, na których bazuje późniejsza analiza.  \textbf{COŚ O DANYCH JESZCZE}
+%\textbf{PÓŹNIEJ DOKŁADNE SFORMUOWANIE PROBLEMU}\\
+Główna część pracy składać się będzie z trzech części. W pierwszej z nich odnaleźć można dokładne sformułowanie problemów, które są przedmiotem badań niniejszej pracy. Następnie opisany zostaną dane, na których bazuje późniejsza analiza,  uwidoczniony sposób ich pozyskania oraz stworzenia na ich podstawie bazy ruchów szachowych. Kluczowym elementem tego etapu będzie analiza problemu. Po wstępnym przeglądzie danych i wyznaczeniu podstawowych statystyk w celu nabrania intuicji wobec kolejnych kroków badań, sprawdzona zostanie różnica pomiędzy średnim czasem posunięcia w poszczególnych ruchach i dla różnych przedziałów rankingowych. Pokazana będzie również różnica w zarządzaniu pozostałym czasem w zależności od formatu, a także prawdopodobieństwo popełnienia błędu w konkretnym ruchu. Dodatkowo, przy pewnych założeniach, określona zostanie szansa na popełnienie błędu w \textit{n} pierwszych ruchach dla różnych formatów i przedziałów rankingowych. Ostatnim elementem tej części będzie sprawdzenie zależności pomiędzy czasem na wykonaniem ruchu, a jego oceną wystawioną przez silnik \textit{Stockfish}. Podjęta zostanie również próba dopasowania rozkładu teoretycznego dla zbioru czasów na wykonanie posunięcia dla poszczególnych ocen silnika.
 
-\textbf{DOKŁADNE ROZWIĄZANIE PROBLEMU}\\
-a póżniej rozwiązanie...
 
-\textbf{WNIOSKI, PODSUMOWANIE}\\
-W końcowej części pracy [...] podsumowanie, wnioski...
+%\textbf{WNIOSKI, PODSUMOWANIE}\\
+W końcowej części pracy zawarte zostaną najważniejsze wnioski wynikające z dokonanej analizy, a także rozważania na temat dalszej pracy w temacie analizy czasów wykonania posunięć w szachach.
 
 \chapter{Zagadnienia teoretyczne dotyczące gry w szachy}
 Niniejszy rozdział poświęcony zostanie zagadnieniom teoretycznym dotyczącym szachów, używanych systemów rankingowych oraz działaniu silników szachowych.
 \section{Zasady gry w szachy}
-Początki szachów nie są znane, jednak ich historia trwa już ok. 1500 lat i zaczyna się w Indiach. Na przestrzeni wieków zasady gry w szachy były wielokrotnie zmieniane. Powszechnie stosowane przepisy pochodzą z roku 1851.\\
-
-\textbf{\textbf{krótko na czym polegają szachy i cite gdzie można znaleźć pełne przepisy,isbn:002028540X}\\}
+Początki szachów nie są znane, jednak ich historia trwa już ok. 1500 lat i zaczyna się w Indiach. Na przestrzeni wieków zasady gry w szachy były wielokrotnie zmieniane. Powszechnie stosowane przepisy pochodzą z roku 1851\footnote{Pełne aktualne przepisy można znaleźć w książce: FIDE. \textit{The Official Laws of Chess and Other Fide Regulations (Macmillan Chess Library)}. Collier Book, 1990}.\\
 
 Gra odbywa się na kwadratowej planszy o wymiarach 8 na 8 pól. Każdy gracz posiada 16 figur, ustawionych w pozycji startowej i stojących po przeciwnych stronach szachownicy. Zawodnicy wykonują na przemian ruchy dowolną ze swoich figur, zgodnie z jej zasadami poruszania się. W trakcie tury zawodnikowi upływa czas ustalony przed grą. W niektórych wariantach gracz otrzymuje też niewielką ilość czasu za wykonanie każdego ruchu.\\
 
 Wygrana następuje, gdy król jednego z graczy jest atakowany i nie można w legalny sposób nim ruszyć, ani zasłonić jedną ze swoich figur przed atakiem. Pozycję taką nazywa się ,,matem'' Drugim sposobem na wygranie jest skończenie się czasu jednego z graczy, niezależnie od sytuacji na szachownicy. 
-Gra może też zakończyć się remisem. Następuje on, gdy żaden z graczy nie ma na planszy figur, które mogą pozwolić na ,,zamatowanie'' przeciwnika. Inną możliwością jest trzykrotne powtórzenie się na planszy tej samej pozycji. Do remisu doprowadza też sytuacja, w której jednemu z graczy zakończył się czas, a jego przeciwnik nie ma figur pozwalających na wygraną lub gdy jeden z graczy nie ma możliwości wykonania żadnego legalnego ruchu, a jego król nie jest atakowany.
+Rozrywka może także zakończyć się remisem. Następuje on, gdy żaden z graczy nie ma na planszy figur, które mogą pozwolić na ,,zamatowanie'' przeciwnika. Inną możliwością jest trzykrotne powtórzenie się na planszy tej samej pozycji. Do remisu doprowadza też sytuacja, w której jednemu z graczy zakończył się czas, a jego przeciwnik nie ma figur pozwalających na wygraną lub gdy jeden z graczy nie ma możliwości wykonania żadnego legalnego ruchu, a jego król nie jest atakowany.
 
 W związku z możliwością przegranej poprzez upłynięcie czasu na zegarze, zawodnicy muszą indywidualnie określić podczas gry, ile czasu są w stanie poświęcić danemu ruchowi, tak by nie stracić na niego zbyt wiele czasu, ale też, żeby ruch był jak najlepszy, co jest przedmiotem badań niniejszej pracy.
 
@@ -185,18 +185,17 @@ W związku z możliwością przegranej poprzez upłynięcie czasu na zegarze, za
 System rankingowy ELO - pierwowzór systemu Glicko-2, został zaprezentowany w latach pięćdziesiątych dwudziestego wieku przez Węgierskiego fizyka i szachistę Arpada Elo (1903-1992) \textbf{\cite[rozdział 1]{elo}}. Początkowo był używany jedynie w szachach, jednak wraz ze wzrostem jego popularności zaczął być stosowany również w innych rozgrywkach z możliwością pomiaru poziomu zawodników. System ten jest pierwszym systemem mającym podłoże probabilistyczne i jest oparty na rozkładzie normalnym z ustaloną średnią. Przyznaje odpowiednią liczbę punktów zwycięzcy rozgrywki i odbiera przegranemu bazując na różnicy między ich aktualnym rankingiem.
 
 
-System Glicko-2  używany przez stronę \textbf{Lichess.com}, na danych której oparta jest niniejsza praca, opracowany został przez Marka Glickmana jako ulepszenie systemu ELO. Podstawową zmianą jest uwzględnienie historycznych wyników każdego z zawodników w celu ustalenia wariancji aktualnego rankingu. Glickman w swojej pracy z roku 1999 \textbf{\cite{glicko}} przedstawia problem dwóch graczy o takim samym rankingu, z których jeden gra regularnie, a drugi wrócił do gry po długiej przerwie. System Glicko-2 przyznając punkt za grę bierze pod uwagę wiarygodność każdego z rankingów. Zawodnikowi grającemu regularnie zostanie przyznane bądź odebrane mniej punktów ze względu na duże potencjalne odchylenie rankingu przeciwnika od zadeklarowanej wartości. Innymi słowy, w miarę zwiększania się liczby partii gracza, przedział ufności dla jego realnego rankingu zawęża się i przypisany mu ranking zbiega do realnego poziomu i wiarygodność przypisanego rankingu jest uwzględniaan w przyznawaniu i odbieraniu punktów zawodnikom po zakończeniu partii.
+System Glicko-2  używany przez stronę \textbf{Lichess.com}, na danych której oparta jest niniejsza praca, opracowany został przez Marka Glickmana jako ulepszenie systemu ELO. Podstawową zmianą jest uwzględnienie historycznych wyników każdego z zawodników w celu ustalenia wariancji aktualnego rankingu. Glickman w swojej pracy z roku 1999 \textbf{\cite{glicko}} przedstawia problem dwóch graczy o takim samym rankingu, z których jeden gra regularnie, a drugi wrócił do gry po długiej przerwie. System Glicko-2 przyznając punkt za grę bierze pod uwagę wiarygodność każdego z rankingów. Zawodnikowi grającemu regularnie zostanie przyznane bądź odebrane mniej punktów ze względu na duże potencjalne odchylenie rankingu przeciwnika od zadeklarowanej wartości. Innymi słowy, w miarę zwiększania się liczby partii gracza, przedział ufności dla jego realnego rankingu zawęża się i przypisany mu ranking zbiega do realnego poziomu i wiarygodność przypisanego rankingu jest uwzględniana w przyznawaniu i odbieraniu punktów zawodnikom po zakończeniu partii.
 
 \textbf{WRZUCIĆ MATEMATYKĘ STOJĄCĄ ZA GLICKO-2???}
-x
 
 \textbf{Tutaj jakiś wykresik może jak wygląda rozkład rankingu zawodników na platformie Lichess ???}
 \section{Funkcja oceny}
-Przed przystąpieniem do opisania funkcji, należy wytłumaczyć działanie silnika szachowego, który dokonuje oceny pozycji.
+Przed przystąpieniem do opisania funkcji oceny, należy przybliżyć działanie silnika szachowego, który wykorzystywany jest do określenia aktualnej pozycji.
 \subsection{Stockfish}
-Stockfish \textbf{\cite{stockfish}} jest jednym z najlepszych i najpopularniejszym obecnie używanym silnikiem szachowym, którego zaprojektowali Joost VandeVondele, Joon Kiiski, Marco Costalb, Tord Romstad, Gary Linscott, Stefan Geschwentner i Stéphane Nicolet i stale ulepszany jako oprogramowanie typu open-source. Strona \textbf{Lichess.com}, tak jak większość stron internetowych poświęconych szachom on-line, wykorzystuje go \textbf{\cite{stockfish_lichess}} do analizy i oceny aktualnej pozycji.
+Silnik szachowy Stockfish \textbf{\cite{stockfish}} jest jednym z najlepszych i najpopularniejszym obecnie używanym silnikiem szachowym, którego zaprojektowali Joost VandeVondele, Joon Kiiski, Marco Costalb, Tord Romstad, Gary Linscott, Stefan Geschwentner i Stéphane Nicolet. Jest stale ulepszany jako oprogramowanie typu open-source. Strona \textbf{Lichess.com}, tak jak większość stron internetowych poświęconych szachom on-line, wykorzystuje go \textbf{\cite{stockfish_lichess}} do analizy i oceny aktualnej pozycji.
 
-Stockfish poprzez przeszukiwanie według strategii mini-max \textbf{[cite: E. Vilkas, "Axiomatic definition of the value of a matrix game" Theory Probabl. Appl. , 8 (1963) pp. 304–307 Teor. Veroyatnost. i Primenen. , 8 : 3 (1963) pp. 324–327 MR0154750 Zbl 0279.90044]} z odcięciem, za pomocą algorytmu alfa-beta \textbf{[cite]}, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych wykonanych zaczynając z analizowanej pozycji) i na ich podstawie ocenia aktualną pozycję, określając przewagę jednego z graczy
+Stockfish poprzez przeszukiwanie według strategii mini-max \footnote{Dokładniej opisana w artykule: E. Vilkas. \textit{Axiomatic definition of the value of a matrix game} Theory Probabl. Appl. , 8 (1963) pp. 304–307} z odcięciem, za pomocą algorytmu alfa-beta \textbf{[cite]}, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych wykonanych zaczynając z analizowanej pozycji) i na ich podstawie ocenia aktualną pozycję, określając przewagę jednego z graczy
 
 \subsection{Ewaluacja}
 Wspomniana wcześniej ewaluacja, wyliczana przez silnik szachowy jest wynikiem liniowej funkcji 
@@ -357,7 +356,7 @@ Na początku tej części trzeba ustalić pewne założenia dotyczące zestawu d
 
 Pierwszym elementem analizy, który pozwoli na określenie wstępnej różnicy między ruchami oznaczonymi jako błąd, a zbiorem wszystkich ruchów jest sprawdzenie zależności między indeksem ruchu, a średnim czasem na jego wykonanie dla obydwu zbiorów. Intuicja wskazuje, że błąd popełniamy poświęcając mniej czasu na ruch. Jak widać na rysunku \ref{rys:sr_czas_na_ruch}, dla każdego analizowanego ruchu, ruch oznaczony jako błędny zajął statystycznie więcej czasu - zarówno dla formatu 300+0 jak i 600+0, co przeczy intuicji. 
 Przyczyną tego może być zaliczanie do zbioru wszystkich ruchów posunięć oczywistych, zajmujących niewielką ilość czasu, następujących dla pozycji, w której gracze na każdym poziomie zaawansowania rzadko kiedy popełniają błędy.
-Kolejną przyczyną takiego stanu rzeczy może być oczywista zależność skomplikowania pozycji od szansy na popełnienie błędu. W trudnych sytuacjach na szachownicy błędów pojawia się po prostu więcej, a trudnych sytuacji najwięcej jest w środkowej części partii, przez mnogość figur i możliwych legalnych ruchów. Trudno też znaleźć takie pozycje, ponieważ zależą one od przyjętej miary, o czym pisze D. H. Holding w swojej pracy zatytuowanej \textit{,,Evaluation of Chess Positions''} \textbf{CITE Holding, D. H. (1979). The Evaluation of Chess Positions. Simulation \& Games, 10(2), 207–221. doi:10.1177/104687817901000205}  Dlatego też, co widoczne jest na wykresie, w środkowej części gry, posunięcia zajmują najwięcej czasu.
+Kolejną przyczyną takiego stanu rzeczy może być oczywista zależność skomplikowania pozycji od szansy na popełnienie błędu. W trudnych sytuacjach na szachownicy błędów pojawia się po prostu więcej, a trudnych sytuacji najwięcej jest w środkowej części partii, przez mnogość figur i możliwych legalnych ruchów. Trudno też znaleźć takie pozycje, ponieważ zależą one od przyjętej miary, o czym pisze D. H. Holding w swojej pracy zatytuowanej \textit{,,Evaluation of Chess Positions''}\textbf{\cite{Holding1979TheEO}}.  Dlatego też, co dobrze widoczne jest na wykresie, w środkowej części gry posunięcia zajmują najwięcej czasu.
 
 Po oznaczeniu \textit{D} jako zmienną określającą skomplikowanie pozycji, \textit{T} - zmienną określającą czas na wykonanie ruchu w danej pozycji, \textit{B} - zdarzenie polegające na tym, że posunięcie jest błędne i przy założeniu, że \textit{T} jest silnie dodatnio skorelowane z \textit{D}, według prawdopodobieństwa otrzymujemy \textbf{SPRAWDZIĆ TO JESZCZE!}:
 \begin{equation}
@@ -602,7 +601,7 @@ dla wszystkich rang
 \chapter{Definicje, lematy, twierdzenia, przykłady i wnioski}
 Definicje, lematy, twierdzenia, przykłady i wnioski piszemy w pracy tak:
 \begin{definition}[Martyngał]
-	Tu piszemy taratreść definicji martyngału.
+	Tu piszemy treść definicji martyngału.
 \end{definition}
 \begin{lemma}[]% w nawiasie kwadratowym można napisać jego nazwę
 	Tu piszemy treść lematu.

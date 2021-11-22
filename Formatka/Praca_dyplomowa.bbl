@@ -34,6 +34,11 @@ Mark Glickman.
 \newblock The glicko system.
 \newblock {\em Boston University}, 1999.
 
+\bibitem{Holding1979TheEO}
+Dennis~H. Holding.
+\newblock The evaluation of chess positions.
+\newblock {\em Simulation \& Gaming}, 10:207 -- 221, 1979.
+
 \bibitem{lognorm}
 {\textit{mathworld.wolfram.com}. Weisstein, Eric W.}
 \newblock Log normal distribution.
