@@ -1,52 +1,53 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Praca_dyplomowa.aux
-Reallocating 'name_of_file' (item size: 1) to 6 items.
-The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 7 items.
+The style file: ieeetr.bst
+Illegal, another \bibstyle command---line 24 of file Praca_dyplomowa.aux
+ : \bibstyle
+ :          {plain}
+I'm skipping whatever remains of this command
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: bibliografia.bib
-Warning--to sort, need author or key in stockfish
-Warning--to sort, need author or key in stockfish_lichess
-Warning--to sort, need author or key in lichess
-You've used 8 entries,
-            2118 wiz_defined-function locations,
-            539 strings with 5018 characters,
-and the built_in function-call counts, 1687 in all, are:
-= -- 166
-> -- 38
+You've used 10 entries,
+            1876 wiz_defined-function locations,
+            530 strings with 4818 characters,
+and the built_in function-call counts, 1590 in all, are:
+= -- 155
+> -- 45
 < -- 0
 + -- 21
-- -- 10
-* -- 66
-:= -- 268
-add.period$ -- 26
-call.type$ -- 8
-change.case$ -- 28
+- -- 11
+* -- 76
+:= -- 226
+add.period$ -- 17
+call.type$ -- 10
+change.case$ -- 8
 chr.to.int$ -- 0
-cite$ -- 11
-duplicate$ -- 68
-empty$ -- 181
-format.name$ -- 10
-if$ -- 375
+cite$ -- 10
+duplicate$ -- 75
+empty$ -- 198
+format.name$ -- 11
+if$ -- 406
 int.to.chr$ -- 0
-int.to.str$ -- 8
-missing$ -- 4
-newline$ -- 45
-num.names$ -- 10
-pop$ -- 59
+int.to.str$ -- 10
+missing$ -- 7
+newline$ -- 40
+num.names$ -- 7
+pop$ -- 56
 preamble$ -- 1
-purify$ -- 21
+purify$ -- 0
 quote$ -- 0
-skip$ -- 47
+skip$ -- 37
 stack$ -- 0
-substring$ -- 70
-swap$ -- 8
+substring$ -- 36
+swap$ -- 15
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 30
-warning$ -- 3
-while$ -- 11
-width$ -- 9
-write$ -- 85
-(There were 3 warnings)
+type$ -- 0
+warning$ -- 0
+while$ -- 9
+width$ -- 12
+write$ -- 91
+(There was 1 error message)

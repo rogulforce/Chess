@@ -32,6 +32,8 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[inzynierska]{pwr_wmat_praca_dyplomowa}
+\usepackage{amsmath}
+\bibliographystyle{ieeetr}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %              DANE DO PRACY
 %
@@ -234,18 +236,37 @@ W części pracy na wykresach pojawiać się będzie oznaczenie ,,duży błąd''
 
 
 \chapter{Zagadnienia teoretyczne dotyczące analizy statystycznej}
-Niniejszy rozdział poświęcony zostanie zagadnieniom teoretycznym z dziedziny statystyki, zastosowanych w analizie przedstawionych problemów.
-\section{rozkład lognormalny}
-x
+Niniejszy rozdział poświęcony zostanie zagadnieniom teoretycznym z dziedziny statystyki, zastosowanych w analizie przedstawionych problemów. Pokrótce umówione zostaną metody wykorzystywane przy rozważaniach, a także rozkłady, które zostały dopasowane do danych.
+
 \section{metoda najmniejszych kwadratów}
+Weźmy zbiór punktów $(x_i, y_i)$ dla $0\leq i \leq n$.
+Metoda najmniejszych kwadratów\cite{dekking2005modern} polega na znalezieniu takich parametrów $\theta_1, \theta_2, \dots, \theta_k$ pewnej określonej funkcji $\hat{y_i} = f\left(x_i, \theta_1, \theta_2, \dots, \theta_k \right)$ estymującej wartość $y_i$ w zadanym punkcie $x_i$, dla których suma kwadratów odległości $\hat{y_i}$ od rzeczywistej wartości $y_i$ dla każdego punktu ze zbioru jest najmniejsza. Innymi słowy, metoda polega na minimalizacji funkcji 
+\begin{equation*}
+	\sum_{i=0}^{n}(f\left(x_i, \theta_1, \theta_2, \dots, \theta_k \right)-y_i)^2
+\end{equation*}
+biorąc jako zmienne parametry $ \theta_1, \theta_2, \dots, \theta_k \in \mathbb{R} $
+\section{regresja liniowa}
+x
+\section{rozkład log-normalny}
 x
 \section{metoda momentów}
-x
-\section{prosta regresji???}
+Celem metody momentów \cite{momentowametoda} jest estymacja parametrów rozkładu prawdopodobieństwa $X(\theta_1, \theta_2, \dots, \theta_k)$. Metoda polega na stworzeniu, a następnie rozwiązaniu układu równań, w którym przyrównywane są empiryczne wartości pierwszych $k$ momentów z ich wartościami teoretycznymi $M(\theta_1, \theta_2, \dots, \theta_k)$. Metody można użyć jedynie, gdy istnieje pierwsze $k$ momentów danego rozkładu.
 
-W szcagólności: wyznaczenie paramentrów rozkładu log-normalnego za pomocą metody momentów: \textbf{(podać same wyniki)}
-\cite{lognorm}
-\textbf{[cite Weisstein, Eric W. "Log Normal Distribution". mathworld.wolfram.com. Retrieved 2020-09-13 (https://mathworld.wolfram.com/LogNormalDistribution.html)]}
+Dla rozkładu log-normalnego $Lognormal(\mu ,\,\sigma^{2})$ momenty zadane są równaniem\cite{lognorm}
+\begin{equation*}
+	E[X^n] = \exp (n\mu+\frac{(n\sigma)^2}{2}).
+\end{equation*}
+Po rozwiązaniu układu równań zawierających 2 pierwsze momenty, wyznaczone zostają parametry $\mu$ i $\sigma^2$. 
+\begin{align*} 
+	\mu &= \log\left(\frac{E[X]^2}{\sqrt{D^2[X]+E[X]^2}}\right) \\ 
+	\sigma &=  \log\left(\frac{D^2[X]}{E[X]^2}+1\right)
+\end{align*}
+%\begin{align*}
+%	\mu = &\log\left(\frac{E[X]^2}{\sqrt{D^2[X]+E[X]^2}}\right) \\
+%	\sigma =& \log\left(\frac{D^2[X]}{E[X]^2}+1}\right)
+%\end{align*}
+gdzie $E[X]$ jest średnią empiryczną rozkładu, a $D^2[X]=E[X^2]-E[X]^2$ jego empiryczną wariancją.
+
 \chapter{sformułowanie i rozwiązanie problemów analitycznych}
 \section{sformułowanie problemów}
 Podstawowym problemem podjętym w pracy jest analiza zależności pomiędzy czasem poświęconym na wykonanie ruchu, a jego dokładnością. Główny nacisk kładziony zostanie na ruchy oznaczone przez silnik jako błąd, co można uargumentować tym, że właśnie te ruchy mają największy wpływ na grę, szczególnie biorąc pod uwagę szachy szybkie, gdzie czasu na ruch jest zdecydowanie mniej, czego wynikiem jest to, że błędne ruchy pojawiają się znacznie częściej. Dodatkową osią ujętą w rozważaniach będzie ranking zawodników i jego wpływ na rozkłady danych. Sprawdzona i wzięta pod uwagę zostanie również zależność między numerem ruchu, a czasem na wykonanie oraz jego dokładnością.

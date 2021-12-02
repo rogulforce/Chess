@@ -1,48 +1,50 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{elo}
+A.~E. Elo, {\em The rating of chessplayers, Past \& Present (second edition)}.
+\newblock New York, United States: FIDE, 1986.
+
+\bibitem{glicko}
+M.~Glickman, ``The glicko system,'' {\em Boston University}, 1999.
+
+\bibitem{stockfish}
+``{Repozytorium zawierające kod źródłowy silnika Stockfish}.''
+  \url{https://github.com/official-stockfish/Stockfishr}.
+\newblock Dostęp: 11/10/2021.
 
 \bibitem{stockfish_lichess}
-{Lichess computer engine used from 2014}.
-\newblock
+``{Lichess computer engine used from 2014}.''
   \url{https://lichess.org/blog/U4mtoEQAAEEAgZRL/strongest-chess-player-ever}.
 \newblock Dostęp: 30/05/2021.
 
-\bibitem{lichess}
-{Lichess database}.
-\newblock \url{https://database.lichess.org/}.
-\newblock Accessed: 30/05/2021.
-
-\bibitem{stockfish}
-{Repozytorium zawierające kod źródłowy silnika Stockfish}.
-\newblock \url{https://github.com/official-stockfish/Stockfishr}.
-\newblock Dostęp: 11/10/2021.
-
 \bibitem{symbols}
-{\textit{chesscenter.net}. C\&O Family Chess Center}.
-\newblock Chess analysis symbols.
-\newblock
+{\textit{chesscenter.net}. C\&O Family Chess Center}, ``Chess analysis
+  symbols.''
   \url{https://web.archive.org/web/20180116135828/http://www.shatranj.us/files/AnalysisSymbols.pdf},
   2014.
 \newblock Dostęp: 17/10/2021.
 
-\bibitem{elo}
-Arpad~E. Elo.
-\newblock {\em The rating of chessplayers, Past \& Present (second edition)}.
-\newblock FIDE, New York, United States, 1986.
+\bibitem{dekking2005modern}
+F.~Dekking, C.~Kraaikamp, H.~Lopuha{\"a}, and L.~Meester, {\em A Modern
+  Introduction to Probability and Statistics: Understanding Why and How}.
+\newblock Springer Texts in Statistics, Springer, 2005.
 
-\bibitem{glicko}
-Mark Glickman.
-\newblock The glicko system.
-\newblock {\em Boston University}, 1999.
-
-\bibitem{Holding1979TheEO}
-Dennis~H. Holding.
-\newblock The evaluation of chess positions.
-\newblock {\em Simulation \& Gaming}, 10:207 -- 221, 1979.
+\bibitem{momentowametoda}
+K.~O. Bowman and L.~R. Shenton, ``Estimator: Method of moments,'' {\em
+  Encyclopedia of statistical sciences}, 1998.
 
 \bibitem{lognorm}
-{\textit{mathworld.wolfram.com}. Weisstein, Eric W.}
-\newblock Log normal distribution.
-\newblock \url{https://mathworld.wolfram.com/LogNormalDistribution.html}, 2020.
+{\textit{mathworld.wolfram.com}. Weisstein, Eric W.}, ``Log normal
+  distribution.''
+  \url{https://mathworld.wolfram.com/LogNormalDistribution.html}, 2020.
 \newblock Dostęp: 17/10/2021.
+
+\bibitem{lichess}
+``{Lichess database}.'' \url{https://database.lichess.org/}.
+\newblock Accessed: 30/05/2021.
+
+\bibitem{Holding1979TheEO}
+D.~H. Holding, ``The evaluation of chess positions,'' {\em Simulation \&
+  Gaming}, vol.~10, pp.~207 -- 221, 1979.
 
 \end{thebibliography}
