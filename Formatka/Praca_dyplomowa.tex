@@ -102,7 +102,7 @@
 \streszczenie{W pracy przedstawiona zostanie analiza zależności między czasami wykonania poszczególnych posunięć w szachach, ich numerem oraz jakością, biorąc jako miarę zgodność z silnikiem szachowym. Analiza statystyczna zostanie wykonana ze szczególnym uwzględnieniem różnic wynikających z poziomu rankingowego graczy oraz formatu czasowego poszczególnych partii.}
 \streszczenieang{The paper presents an analysis of the relationship between the times of taking individual chess moves, their number and quality, taking as a measure compliance with the chess engine. Statistical analysis will be performed with particular emphasis on the differences resulting from the rankin level of players and the time format of individual games.}
 %
-% Podajemy najważniejsze słowa kluczowe po polsku i angielsku
+% Podajemy najważniejsze słowa kluczowe po pols9ku i angielsku
 % - w obu przypadkach, nie więcej niż 150 znaków.
 \slowakluczowe{analiza statystyczna, szachy, korelacja, statystyka, probabilistyka, błędy szachowe}  
 \slowakluczoweang{statistical analysis, chess, correlation, statistics, probabilistics, chess blunder}
@@ -184,10 +184,10 @@ W związku z możliwością przegranej poprzez upłynięcie czasu na zegarze, za
 
 \section{System rankingowy Glicko-2}
 \textbf{opisać ogólnie troche historii o systemach rankingowych?}
-System rankingowy ELO - pierwowzór systemu Glicko-2, został zaprezentowany w latach pięćdziesiątych dwudziestego wieku przez Węgierskiego fizyka i szachistę Arpada Elo (1903-1992) \textbf{\cite[rozdział 1]{elo}}. Początkowo był używany jedynie w szachach, jednak wraz ze wzrostem jego popularności zaczął być stosowany również w innych rozgrywkach z możliwością pomiaru poziomu zawodników. System ten jest pierwszym systemem mającym podłoże probabilistyczne i jest oparty na rozkładzie normalnym z ustaloną średnią. Przyznaje odpowiednią liczbę punktów zwycięzcy rozgrywki i odbiera przegranemu bazując na różnicy między ich aktualnym rankingiem.
+System rankingowy ELO - pierwowzór systemu Glicko-2, został zaprezentowany w latach pięćdziesiątych dwudziestego wieku przez Węgierskiego fizyka i szachistę Arpada Elo (1903-1992) \cite[rozdział 1]{elo}. Początkowo był używany jedynie w szachach, jednak wraz ze wzrostem jego popularności zaczął być stosowany również w innych rozgrywkach z możliwością pomiaru poziomu zawodników. System ten jest pierwszym systemem mającym podłoże probabilistyczne i jest oparty na rozkładzie normalnym z ustaloną średnią. Przyznaje odpowiednią liczbę punktów zwycięzcy rozgrywki i odbiera przegranemu bazując na różnicy między ich aktualnym rankingiem.
 
 
-System Glicko-2  używany przez stronę \textbf{Lichess.com}, na danych której oparta jest niniejsza praca, opracowany został przez Marka Glickmana jako ulepszenie systemu ELO. Podstawową zmianą jest uwzględnienie historycznych wyników każdego z zawodników w celu ustalenia wariancji aktualnego rankingu. Glickman w swojej pracy z roku 1999 \textbf{\cite{glicko}} przedstawia problem dwóch graczy o takim samym rankingu, z których jeden gra regularnie, a drugi wrócił do gry po długiej przerwie. System Glicko-2 przyznając punkt za grę bierze pod uwagę wiarygodność każdego z rankingów. Zawodnikowi grającemu regularnie zostanie przyznane bądź odebrane mniej punktów ze względu na duże potencjalne odchylenie rankingu przeciwnika od zadeklarowanej wartości. Innymi słowy, w miarę zwiększania się liczby partii gracza, przedział ufności dla jego realnego rankingu zawęża się i przypisany mu ranking zbiega do realnego poziomu i wiarygodność przypisanego rankingu jest uwzględniana w przyznawaniu i odbieraniu punktów zawodnikom po zakończeniu partii.
+System Glicko-2  używany przez stronę \textbf{Lichess.com}, na danych której oparta jest niniejsza praca, opracowany został przez Marka Glickmana jako ulepszenie systemu ELO. Podstawową zmianą jest uwzględnienie historycznych wyników każdego z zawodników w celu ustalenia wariancji aktualnego rankingu. Glickman w swojej pracy z roku 1999 \cite{glicko} przedstawia problem dwóch graczy o takim samym rankingu, z których jeden gra regularnie, a drugi wrócił do gry po długiej przerwie. System Glicko-2 przyznając punkt za grę bierze pod uwagę wiarygodność każdego z rankingów. Zawodnikowi grającemu regularnie zostanie przyznane bądź odebrane mniej punktów ze względu na duże potencjalne odchylenie rankingu przeciwnika od zadeklarowanej wartości. Innymi słowy, w miarę zwiększania się liczby partii gracza, przedział ufności dla jego realnego rankingu zawęża się i przypisany mu ranking zbiega do realnego poziomu i wiarygodność przypisanego rankingu jest uwzględniana w przyznawaniu i odbieraniu punktów zawodnikom po zakończeniu partii.
 
 \textbf{WRZUCIĆ MATEMATYKĘ STOJĄCĄ ZA GLICKO-2???}
 
@@ -195,9 +195,9 @@ System Glicko-2  używany przez stronę \textbf{Lichess.com}, na danych której 
 \section{Funkcja oceny}
 Przed przystąpieniem do opisania funkcji oceny, należy przybliżyć działanie silnika szachowego, który wykorzystywany jest do określenia aktualnej pozycji.
 \subsection{Stockfish}
-Silnik szachowy Stockfish \textbf{\cite{stockfish}} jest jednym z najlepszych i najpopularniejszym obecnie używanym silnikiem szachowym, którego zaprojektowali Joost VandeVondele, Joon Kiiski, Marco Costalb, Tord Romstad, Gary Linscott, Stefan Geschwentner i Stéphane Nicolet. Jest stale ulepszany jako oprogramowanie typu open-source. Strona \textbf{Lichess.com}, tak jak większość stron internetowych poświęconych szachom on-line, wykorzystuje go \textbf{\cite{stockfish_lichess}} do analizy i oceny aktualnej pozycji.
+Silnik szachowy Stockfish \cite{stockfish} jest jednym z najlepszych i najpopularniejszym obecnie używanym silnikiem szachowym, którego zaprojektowali Joost VandeVondele, Joon Kiiski, Marco Costalb, Tord Romstad, Gary Linscott, Stefan Geschwentner i Stéphane Nicolet. Jest stale ulepszany jako oprogramowanie typu open-source. Strona \textbf{Lichess.com}, tak jak większość stron internetowych poświęconych szachom on-line, wykorzystuje go \cite{stockfish_lichess} do analizy i oceny aktualnej pozycji.
 
-Stockfish poprzez przeszukiwanie według strategii mini-max \footnote{Dokładniej opisana w artykule: E. Vilkas. \textit{Axiomatic definition of the value of a matrix game} Theory Probabl. Appl. , 8 (1963) pp. 304–307} z odcięciem, za pomocą algorytmu alfa-beta \textbf{[cite]}, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych wykonanych zaczynając z analizowanej pozycji) i na ich podstawie ocenia aktualną pozycję, określając przewagę jednego z graczy
+Stockfish poprzez przeszukiwanie według strategii mini-max \footnote{Dokładniej opisana w artykule: E. Vilkas. \textit{Axiomatic definition of the value of a matrix game} Theory Probabl. Appl. , 8 (1963) pp. 304–307} z odcięciem, za pomocą algorytmu alfa-beta, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych wykonanych zaczynając z analizowanej pozycji) i na ich podstawie ocenia aktualną pozycję, określając przewagę jednego z graczy
 
 \subsection{Ewaluacja}
 Wspomniana wcześniej ewaluacja, wyliczana przez silnik szachowy jest wynikiem liniowej funkcji 
@@ -225,7 +225,7 @@ Wraz ze wzrostem wartości funkcji zwiększa się przewaga białych, natomiast w
 W notacji szachowej obok zapisanego ruchu mogą pojawić się symbole określające jakość danego ruchu. Dla analizowanych danych, ruch oceniany jest przez silnik szachowy za pomocą skomplikowanych algorytmów, których głównym składnikiem jest zmiana oceny pozycji na szachownicy przez silnik.
 Przykładowo, gdy przed ruchem czarnych ocena pozycji wynosiła -2, a po ruchu 3, silnik oceni ruch jako błąd, jednakże jeśli wcześniejsza ocena wynosiła -18, a po ruchu -13, silnik nie oznaczy ruchu jako błędny, ponieważ przewaga czarnych i tak jest bardzo znacząca.
 
-Wśród licznych oznaczeń silnika, w pracy analizowane będą następujące oznaczenia\cite{symbols}:
+Wśród licznych oznaczeń silnika, w pracy analizowane będą następujące oznaczenia \cite{symbols}:
 \begin{itemize}
 	\item ??\hphantom{!} -- błąd (ang. \textit{blunder})
 	\item ?\hphantom{?!}  -- pomyłka (ang. \textit{mistake}), posunięcie błędne w mniejszym stopniu niż ,,błąd''
@@ -236,23 +236,47 @@ W części pracy na wykresach pojawiać się będzie oznaczenie ,,duży błąd''
 
 
 \chapter{Zagadnienia teoretyczne dotyczące analizy statystycznej}
-Niniejszy rozdział poświęcony zostanie zagadnieniom teoretycznym z dziedziny statystyki, zastosowanych w analizie przedstawionych problemów. Pokrótce umówione zostaną metody wykorzystywane przy rozważaniach, a także rozkłady, które zostały dopasowane do danych.
+Niniejszy rozdział poświęcony zostanie zagadnieniom teoretycznym z dziedziny statystyki, zastosowanych w analizie przedstawionych problemów. Pokrótce umówione zostaną metody wykorzystywane przy rozważaniach. %a także rozkłady, które zostały dopasowane do danych.
 
 \section{metoda najmniejszych kwadratów}
-Weźmy zbiór punktów $(x_i, y_i)$ dla $0\leq i \leq n$.
-Metoda najmniejszych kwadratów\cite{dekking2005modern} polega na znalezieniu takich parametrów $\theta_1, \theta_2, \dots, \theta_k$ pewnej określonej funkcji $\hat{y_i} = f\left(x_i, \theta_1, \theta_2, \dots, \theta_k \right)$ estymującej wartość $y_i$ w zadanym punkcie $x_i$, dla których suma kwadratów odległości $\hat{y_i}$ od rzeczywistej wartości $y_i$ dla każdego punktu ze zbioru jest najmniejsza. Innymi słowy, metoda polega na minimalizacji funkcji 
+Weźmy zbiór punktów $(x_i, y_i)$ dla $0\leq i \leq n$.\\
+Metoda najmniejszych kwadratów \cite{dekking2005modern} polega na znalezieniu takich parametrów $\theta_1, \theta_2, \dots, \theta_k$ pewnej określonej funkcji $\hat{y_i} = f\left(x_i, \theta_1, \theta_2, \dots, \theta_k \right)$ estymującej wartość $y_i$ w zadanym punkcie $x_i$, dla których suma kwadratów odległości $\hat{y_i}$ od rzeczywistej wartości $y_i$ dla każdego punktu ze zbioru jest najmniejsza. Innymi słowy, metoda polega na minimalizacji funkcji 
 \begin{equation*}
-	\sum_{i=0}^{n}(f\left(x_i, \theta_1, \theta_2, \dots, \theta_k \right)-y_i)^2
+	L = \sum_{i=0}^{n}(y_i-f\left(x_i, \theta_1, \theta_2, \dots, \theta_k \right))^2
 \end{equation*}
 biorąc jako zmienne parametry $ \theta_1, \theta_2, \dots, \theta_k \in \mathbb{R} $
+
 \section{regresja liniowa}
-x
-\section{rozkład log-normalny}
-x
+Model regresji liniowej \cite[strony 265 -- 267]{statysty} polega na dopasowaniu parametrów $\beta_0$ i $\beta_1$ prostej $y=\beta_0+\beta_1 x$ do zestawu danych $(x_i, y_i)$ dla $0\leq i \leq n$ za pomocą opisanej wyżej metody najmniejszych kwadratów. Prosta regresji pomaga ustalić trend liniowy w danych.
+\subsection{estymacja parametrów prostej regresji metodą momentów}
+Problem polega na minimalizacji funkcji $L(\beta_0, \beta_1) = \sum_{i=0}^{n}\left(y_i - \left(\beta_0 + \beta_1 x_i\right)^2 \right)$ ze względu na $\beta_0, \beta_1$.
+\begin{align}
+	& 0 = \frac{\partial L}{\partial \beta_0} = -2\sum_{i=0}^{n}\left(y_i - \left(\beta_0 + \beta_1 x_i\right)\right) \\
+	& 0 = \frac{\partial L}{\partial \beta_1} = -2\sum_{i=0}^{n}x_i\left(y_i - \left(\beta_0 + \beta_1 x_i\right)\right)
+\end{align}
+Stąd
+\begin{align}
+	& \sum_{i=0}^{n}y_i - n \beta_0 - \beta_1\sum_{i=0}^{n} x_i = 0 \label{eq1}\\
+	& \sum_{i=0}^{n} x_i y_i - \beta_0 \sum_{i=0}^{n}x_i - \beta_1\sum_{i=0}^{n} x_i^2 = 0 \label{eq2}
+\end{align}
+Z równania \ref{eq1} otrzymujemy
+\begin{align}
+	& \beta_0 = \frac{1}{n} \left(\sum_{i=0}^{n}y_i - \beta_1\sum_{i=0}^{n} x_i\right) = \bar{y} - b_1 \bar{x}\text{, gdzie } \bar{x}= \frac{1}{n}\sum_{i=0}^{n} x_i, \bar{y}= \frac{1}{n}\sum_{i=0}^{n} y_i
+\end{align}
+Po wstawieniu powyższego wyrażenia do równania \ref{eq2} i po kilku prostych przekształceniach otrzymujemy 
+\begin{align}
+	& \sum_{i=0}^{n}x_i(y_i - \bar{y}) = \beta_1 \left(\sum_{i=0}^{n}x_i^2 - n\bar{x}^2 \right)
+\end{align}
+Korzystając z faktu, że $\sum_{i=0}^{n}x_i^2 - n\bar{x}^2 = \sum_{i=0}^{n}(x_i-\bar{x})^2$ otrzymujemy ostateczny wynik estymacji:
+\begin{align}
+	\beta_1& =  \frac{\sum_{i=0}^{n}x_i(y_i - \bar{y})}{\sum_{i=0}^{n}(x_i-\bar{x})^2}\\
+	\beta_0& =  \bar{y} - b_1\bar{x}
+\end{align}
 \section{metoda momentów}
 Celem metody momentów \cite{momentowametoda} jest estymacja parametrów rozkładu prawdopodobieństwa $X(\theta_1, \theta_2, \dots, \theta_k)$. Metoda polega na stworzeniu, a następnie rozwiązaniu układu równań, w którym przyrównywane są empiryczne wartości pierwszych $k$ momentów z ich wartościami teoretycznymi $M(\theta_1, \theta_2, \dots, \theta_k)$. Metody można użyć jedynie, gdy istnieje pierwsze $k$ momentów danego rozkładu.
 
-Dla rozkładu log-normalnego $Lognormal(\mu ,\,\sigma^{2})$ momenty zadane są równaniem\cite{lognorm}
+\subsection{estymacja parametrów rozkładu lognormalnego metoda momentów}
+Dla rozkładu log-normalnego $Lognormal(\mu ,\,\sigma^{2})$ momenty zadane są równaniem \cite{lognorm}
 \begin{equation*}
 	E[X^n] = \exp (n\mu+\frac{(n\sigma)^2}{2}).
 \end{equation*}
@@ -500,56 +524,13 @@ Po przyjrzeniu się danym można zauważyć, że pochodzą one z rozkładu logar
 	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym rozkładem log-normalnym. Zestaw ruchów błędnych.}
 	\label{rys:rozklad_lognorm2}
 \end{figure}
-Za pomocą metody momentów \textbf{[cite]} opisanej w rozdziale \textbf{NR ROZDZIAŁU, opisać ją jakoś?} do każdego zbioru danych został dopasowany rozkład log-normalny. Na rysunku \ref{rys:rozklad_lognorm}  ... Na rysunku \ref{rys:rozklad_lognorm2}  ... 
+Za pomocą metody momentów \textbf{[cite]} opisanej w rozdziale \textbf{NR ROZDZIAŁU, opisać ją jakoś?} do każdego zbioru danych został dopasowany rozkład log-normalny. Na rysunku \ref{rys:rozklad_lognorm} przedstawiającym znormalizowany histogram dla zestawu wszystkich ruchów dla formatów ,,300+0'' i ,,600+0'' rozkład teoretyczny jest dobrze dopasowany i zgodny z rozkładem empirycznym. \textbf{GOODNESS OF FIT, problem bo dane są digitalizowane}
+
+... Na rysunku \ref{rys:rozklad_lognorm2}  ... 
 
 \textbf{PLAN:}\\
 
-\textbf{porównanie rozkładu czasu wykonania wszystkich ruchów oraz dla ruchów blunder (histogram gęstości)\\
-	wskazanie różnicy\\
-osobno rankingi przeanalizować}\\
 
-\textbf{POMYSŁ! WZIĘCIE LOSOWE RUCHY Z ROZKŁADU TAKIEGO JAK ROZKŁAD RUCHÓW BLUNDER I SPRAWDZENIE RÓŻNICY MIĘDZY BLUNDER A LOSOWYMI RUCHAMI}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-TUTAJ rozkłady, 	
-
-np dla formatu 60+0 (60 sekund, brak dodawanego czasu po wykonaniu ruchu)
 
 \begin{figure}[H]
 	\centering
@@ -565,7 +546,18 @@ oś y -> nieznormalizowana liczba ruchów typu 'blunder' (te najcięższe pomył
 
 rozkład gamma... (?)\newline 
 
+\textbf{porównanie rozkładu czasu wykonania wszystkich ruchów oraz dla ruchów blunder (histogram gęstości)\\
+	wskazanie różnicy\\
+	osobno rankingi przeanalizować}\\
 
+\textbf{POMYSŁ! WZIĘCIE LOSOWE RUCHY Z ROZKŁADU TAKIEGO JAK ROZKŁAD RUCHÓW BLUNDER I SPRAWDZENIE RÓŻNICY MIĘDZY BLUNDER A LOSOWYMI RUCHAMI}
+
+
+
+
+TUTAJ rozkłady, 	
+
+np dla formatu 60+0 (60 sekund, brak dodawanego czasu po wykonaniu ruchu)
 
 
 TO DO: 
