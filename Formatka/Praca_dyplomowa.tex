@@ -502,7 +502,7 @@ Kolejny problemem, który zostanie zbadany jest zależność pomiędzy czasem po
 \end{figure}
 
 Pierwszym spojrzeniem na wymienioną wyżej zależność będzie przeanalizowanie rozkładu czasu na wykonanie ruchu osobno dla zbioru wszystkich ruchów i dla tych błędnych. Jak można zauważyć na rysunku \ref{rys:rozklad_czasu}, w każdym rozważanym formacie czasowym różnica w rozkładzie dla zbioru wszystkich ruchów i zbioru ruchów błędnych jest zauważalna. Oba zbiory mają zachowane podobne tendencje -- najwięcej posunięć zagrywana jest w ciągu dwóch do czterech sekund. W każdym ze zbiorów wraz ze wzrostem czasu na wykonanie posunięcia, empiryczna gęstość rozkładu się zmniejsza. Ruchów błędnych jest widocznie mniej w porównaniu do zbioru wszystkich ruchów w przedziale od 0 do ok. 8 sekund. Natomiast w przedziale od ok. 8 do 30 sekund, posunięcia błędne są spotykane częściej.
-Po przyjrzeniu się danym można zauważyć, że pochodzą one z rozkładu logarytmicznie-normalnego, co można uwarunkować tym, że w zdecydowanej większości pozycji zawodnik potrzebuje chwili na odpowiedź na posunięcie przeciwnika, ponieważ samo zarejestrowanie zmiany na planszy i fizyczne wykonanie posunięcia (przesunięcie figury na konkretne pole za pomocą myszki dla komputerów lub przeciągnięcie palcem dla smartfonów) zajmuje pewien czas, wykluczając sytuacje, w których zawodnik dokonuje tzw. ,,premove'', czyli podejmuje decyzję o wykonaniu konkretnego posunięcia zajmującego 0 sekund jeszcze przed zagraniem przeciwnika. Dla formatów ,,300+0'' i ,,600+0'' jest to jednak rzadkością - szczególnie podczas środkowej części gry.
+Po przyjrzeniu się danym można zauważyć, że mogą one pochodzić z rozkładu logarytmicznie-normalnego, co można uwarunkować tym, że w zdecydowanej większości pozycji zawodnik potrzebuje chwili na odpowiedź na posunięcie przeciwnika, ponieważ samo zarejestrowanie zmiany na planszy i fizyczne wykonanie posunięcia (przesunięcie figury na konkretne pole za pomocą myszki dla komputerów lub przeciągnięcie palcem dla smartfonów) zajmuje pewien czas, wykluczając sytuacje, w których zawodnik dokonuje tzw. ,,premove'', czyli podejmuje decyzję o wykonaniu konkretnego posunięcia zajmującego 0 sekund jeszcze przed zagraniem przeciwnika. Dla formatów ,,300+0'' i ,,600+0'' jest to jednak rzadkością - szczególnie podczas środkowej części gry.
 
 \begin{figure}[H]
 	\centering
@@ -516,40 +516,47 @@ Po przyjrzeniu się danym można zauważyć, że pochodzą one z rozkładu logar
 	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym rozkładem log-normalnym. Zestaw ruchów błędnych.}
 	\label{rys:rozklad_lognorm2}
 \end{figure}
-Za pomocą metody momentów opisanej w rozdziale na stronie \ref{teoria} do każdego zbioru danych został dopasowany rozkład log-normalny. Na rysunku \ref{rys:rozklad_lognorm} przedstawiającym znormalizowany histogram dla zestawu wszystkich ruchów dla formatów ,,300+0'' i ,,600+0'' rozkład teoretyczny jest dobrze dopasowany i zgodny z rozkładem empirycznym. \textbf{GOODNESS OF FIT, problem bo dane są digitalizowane}
-
-... Na rysunku \ref{rys:rozklad_lognorm2}  ... 
-
-\textbf{PLAN:}\\
-
-
+Za pomocą metody momentów opisanej w rozdziale na stronie \ref{teoria} do każdego zbioru danych został dopasowany rozkład log-normalny. Na rysunku \ref{rys:rozklad_lognorm} przedstawiającym znormalizowany histogram dla zestawu wszystkich ruchów dla formatów ,,300+0'' i ,,600+0'' rozkład teoretyczny jest dobrze dopasowany i zgodny z rozkładem empirycznym. Dla zestawu ruchów oznaczonych jako błędne, dopasowanie (rysunek \ref{rys:rozklad_lognorm2}) w dużym stopniu odbiega od rozkładu empirycznego. Ruchy błędne zajmują statystycznie mniej czasu, niż wskazuje rozkład. Ze względu na wielkość prób wynoszących od ponad 500 tysięcy obserwacji dla najmniejszego z analizowanych zbiorów (format ,,300+0'', ruchy błędne) do aż 8,6 miliona, testy statystyczne, wrażliwe na liczbę danych odrzuciły hipotezę ich pochodzenia z rozkładu log-normalnego. Problematyczną kwestią jest tutaj również digitalizacja danych, które są zaokrąglane do pełnych sekund. W związku z powyższym zastosowane zostało kilka poprawek, by móc lepiej ustalić tożsamość danych.
+Pierwszą z nich jest zmiana rozkładu log-normalnego na dyskretny rozkład lognormalny [CITE]. Jest to drugi z opisanych rozkładów w regorocznej pracy ,,Discrete lognormal distribution with application to insurence data'', którą napisali Jiahang Lyu oraz Saraless Nadarajah. Funkcja prawdopodobieństwa przedstawionego rozkładu opisana jest następującym wzorem
+\begin{equation}\label{discrete}
+	p_{X}(i)= \Phi\left(\frac{\log i - \mu}{\sigma} \right) - \Phi\left(\frac{\log \left(i - 1\right) - \mu}{\sigma} \right)
+\end{equation}
+gdzie $\Phi(x)$ jest wartością dystrybuanty standardowego rozkładu normalnego w punkcie $x$.
+W celu estymacji parametrów $\mu$ i $\sigma$, z każdego ze wzorów wzięta została losowa próbka $(x_1, \dots, x_n)$ 100 tysięcy obserwacji, a następnie numerycznie znaleziona optymalna wartość funkcji największej wiarygodności  opisanej równaniem
+\begin{equation}
+	L(\mu,\sigma) = \sum_{i=1}^{n} \log\left[ \Phi\left(\frac{\log x_i - \mu}{\sigma} \right) - \Phi\left(\frac{\log \left(x_i - 1\right) - \mu}{\sigma} \right)\right]
+\end{equation}
+W równianiu \ref{discrete} można zauważyć, że najniższą obserwacją należącą do dziedziny jest $i = 1$ sekunda. W związku z tym, przed estymacją parametrów rozkładu, z danych wyciągnięte zostały ruchy, których zaokrąglony czas wykonania wynosi 0 sekund. Wyniki obserwacji [...]
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{sample60.png}
-	\caption{xxx}\label{xxx}
+	\includegraphics[width=\textwidth]{discrete_lognorm_1.png}
+	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym rozkładem log-normalnym.}
+	\label{rys:rozklad_lognorm_disc}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{discrete_lognorm_2.png}
+	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym rozkładem log-normalnym. Zestaw ruchów błędnych.}
+	\label{rys:rozklad_lognorm2_disc}
 \end{figure}
 
 
-oś x -> czas
-
-oś y -> nieznormalizowana liczba ruchów typu 'blunder' (te najcięższe pomyłki)\newline
-
-
-rozkład gamma... (?)\newline 
-
-\textbf{porównanie rozkładu czasu wykonania wszystkich ruchów oraz dla ruchów blunder (histogram gęstości)\\
-	wskazanie różnicy\\
-	osobno rankingi przeanalizować}\\
-
-\textbf{POMYSŁ! WZIĘCIE LOSOWE RUCHY Z ROZKŁADU TAKIEGO JAK ROZKŁAD RUCHÓW BLUNDER I SPRAWDZENIE RÓŻNICY MIĘDZY BLUNDER A LOSOWYMI RUCHAMI}
 
 
 
 
-TUTAJ rozkłady, 	
 
-np dla formatu 60+0 (60 sekund, brak dodawanego czasu po wykonaniu ruchu)
+
+
+
+
+
+
+
+
+
+
 
 
 TO DO: 
