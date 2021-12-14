@@ -502,7 +502,7 @@ Kolejny problemem, który zostanie zbadany jest zależność pomiędzy czasem po
 \end{figure}
 
 Pierwszym spojrzeniem na wymienioną wyżej zależność będzie przeanalizowanie rozkładu czasu na wykonanie ruchu osobno dla zbioru wszystkich ruchów i dla tych błędnych. Jak można zauważyć na rysunku \ref{rys:rozklad_czasu}, w każdym rozważanym formacie czasowym różnica w rozkładzie dla zbioru wszystkich ruchów i zbioru ruchów błędnych jest zauważalna. Oba zbiory mają zachowane podobne tendencje -- najwięcej posunięć zagrywana jest w ciągu dwóch do czterech sekund. W każdym ze zbiorów wraz ze wzrostem czasu na wykonanie posunięcia, empiryczna gęstość rozkładu się zmniejsza. Ruchów błędnych jest widocznie mniej w porównaniu do zbioru wszystkich ruchów w przedziale od 0 do ok. 8 sekund. Natomiast w przedziale od ok. 8 do 30 sekund, posunięcia błędne są spotykane częściej.
-Po przyjrzeniu się danym można zauważyć, że mogą one pochodzić z rozkładu logarytmicznie-normalnego, co można uwarunkować tym, że w zdecydowanej większości pozycji zawodnik potrzebuje chwili na odpowiedź na posunięcie przeciwnika, ponieważ samo zarejestrowanie zmiany na planszy i fizyczne wykonanie posunięcia (przesunięcie figury na konkretne pole za pomocą myszki dla komputerów lub przeciągnięcie palcem dla smartfonów) zajmuje pewien czas, wykluczając sytuacje, w których zawodnik dokonuje tzw. ,,premove'', czyli podejmuje decyzję o wykonaniu konkretnego posunięcia zajmującego 0 sekund jeszcze przed zagraniem przeciwnika. Dla formatów ,,300+0'' i ,,600+0'' jest to jednak rzadkością - szczególnie podczas środkowej części gry.
+Po przyjrzeniu się danym można zauważyć, że mogą one pochodzić z rozkładu logarytmicznie-normalnego, co można uwarunkować tym, że w zdecydowanej większości pozycji zawodnik potrzebuje krótkiej chwili na odpowiedź na posunięcie przeciwnika, ponieważ samo zarejestrowanie zmian na planszy i fizyczne wykonanie posunięcia (przesunięcie figury na konkretne pole za pomocą myszki dla komputerów lub przeciągnięcie palcem dla smartfonów) zajmuje pewien czas, wykluczając sytuacje, w których zawodnik dokonuje tzw. ,,premove'', czyli podejmuje decyzję o wykonaniu konkretnego posunięcia zajmującego 0 sekund jeszcze przed zagraniem przeciwnika. Dla formatów ,,300+0'' i ,,600+0'' jest to jednak rzadkością - szczególnie podczas środkowej części gry.
 
 \begin{figure}[H]
 	\centering
@@ -516,32 +516,45 @@ Po przyjrzeniu się danym można zauważyć, że mogą one pochodzić z rozkład
 	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym rozkładem log-normalnym. Zestaw ruchów błędnych.}
 	\label{rys:rozklad_lognorm2}
 \end{figure}
-Za pomocą metody momentów opisanej w rozdziale na stronie \ref{teoria} do każdego zbioru danych został dopasowany rozkład log-normalny. Na rysunku \ref{rys:rozklad_lognorm} przedstawiającym znormalizowany histogram dla zestawu wszystkich ruchów dla formatów ,,300+0'' i ,,600+0'' rozkład teoretyczny jest dobrze dopasowany i zgodny z rozkładem empirycznym. Dla zestawu ruchów oznaczonych jako błędne, dopasowanie (rysunek \ref{rys:rozklad_lognorm2}) w dużym stopniu odbiega od rozkładu empirycznego. Ruchy błędne zajmują statystycznie mniej czasu, niż wskazuje rozkład. Ze względu na wielkość prób wynoszących od ponad 500 tysięcy obserwacji dla najmniejszego z analizowanych zbiorów (format ,,300+0'', ruchy błędne) do aż 8,6 miliona, testy statystyczne, wrażliwe na liczbę danych odrzuciły hipotezę ich pochodzenia z rozkładu log-normalnego. Problematyczną kwestią jest tutaj również digitalizacja danych, które są zaokrąglane do pełnych sekund. W związku z powyższym zastosowane zostało kilka poprawek, by móc lepiej ustalić tożsamość danych.
-Pierwszą z nich jest zmiana rozkładu log-normalnego na dyskretny rozkład lognormalny [CITE]. Jest to drugi z opisanych rozkładów w regorocznej pracy ,,Discrete lognormal distribution with application to insurence data'', którą napisali Jiahang Lyu oraz Saraless Nadarajah. Funkcja prawdopodobieństwa przedstawionego rozkładu opisana jest następującym wzorem
+Za pomocą metody momentów opisanej w rozdziale na stronie \ref{teoria} do każdego zbioru danych został dopasowany rozkład log-normalny. Na rysunku \ref{rys:rozklad_lognorm} przedstawiającym znormalizowany histogram dla zestawu wszystkich ruchów dla formatów ,,300+0'' i ,,600+0'' rozkład teoretyczny jest dobrze dopasowany i zgodny z rozkładem empirycznym. Dla zestawu ruchów oznaczonych jako błędne, dopasowanie (rysunek \ref{rys:rozklad_lognorm2}) w dużym stopniu odbiega od rozkładu empirycznego. Ruchy błędne zajmują statystycznie mniej czasu, niż wskazuje rozkład. Ze względu na wielkość prób wynoszących od ponad 500 tysięcy obserwacji dla najmniejszego z analizowanych zbiorów (format ,,300+0'', ruchy błędne) do aż 8,6 miliona (format ,,600+0'', wszystkie ruchy), testy statystyczne, wrażliwe na liczbę danych odrzuciły hipotezę ich pochodzenia z rozkładu log-normalnego. Problematyczną kwestią jest tutaj również digitalizacja danych, które są zaokrąglane do pełnych sekund. W związku z powyższym zastosowane zostało kilka poprawek, by móc lepiej ustalić tożsamość danych.
+Pierwszą z nich jest zmiana rozkładu log-normalnego na dyskretny rozkład lognormalny \cite{lognorm_disc}. Jest to drugi z opisanych rozkładów w tegorocznej pracy ,,Discrete lognormal distribution with application to insurence data'', którą napisali Jiahang Lyu oraz Saraless Nadarajah. Funkcja prawdopodobieństwa przedstawionego rozkładu opisana jest następującym wzorem
 \begin{equation}\label{discrete}
 	p_{X}(i)= \Phi\left(\frac{\log i - \mu}{\sigma} \right) - \Phi\left(\frac{\log \left(i - 1\right) - \mu}{\sigma} \right)
 \end{equation}
 gdzie $\Phi(x)$ jest wartością dystrybuanty standardowego rozkładu normalnego w punkcie $x$.
-W celu estymacji parametrów $\mu$ i $\sigma$, z każdego ze wzorów wzięta została losowa próbka $(x_1, \dots, x_n)$ 100 tysięcy obserwacji, a następnie numerycznie znaleziona optymalna wartość funkcji największej wiarygodności  opisanej równaniem
+W celu estymacji parametrów $\mu$ i $\sigma$, z każdego ze wzorów wzięta została losowa próbka $(x_1, \dots, x_n)$ 100 tysięcy obserwacji, a następnie numerycznie znaleziona optymalna wartość funkcji największej wiarygodności opisanej równaniem
 \begin{equation}
 	L(\mu,\sigma) = \sum_{i=1}^{n} \log\left[ \Phi\left(\frac{\log x_i - \mu}{\sigma} \right) - \Phi\left(\frac{\log \left(x_i - 1\right) - \mu}{\sigma} \right)\right]
 \end{equation}
-W równianiu \ref{discrete} można zauważyć, że najniższą obserwacją należącą do dziedziny jest $i = 1$ sekunda. W związku z tym, przed estymacją parametrów rozkładu, z danych wyciągnięte zostały ruchy, których zaokrąglony czas wykonania wynosi 0 sekund. Wyniki obserwacji [...]
+W równaniu \ref{discrete} można zauważyć, że najniższą obserwacją należącą do dziedziny jest $i = 1$ sekunda. W związku z tym, przed estymacją parametrów rozkładu, z danych usunięte zostały ruchy, których zaokrąglony czas wykonania wynosi 0 sekund. Dodatkowo wartość $\log(0)$ traktowana jest jako $\lim\limits_{x \rightarrow 0^{+}}\log(x) = -\infty$. W związku z tym~$p_{X}(1)= \Phi\left(\frac{\log 1 - \mu}{\sigma} \right) - \Phi\left(\frac{\log \left(0\right) - \mu}{\sigma} \right) = \Phi\left(\frac{- \mu}{\sigma} \right)$
+ Wyniki obserwacji przedstawione są na rysunkach \ref{rys:lognorm_disc} oraz \ref{rys:lognorm2_disc}. Na pierwszym z nich, zawierającym zestaw wszystkich ruchów, dyskretny rozkład normalny jest dobrze dopasowany w obydwu formatach czasowych. Także w przypadku zestawu ruchów błędnych (rys. \ref{rys:lognorm2_disc}) dopasowanie poprawiło się w znacznym stopniu względem rozkładu ciągłego. Wykonany został test Chi-kwadrat badający zgodność częstotliwości występujących w danych z tymi zadanymi przez rozkład. Dla losowych zestawów danych liczących 1000 próbek i po wykonaniu 100 prób Monte-Carlo, średnia p-wartość dla każdego z badanych zbiorów na poziomie istotności $\alpha = 0,05$ wskazuje na przyjęcie hipotezy zerowej  wskazującej na pochodzenie danych z dyskretnego rozkładu log-normalnego. Szczegółowe wyniki, wraz z wyznaczonymi wcześniej za pomocą metody największej wiarygodności parametrami rozkładu umieszczone są w tabeli \ref{tab:testy}. Na podstawie średniej p-wartości można zauważyć, że pomimo zgodności dopasowania do każdego ze zbiorów, zestaw wszystkich ruchów jest lepiej opisany przez zadany rozkład teoretyczny. Potwierdzają to odchylenia w okolicy ruchów z indeksem od 3 do 8 na rysunku \ref{rys:lognorm2_disc}, które są zauważalnie większe, niż odchylenia w zbiorze wszystkich ruchów na rysunku \ref{rys:lognorm_disc}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{discrete_lognorm_1.png}
-	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym rozkładem log-normalnym.}
-	\label{rys:rozklad_lognorm_disc}
+	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym dyskretnym rozkładem log-normalnym.}
+	\label{rys:lognorm_disc}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{discrete_lognorm_2.png}
-	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym rozkładem log-normalnym. Zestaw ruchów błędnych.}
-	\label{rys:rozklad_lognorm2_disc}
+	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym dyskretnym rozkładem log-normalnym. Zestaw ruchów błędnych.}
+	\label{rys:lognorm2_disc}
 \end{figure}
 
-
+\begin{table}[H]
+	\caption{Średnie wyniki testu zgodności Chi-kwadrat, średnia ze 100 prób Monte-Carlo dla losowych próbek o długości 1000. Poziom istotności $\alpha = 0,05$.}
+	\centering
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		\textbf{dane}                     & \textbf{parametry rozkładu}& \textbf{p-wartość} & \textbf{wynik}     \\ \hline
+		,,300+0'', wszystkie ruchy & $\mu = 1,220$, $\sigma = 1,091$& 22,28\%                    & przyjęcie hipotezy \\ \hline
+		,,600+0'', wszystkie ruchy & $\mu = 1,705$, $\sigma = 1,188$& 20,40\%                    & przyjęcie hipotezy \\ \hline
+		,,300+0'', ruchy błędne    & $\mu = 1,673$, $\sigma = 1,059$& 7,14\%                     & przyjęcie hipotezy \\ \hline
+		,,600+0'', ruchy błędne    & $\mu = 2,158$, $\sigma = 1,123$& 6,49\%                     & przyjęcie hipotezy \\ \hline
+	\end{tabular}
+	\label{tab:testy} 
+\end{table}
 
 
 
@@ -589,11 +602,7 @@ ile powinno się poświęcić czasu na ruch by obniżyć prawdopodobieństwo wyk
 
 w którym ruchu jest największa szansa na popełnienie błędu?
 dla wszystkich rang
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\textwidth]{p_od_ruchu.png}
-	\caption{aaa}\label{aaa}
-\end{figure}
+
 
 \chapter{wnioski, podsumowanie}
 \begin{itemize}
@@ -608,17 +617,6 @@ dla wszystkich rang
 	\item różnice między formatami - w 600+0 ruchy zajmują nieliniowo więcej czasu, w 300+0 gracze są zmuszeni szybko wykonywać ruchy późniejsze.
 	\item 10 pierwszych ruchów, istotna różnica w popełnieniu rażącego błędu między graczami słabymi a dobrymi
 \end{itemize}
-
-
-\chapter{Definicje, lematy, twierdzenia, przykłady i wnioski}
-Definicje, lematy, twierdzenia, przykłady i wnioski piszemy w pracy tak:
-\begin{definition}[Martyngał]
-	Tu piszemy treść definicji martyngału.
-\end{definition}
-\begin{lemma}[]% w nawiasie kwadratowym można napisać jego nazwę
-	Tu piszemy treść lematu.
-\end{lemma}
-
 
 %{\backmatter \chapter{Podsumowanie}}
 %Podsumowanie w pracach matematycznych nie jest obligatoryjne. Warto jednak na zakończenie krótko napisać, co udało nam się %zrobić w pracy, a czasem także o tym, czego nie udało się zrobić.

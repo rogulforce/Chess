@@ -56,4 +56,8 @@ D.~H. Holding, ``The evaluation of chess positions,'' {\em Simulation \&
 {J. Jakubowski, R. Sztencel}, {\em Wstęp do teorii prawdopodobieństwa}.
 \newblock Warszawa: Script, 2001.
 
+\bibitem{lognorm_disc}
+J.~Lyu and S.~Nadarajah, ``Discrete lognormal distributions with application to
+  insurance data,'' {\em Springer}, 7 2021.
+
 \end{thebibliography}
