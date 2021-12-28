@@ -1,16 +1,25 @@
 \begin{thebibliography}{10}
 
+\bibitem{stockfish}
+``{Repozytorium zawierające kod źródłowy silnika Stockfish}.''
+  \url{https://github.com/official-stockfish/Stockfishr}.
+\newblock Dostęp: 11/10/2021.
+
+\bibitem{lichess}
+``{Lichess database}.'' \url{https://database.lichess.org/}.
+\newblock Accessed: 30/05/2021.
+
+\bibitem{praca_1}
+``{Does the low time alarm make people play worse?}.''
+  \url{https://github.com/Antiochian/chess-blunders/blob/main/README.md}.
+\newblock Dostęp: 22/12/2021.
+
 \bibitem{elo}
 A.~E. Elo, {\em The rating of chessplayers, Past \& Present (second edition)}.
 \newblock New York, United States: FIDE, 1986.
 
 \bibitem{glicko}
 M.~Glickman, ``The glicko system,'' {\em Boston University}, 1999.
-
-\bibitem{stockfish}
-``{Repozytorium zawierające kod źródłowy silnika Stockfish}.''
-  \url{https://github.com/official-stockfish/Stockfishr}.
-\newblock Dostęp: 11/10/2021.
 
 \bibitem{stockfish_lichess}
 ``{Lichess computer engine used from 2014}.''
@@ -43,10 +52,6 @@ K.~O. Bowman and L.~R. Shenton, ``Estimator: Method of moments,'' {\em
   distribution.''
   \url{https://mathworld.wolfram.com/LogNormalDistribution.html}, 2020.
 \newblock Dostęp: 17/10/2021.
-
-\bibitem{lichess}
-``{Lichess database}.'' \url{https://database.lichess.org/}.
-\newblock Accessed: 30/05/2021.
 
 \bibitem{Holding1979TheEO}
 D.~H. Holding, ``The evaluation of chess positions,'' {\em Simulation \&

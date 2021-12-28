@@ -48,7 +48,7 @@
 % Tytuł pracy dyplomowej 
 \tytul{Analiza statystyczna czasów na wykonywanie ruchów w
 	szachach} 
-\tytulang{Statistical analysis of times for making moves in chess}
+\tytulang{Statistical analysis of times between chess moves}
 %
 % Tytuł / stopień / imię i nazwisko opiekuna
 \opiekun{Prof. dr hab. inż. Marcin Magdziarz}
@@ -100,7 +100,7 @@
 % Krótkie streszczenia po polsku i angielsku
 % - nie dłuższe niż 530 znaków.
 \streszczenie{W pracy przedstawiona zostanie analiza zależności między czasami wykonania poszczególnych posunięć w szachach, ich numerem oraz jakością, biorąc jako miarę zgodność z silnikiem szachowym. Analiza statystyczna zostanie wykonana ze szczególnym uwzględnieniem różnic wynikających z poziomu rankingowego graczy oraz formatu czasowego poszczególnych partii.}
-\streszczenieang{The paper presents an analysis of the relationship between the times of taking individual chess moves, their number and quality, taking as a measure compliance with the chess engine. Statistical analysis will be performed with particular emphasis on the differences resulting from the rankin level of players and the time format of individual games.}
+\streszczenieang{The paper presents an analysis of the relationship between the times of taking individual chess moves, their number and quality, taking as a measure compliance with the chess engine. Statistical analysis will be performed with particular emphasis on the differences resulting from the ranking level of players and the time format of individual games.}
 %
 % Podajemy najważniejsze słowa kluczowe po pols9ku i angielsku
 % - w obu przypadkach, nie więcej niż 150 znaków.
@@ -142,27 +142,29 @@
 %\textbf{We wstępie zapowiadamy, o czym będzie praca. Próbujemy zachęcić czytelnika do dalszej lektury, np. krótko informując, dlaczego wybraliśmy właśnie ten temat i co nas w nim zainteresowało.}
 
 
-Wraz z rozwojem technologii komputerowej, rozpoczęła się nowa era szachów. Technologia korzystając z dużej mocy obliczeniowej, bezpowrotnie wyprzedziła człowieka w grach deterministycznych, do których zaliczają się szachy. Profesjonalni szachiści zaczęli wykorzystywać nowe strategie korzystając z coraz lepszych silników szachowych. Silniki te oceniają wprowadzoną pozycję pod kątem przewagi jednej ze stron. 
+
+\hspace{17.5pt}Wraz z rozwojem technologii komputerowej, rozpoczęła się nowa era szachów. Technologia, korzystając z dużej mocy obliczeniowej, bezpowrotnie wyprzedziła człowieka w różnorakich grach deterministycznych, do których zaliczają się szachy. Profesjonalni szachiści zaczęli wykorzystywać nowe strategie korzystając z coraz nowszych pomocy technologicznych, w związku z czym rozgrywki na najwyższym poziomie są zdecydowanie dokładniejsze, niż te przed komputerową rewolucją. Jeden z najsilniejszych obecnie silników,\textit{ Stockfish} \cite{stockfish} posiada zdolność oceniania wprowadzonej pozycji pod kątem przewagi jednej ze stron, co pozwala na oznaczenie błędnych ruchów w ciągu kilku sekund i bez potrzeby angażowania ekspertów.
 
 
-W dobie internetu gra w szachy stała się dużo wygodniejsza i znacznie przystępniejsza niż przed laty. Ludzie grają w różnych miejscach i praktycznie o każdej porze. W związku z tym większą popularnością zaczęły cieszyć się szachy szybkie, czyli takie, w których każdy z zawodników ma relatywnie mało czasu na wykonanie wszystkich ruchów. Wiąże się to ze znacznie większym znaczeniem zarządzania czasem w trakcie gry. Za każdym razem zawodnik musi ustalić równowagę pomiędzy dokładnością posunięcia, a czasem, który jest w stanie na nie poświęcić. 
+W dobie internetu gra w szachy stała się dużo wygodniejsza i znacznie przystępniejsza niż przed laty. Ludzie grają w różnych miejscach i praktycznie o każdej porze. W związku z tym, coraz większą popularnością zaczęły cieszyć się szachy szybkie, czyli takie, w których każdy z zawodników ma relatywnie mało czasu na wykonanie wszystkich ruchów. Wiąże się to ze znacznie większym znaczeniem zarządzania czasem w trakcie gry. Za każdym razem zawodnik musi ustalić równowagę pomiędzy dokładnością posunięcia, a czasem, który jest w stanie na nie poświęcić. 
 
 
-Przedmiotem badań tej pracy jest analiza zależności między dokładnością posunięcia, czasem na niego poświęconym oraz jego numerem. Rozważania zostaną podzielone ze względu na poziom umiejętności zawodników w danej partii oraz jej format czasowy. Dodatkowo przedstawiona będzie konfrontacja wyników statystycznych poszczególnych grup, by móc ustalić wiodące trendy wynikające ze wzrostu punktów rankingowych zawodnika oraz wydłużania, bądź skracania formatu czasowego.
+Przedmiotem badań tej pracy jest analiza zależności między dokładnością posunięcia, czasem na niego poświęconym oraz jego numerem. Całość zostanie oparta na ogólnodostępnej bazie danych wszystkich gier rozgrywanych na platformie internetowej \textit{Lichess.com} \cite{lichess}. Rozważania zostaną podzielone ze względu na format czasowy danej partii oraz na poziom umiejętności zawodników. Dodatkowo przedstawiona będzie konfrontacja wyników statystycznych poszczególnych grup rankingowych, by móc ustalić wiodące różnice wynikające z poziomu gry zawodnika oraz wydłużania, bądź skracania formatu czasowego. Powstało już kilka badań, które opierając się na tych samych danych sprawdzało pokrewne zależności. Jedna z ciekawszych, w mojej opinii, prac \cite{praca_1} przedstawia analizę wpływu pozostałego czasu na prawdopodobieństwo popełnienia błędu, pokazując widoczną anomalię będącą skutkiem wpływu dźwięku alarmującego zawodnika o kończącym się czasie.
+
 
 
 %\textbf{W PIERWSZEJ CZĘŚCI - ZAGADNIENIA TEORETYCZNE DOTYCZĄCE SZACHÓW}\\
-W pierwszej części pracy przedstawione i dość obszernie wyjaśnione zostaną podstawowe zagadnienia teoretyczne związane z grą w szachy, systemami rankingowymi i silnikami szachowymi. Przedstawione zostaną zasady gry w szachy ze szczególnym uwzględnieniem konkretnych elementów, których niewiedza nie pozwoliłaby na pełne przyswojenie przedstawionej w tej pracy analizy.
+W pierwszej części pracy przedstawione i dość obszernie wyjaśnione zostaną podstawowe zagadnienia teoretyczne związane z grą w szachy, systemami rankingowymi i silnikami szachowymi. Przedstawione zostaną zasady gry w szachy ze szczególnym uwzględnieniem konkretnych elementów, których niewiedza nie pozwoliłaby na pełne przyswojenie przedstawionej później analizy.
 
-W nastepnym kroku opisany zostanie system \textit{Elo}, a także wzorujący się na nim system \textit{Glicko-2}, który używany jest do przypisania rankingu każdemu z graczy znajdujących się w bazie danych używanej do analiz. Ostatnim elementem będzie przedstawienie  silnika szachowego \textit{Stockfish} i jego wkładu w - kluczową dla analizy statystycznej - funkcję oceny posunięcia.
+W nastepnym kroku opisany zostanie system \textit{Elo} \cite{elo}, a także wzorujący się na nim system \textit{Glicko-2} \cite{glicko}, którego pierwsza wersja została opisana w 1999 roku przez Marka Glickmana. Używany jest on  do przypisania rankingu każdemu z graczy znajdujących się w bazie danych używanej do analiz. Ostatnim elementem będzie przedstawienie działania silnika szachowego \textit{Stockfish} i jego wkładu w -- kluczową dla analizy statystycznej~--~funkcję oceny posunięcia.
 
 
 %\textbf{W DRUGIEJ CZĘŚCI ZAGADNIENIA TEORETYCZNE ZE STATYSTYKI I METODOLOGII}\\
-Kolejna część pracy opowiada o zagadnieniach teoretycznych z dziedziny statystyki, zastosowanych w analizie przedstawionych problemów oraz odtwórcze wyprowadzenie wzorów używanych później.
+Kolejna część pracy opowiada o zagadnieniach teoretycznych z dziedziny statystyki, zastosowanych w analizie przedstawionych problemów oraz odtwórcze wyprowadzenie wzorów używanych później. 
  
  
 %\textbf{PÓŹNIEJ DOKŁADNE SFORMUOWANIE PROBLEMU}\\
-Główna część pracy składać się będzie z trzech części. W pierwszej z nich odnaleźć można dokładne sformułowanie problemów, które są przedmiotem badań niniejszej pracy. Następnie opisany zostaną dane, na których bazuje późniejsza analiza,  uwidoczniony sposób ich pozyskania oraz stworzenia na ich podstawie bazy ruchów szachowych. Kluczowym elementem tego etapu będzie analiza problemu. Po wstępnym przeglądzie danych i wyznaczeniu podstawowych statystyk w celu nabrania intuicji wobec kolejnych kroków badań, sprawdzona zostanie różnica pomiędzy średnim czasem posunięcia w poszczególnych ruchach i dla różnych przedziałów rankingowych. Pokazana będzie również różnica w zarządzaniu pozostałym czasem w zależności od formatu, a także prawdopodobieństwo popełnienia błędu w konkretnym ruchu. Dodatkowo, przy pewnych założeniach, określona zostanie szansa na popełnienie błędu w \textit{n} pierwszych ruchach dla różnych formatów i przedziałów rankingowych. Ostatnim elementem tej części będzie sprawdzenie zależności pomiędzy czasem na wykonaniem ruchu, a jego oceną wystawioną przez silnik \textit{Stockfish}. Podjęta zostanie również próba dopasowania rozkładu teoretycznego dla zbioru czasów na wykonanie posunięcia dla poszczególnych ocen silnika.
+Główna część pracy będzie się składać z trzech elementów. W pierwszym z nich odnaleźć można dokładne sformułowanie problemów, które są przedmiotem badań niniejszej pracy. Następnie opisane zostaną dane, na których bazuje późniejsza analiza,  uwidoczniony sposób ich pozyskania oraz stworzenia na ich podstawie bazy ruchów szachowych. Kluczowym elementem tego etapu będzie analiza problemu. Po wstępnym przeglądzie danych i wyznaczeniu podstawowych statystyk w celu nabrania intuicji wobec kolejnych kroków badań, sprawdzona zostanie różnica pomiędzy średnim czasem posunięcia w poszczególnych ruchach i dla różnych przedziałów rankingowych. Pokazana będzie również różnica w zarządzaniu pozostałym czasem w zależności od formatu, a także prawdopodobieństwo popełnienia błędu w konkretnym ruchu. Dodatkowo, przy pewnych założeniach, określona zostanie szansa na popełnienie błędu w \textit{n} pierwszych ruchach dla różnych formatów i przedziałów rankingowych. Ostatnim elementem tej części będzie sprawdzenie zależności pomiędzy czasem na wykonaniem ruchu, a jego oceną wystawioną przez silnik \textit{Stockfish}. Podjęta zostanie również próba dopasowania rozkładu teoretycznego dla zbioru czasów na wykonanie posunięcia dla poszczególnych ocen silnika.
 
 
 %\textbf{WNIOSKI, PODSUMOWANIE}\\
@@ -181,7 +183,7 @@ Rozrywka może także zakończyć się remisem. Następuje on, gdy żaden z grac
 W związku z możliwością przegranej poprzez upłynięcie czasu na zegarze, zawodnicy muszą indywidualnie określić podczas gry, ile czasu są w stanie poświęcić danemu ruchowi, tak by nie stracić na niego zbyt wiele czasu, ale też, żeby ruch był jak najlepszy, co jest przedmiotem badań niniejszej pracy.
 
 \section{System rankingowy Glicko-2}
-System rankingowy ELO - pierwowzór systemu Glicko-2, został zaprezentowany w latach pięćdziesiątych dwudziestego wieku przez Węgierskiego fizyka i szachistę Arpada Elo (1903-1992)~\cite[rozdział 1]{elo}. Początkowo był używany jedynie w szachach, jednak wraz ze wzrostem jego popularności zaczął być stosowany również w innych rozgrywkach z możliwością pomiaru poziomu zawodników. System ten jest pierwszym systemem mającym podłoże probabilistyczne i jest oparty na rozkładzie normalnym z ustaloną średnią. Przyznaje odpowiednią liczbę punktów zwycięzcy rozgrywki i odbiera przegranemu bazując na różnicy między ich aktualnym rankingiem.
+System rankingowy ELO - pierwowzór systemu Glicko-2, został zaprezentowany w latach pięćdziesiątych dwudziestego wieku przez Węgierskiego fizyka i szachistę Arpada Elo (1903-1992). Początkowo był używany jedynie w szachach, jednak wraz ze wzrostem jego popularności zaczął być stosowany również w innych rozgrywkach z możliwością pomiaru poziomu zawodników. System ten jest pierwszym systemem mającym podłoże probabilistyczne i jest oparty na rozkładzie normalnym z ustaloną średnią. Przyznaje odpowiednią liczbę punktów zwycięzcy rozgrywki i odbiera przegranemu bazując na różnicy między ich aktualnym rankingiem (patrz Rozdział 1 w \cite{elo}).
 
 
 System Glicko-2  używany przez stronę \textit{Lichess.com}, na danych której oparta jest niniejsza praca, opracowany został przez Marka Glickmana jako ulepszenie systemu ELO. Podstawową zmianą jest uwzględnienie historycznych wyników każdego z zawodników w celu ustalenia wariancji aktualnego rankingu. Glickman w swojej pracy z roku 1999~\cite{glicko} przedstawia problem dwóch graczy o takim samym rankingu, z których jeden gra regularnie, a drugi wrócił do gry po długiej przerwie. System Glicko-2 przyznając punkt za grę bierze pod uwagę wiarygodność każdego z rankingów. Zawodnikowi grającemu regularnie zostanie przyznane bądź odebrane mniej punktów ze względu na duże potencjalne odchylenie rankingu przeciwnika od zadeklarowanej wartości. Innymi słowy, w miarę zwiększania się liczby partii gracza, przedział ufności dla jego realnego rankingu zawęża się i przypisany mu ranking zbiega do realnego poziomu i wiarygodność przypisanego rankingu jest uwzględniana w przyznawaniu i odbieraniu punktów zawodnikom po zakończeniu partii.
@@ -189,19 +191,19 @@ System Glicko-2  używany przez stronę \textit{Lichess.com}, na danych której 
 \section{Funkcja oceny}
 Przed przystąpieniem do opisania funkcji oceny, należy przybliżyć działanie silnika szachowego, który wykorzystywany jest do określenia aktualnej pozycji.
 \subsection{Stockfish}
-Silnik szachowy Stockfish \cite{stockfish} jest jednym z najlepszych i najpopularniejszym obecnie używanym silnikiem szachowym, którego zaprojektowali Joost VandeVondele, Joon Kiiski, Marco Costalb, Tord Romstad, Gary Linscott, Stefan Geschwentner i Stéphane Nicolet. Jest stale ulepszany jako oprogramowanie typu open-source. Strona \textit{Lichess.com}, tak jak większość stron internetowych poświęconych szachom on-line, wykorzystuje go~\cite{stockfish_lichess} do analizy i oceny aktualnej pozycji.
+Silnik szachowy Stockfish \cite{stockfish} jest jednym z najlepszych i najpopularniejszym obecnie używanym silnikiem szachowym, którego zaprojektowali Joost VandeVondele, Joon Kiiski, Marco Costalb, Tord Romstad, Gary Linscott, Stefan Geschwentner i Stéphane Nicolet. Jest stale ulepszany jako oprogramowanie typu open-source. Strona \textit{Lichess.com}, tak jak większość stron internetowych poświęconych szachom on-line, wykorzystuje go do analizy i oceny aktualnej pozycji~\cite{stockfish_lichess}.
 
-Stockfish poprzez przeszukiwanie według strategii mini-max \footnote{Dokładniej opisana w artykule: E. Vilkas. \textit{Axiomatic definition of the value of a matrix game} Theory Probabl. Appl. , 8 (1963) pp. 304–307} z odcięciem, za pomocą algorytmu alfa-beta, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych wykonanych zaczynając z analizowanej pozycji) i na ich podstawie ocenia aktualną pozycję, określając przewagę jednego z graczy
+Stockfish poprzez przeszukiwanie według strategii mini-max \footnote{Dokładniej opisana w artykule: E. Vilkas. \textit{Axiomatic definition of the value of a matrix game} Theory Probabl. Appl. , 8 (1963) pp. 304–307} z odcięciem, za pomocą algorytmu alfa-beta, analizuje legalne (czyli następujące po ruchu zgodnym z zasadami gry) pozycje, które mogą wyniknąć z aktualnej sytuacji na szachownicy. Dobierają na podstawie najlepszego możliwego zestawu ruchów (zakłada się, że każdy z graczy wykona najlepszy w ocenie silnika ruch) pozycje, które wystąpią dla określonej głębokości (głębokość 18 oznacza 18 ruchów białych i 18 czarnych wykonanych zaczynając z analizowanej pozycji) i na ich podstawie ocenia aktualną pozycję, określając przewagę jednego z graczy.
 
 \subsection{Ewaluacja}
 Wspomniana wcześniej ewaluacja, wyliczana przez silnik szachowy jest wynikiem liniowej funkcji 
-ważonej sumy cech, na którą składają się między innymi:\\
-$f_b,f_c$ oznaczających wartość figur odpowiednio białych i czarnych\\
-$k_b,k_c$ oznaczających bezpieczeństwo króla odpowiednio białych i czarnych\\
-$m_b,m_c$ oznaczających mobilność figur odpowiednio białych i czarnych\\
-$z_b,z_c$ oznaczających potencjalne zagrożenia wykonane odpowiednio białych i czarnych\\
-
-
+ważonej sumy cech, na którą składają się między innymi:
+\begin{itemize}
+	\item $f_b,f_c$ oznaczających wartość figur odpowiednio białych i czarnych.
+	\item $k_b,k_c$ oznaczających bezpieczeństwo króla odpowiednio białych i czarnych.
+	\item $m_b,m_c$ oznaczających mobilność figur odpowiednio białych i czarnych.
+	\item $z_b,z_c$ oznaczających potencjalne zagrożenia wykonane odpowiednio białych i czarnych.
+\end{itemize}
 Funkcję można dla zapewnienia intuicji zapisać w uproszeniu:
 \begin{equation}
 	f(f_b,f_c,k_b,k_c,m_b,m_c,\dots)=c_1(f_b-f_c)+c_2(k_b-k_c)+c_3(m_b-m_c)+\dots
@@ -212,7 +214,7 @@ $c_i$ są stałymi określającymi wagę danej pary zmiennych.
 Wraz ze wzrostem wartości funkcji zwiększa się przewaga białych, natomiast wraz z jej spadkiem, przewaga czarnych. Wartość wynosząca 0 oznacza stan równowagi, czyli sytuacji, w której żadna ze stron nie ma przewagi lub gracz z gorszą sytuacją na szachownicy jest w stanie przy odpowiedniej kombinacji ruchów doprowadzić do remisu. Dodatkowo, w przypadku nieuniknionego zwycięstwa jednej ze stron w \textit{n} ruchach, wynikiem funkcji zamiast odpowiedniej wartości liczbowej jest tekst \textit{\#-n} w przypadku wygranej czarnych lub \textit{\#n} w przypadku wygranej białych, oznaczający nieuchronną wygraną jednego z graczy po wykonaniu \textit{n} ruchów, przy najlepszej obronie przeciwnika.
 
 
-\subsection{rodzaje błędów szachowych} \label{sec:mysection}
+\subsection{Rodzaje błędów szachowych} \label{sec:mysection}
 
 % https://en.wikipedia.org/wiki/Chess_annotation_symbols
 
@@ -225,14 +227,14 @@ Wśród licznych oznaczeń silnika, w pracy analizowane będą następujące ozn
 	\item ?\hphantom{?!}  -- pomyłka (ang. \textit{mistake}), posunięcie błędne w mniejszym stopniu niż ,,błąd''
 	\item ?!\hphantom{?} -- niedokładność  (ang. \textit{innacuracy}), posunięcie, które można zastąpić zdecydowanie lepszym.
 \end{itemize}
-W części pracy na wykresach pojawiać się będzie oznaczenie ,,duży błąd''.Ma ono służyć lepszemu rozróżnieniu ruchów oznaczonych jako ,,błąd'' i ,,pomyłka''
+W części pracy na wykresach pojawiać się będzie oznaczenie ,,duży błąd''. Ma ono służyć lepszemu rozróżnieniu ruchów oznaczonych jako ,,błąd'' i ,,pomyłka''
 
 
 
 \chapter{Zagadnienia teoretyczne dotyczące analizy statystycznej}\label{teoria}
 Niniejszy rozdział poświęcony zostanie zagadnieniom teoretycznym z dziedziny statystyki, zastosowanych w analizie przedstawionych problemów. Pokrótce umówione zostaną metody wykorzystywane przy rozważaniach. %a także rozkłady, które zostały dopasowane do danych.
 
-\section{metoda najmniejszych kwadratów}
+\section{Metoda najmniejszych kwadratów}
 Weźmy zbiór punktów $(x_i, y_i)$ dla $0\leq i \leq n$.\\
 Metoda najmniejszych kwadratów \cite{dekking2005modern} polega na znalezieniu takich parametrów $\theta_1, \theta_2, \dots, \theta_k$ pewnej określonej funkcji $\hat{y_i} = f\left(x_i, \theta_1, \theta_2, \dots, \theta_k \right)$ estymującej wartość $y_i$ w zadanym punkcie $x_i$, dla których suma kwadratów odległości $\hat{y_i}$ od rzeczywistej wartości $y_i$ dla każdego punktu ze zbioru jest najmniejsza. Innymi słowy, metoda polega na minimalizacji funkcji 
 \begin{equation*}
@@ -240,9 +242,9 @@ Metoda najmniejszych kwadratów \cite{dekking2005modern} polega na znalezieniu t
 \end{equation*}
 biorąc jako zmienne parametry $ \theta_1, \theta_2, \dots, \theta_k \in \mathbb{R} $
 
-\section{regresja liniowa}
-Model regresji liniowej \cite[strony 265 -- 267]{statysty} polega na dopasowaniu parametrów $\beta_0$ i $\beta_1$ prostej $y=\beta_0+\beta_1 x$ do zestawu danych $(x_i, y_i)$ dla $0\leq i \leq n$ za pomocą opisanej wyżej metody najmniejszych kwadratów. Prosta regresji pomaga ustalić trend liniowy w danych.
-\subsection{estymacja parametrów prostej regresji metodą momentów}
+\section{Regresja liniowa}
+Model regresji liniowej \cite{statysty} (strony 265 -- 267) polega na dopasowaniu parametrów $\beta_0$ i $\beta_1$ prostej $y=\beta_0+\beta_1 x$ do zestawu danych $(x_i, y_i)$ dla $0\leq i \leq n$ za pomocą opisanej wyżej metody najmniejszych kwadratów. Prosta regresji pomaga ustalić trend liniowy w danych.
+\subsection{Estymacja parametrów prostej regresji metodą najmniejszych kwadratów}
 Problem polega na minimalizacji funkcji $L(\beta_0, \beta_1) = \sum_{i=0}^{n}\left(y_i - \left(\beta_0 + \beta_1 x_i\right)^2 \right)$ ze względu na $\beta_0, \beta_1$.
 \begin{align}
 	& 0 = \frac{\partial L}{\partial \beta_0} = -2\sum_{i=0}^{n}\left(y_i - \left(\beta_0 + \beta_1 x_i\right)\right) \\
@@ -254,10 +256,10 @@ Stąd
 	& \sum_{i=0}^{n} x_i y_i - \beta_0 \sum_{i=0}^{n}x_i - \beta_1\sum_{i=0}^{n} x_i^2 = 0 \label{eq2}
 \end{align}
 Z równania \ref{eq1} otrzymujemy
-\begin{align}
+\begin{align}	
 	& \beta_0 = \frac{1}{n} \left(\sum_{i=0}^{n}y_i - \beta_1\sum_{i=0}^{n} x_i\right) = \bar{y} - b_1 \bar{x}\text{, gdzie } \bar{x}= \frac{1}{n}\sum_{i=0}^{n} x_i, \bar{y}= \frac{1}{n}\sum_{i=0}^{n} y_i
 \end{align}
-Po wstawieniu powyższego wyrażenia do równania \ref{eq2} i po kilku prostych przekształceniach otrzymujemy 
+Po wstawieniu powyższego wyrażenia do równania \ref{eq2} oraz po kilku prostych przekształceniach dostajemy
 \begin{align}
 	& \sum_{i=0}^{n}x_i(y_i - \bar{y}) = \beta_1 \left(\sum_{i=0}^{n}x_i^2 - n\bar{x}^2 \right)
 \end{align}
@@ -266,10 +268,10 @@ Korzystając z faktu, że $\sum_{i=0}^{n}x_i^2 - n\bar{x}^2 = \sum_{i=0}^{n}(x_i
 	\beta_1& =  \frac{\sum_{i=0}^{n}x_i(y_i - \bar{y})}{\sum_{i=0}^{n}(x_i-\bar{x})^2}\\
 	\beta_0& =  \bar{y} - b_1\bar{x}
 \end{align}
-\section{metoda momentów}
+\section{Metoda momentów}
 Celem metody momentów \cite{momentowametoda} jest estymacja parametrów rozkładu prawdopodobieństwa $X(\theta_1, \theta_2, \dots, \theta_k)$. Metoda polega na stworzeniu, a następnie rozwiązaniu układu równań, w którym przyrównywane są empiryczne wartości pierwszych $k$ momentów z ich wartościami teoretycznymi $M(\theta_1, \theta_2, \dots, \theta_k)$. Metody można użyć jedynie, gdy istnieje pierwsze $k$ momentów danego rozkładu.
 
-\subsection{estymacja parametrów rozkładu lognormalnego metoda momentów}
+\subsection{Estymacja parametrów rozkładu log-normalnego metodą momentów}
 Dla rozkładu log-normalnego $Lognormal(\mu ,\,\sigma^{2})$ momenty zadane są równaniem \cite{lognorm}
 \begin{equation*}
 	E[X^n] = \exp (n\mu+\frac{(n\sigma)^2}{2}).
@@ -282,8 +284,8 @@ Po rozwiązaniu układu równań zawierających 2 pierwsze momenty, wyznaczone z
 gdzie $E[X]$ jest średnią empiryczną rozkładu, a $D^2[X]=E[X^2]-E[X]^2$ jego empiryczną wariancją.
 
 
-\chapter{sformułowanie i rozwiązanie problemów analitycznych}
-\section{sformułowanie problemów}
+\chapter{Sformułowanie i rozwiązanie problemów analitycznych}
+\section{Sformułowanie problemów}
 Podstawowym problemem podjętym w pracy jest analiza zależności pomiędzy czasem poświęconym na wykonanie ruchu, a jego dokładnością. Główny nacisk kładziony zostanie na ruchy oznaczone przez silnik jako błąd, co można uargumentować tym, że właśnie te ruchy mają największy wpływ na grę, szczególnie biorąc pod uwagę szachy szybkie, gdzie czasu na ruch jest zdecydowanie mniej, czego wynikiem jest to, że błędne ruchy pojawiają się znacznie częściej. Dodatkową osią ujętą w rozważaniach będzie ranking zawodników i jego wpływ na rozkłady danych. Sprawdzona i wzięta pod uwagę zostanie również zależność między numerem ruchu, a czasem na wykonanie oraz jego dokładnością.
 %Zwieńczeniem pracy będzie podjęcie próby wyznaczenia optymalnego czasu na wykonanie ruchu, tak, by zminimalizować ryzyko popełnienia błędu.
 
@@ -291,9 +293,9 @@ Podstawowym problemem podjętym w pracy jest analiza zależności pomiędzy czas
 Dane potrzebne do analizy zostały pobrane z platformy Lichess \cite{lichess}, która zapisuje i udostępnia wszystkie rozgrywane gry. Brane pod uwagę będą wszystkie gry (ponad 35 milionów) rozegrane na platformie w maju 2019 roku.
 
 W pracy analizowane będą dwa najpopularniejsze formaty czasowe grane na platformie Lichess. Są one przedstawione w tabeli \ref{tab:formaty}.
-Pierwszy z nich - ,,600+0'' oznacza grę, w której kazdy z graczy posiada 600 sekund na wykonanie wszystkich swoich ruchów, bez inkrementu (dodawanego czasu po zagraniu posunięcia). Analogicznie wygląda format 300+0, z tym, że czas zmiejszony jest o połowę -  do pięciu minut.
+Pierwszy z nich - ,,600+0'' oznacza grę, w której każdy z graczy posiada 600 sekund na wykonanie wszystkich swoich ruchów, bez inkrementu (dodawanego czasu po zagraniu posunięcia). Analogicznie wygląda format 300+0, z tym, że czas zmiejszony jest o połowę -  do pięciu minut.
 \begin{table}[H]
-	\caption{baza gier na portalu Lichess z maja 2019, 6 najpopularniejszych formatów}
+	\caption{Baza gier na portalu Lichess z maja 2019, 6 najpopularniejszych formatów}
 	\centering
 	\begin{tabular}{|l|r|}
 		\hline
@@ -309,7 +311,7 @@ Pierwszy z nich - ,,600+0'' oznacza grę, w której kazdy z graczy posiada 600 s
 	\label{tab:formaty} 
 \end{table}
 Po zakończeniu gry na platformie, każdy gracz ma możliwość zbadać swoją grę przy użyciu silnika szachowego Stockfish. Około 7\% gier z bazy zawiera taką analizę. Posiadają one dane punktowe o nazwie \textit{Eval}, określające unormowaną przewagę jednego z graczy w danym momencie gry. 
-Dodatkowo silnik określa jakość wykonanego ruchu według własnych kryteriów  (opisane w sekcji \ref{sec:mysection} na stronie \pageref{sec:mysection}).  Przykładowy zapis jednej takiej gry z pliku został zaprezentowany na rysunku  \ref{rys:zapis_gry}. Informacje potrzebne do analizy to:
+Dodatkowo silnik określa jakość wykonanego ruchu według własnych kryteriów  (opisane w sekcji \ref{sec:mysection} na stronie \pageref{sec:mysection}).  Przykładowy zapis jednej takiej gry z pliku został zaprezentowany na Rysunku  \ref{rys:zapis_gry}. Informacje potrzebne do analizy to:
 \begin{itemize}
 	\item WhiteElo -- ranking białych
 	\item BlackElo -- ranking czarnych
@@ -343,7 +345,7 @@ Po rozdzieleniu pliku tekstowego na kolejne gry, pozostawione zostały jedynie t
 	\item result - wynik partii
 \end{itemize}
 
-Stworzona baza zawiera 17 524 012 posunięć ze 275 994 gier, co daje średnią 31,75 ruchu na grę (jeden ruch oznacza posunięcie białych i czarnych). Fragment bazy przedstawiony został na rysunku \ref{rys:baza_ruchow}. 
+Stworzona baza zawiera 17 524 012 posunięć ze 275 994 gier, co daje średnią 31,75 ruchu na grę (jeden ruch oznacza posunięcie białych i czarnych). Fragment bazy przedstawiony został na Rysunku \ref{rys:baza_ruchow}. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{danee.png}
@@ -362,19 +364,19 @@ Stworzona baza zawiera 17 524 012 posunięć ze 275 994 gier, co daje średnią 
 
 Pierwszym problemem, który zostanie poruszony jest zbadanie statystycznej zależności jakości wykonanego ruchu według oceny silnika Stockfish od czasu potrzebnego na jego wykonanie. W celu uzyskania bardziej precyzyjnych wyników pierwsze 4 ruchy (po 4 posunięcia białych i czarnych) nie będą brane pod uwagę. Są one elementem teorii otwarć szachowych \footnote{ Jedyne otwarcia, które składają się z mniej niż czterech ruchów są wariancjami otwarcia \textit{Fool's Mate}, które prowadzi do zakończenia gry w dwóch lub trzech ruchach, bądź sekwencjami posunięć, które nie mają logicznych podstaw.}, w związku z czym wykonywane są zazwyczaj bardzo szybko i ze znikomą szansą popełnienia błędu, co może powodować zaburzenie danych. Dodatkowo na stronie \textit{Lichess.com} pierwszy ruch obydwu zawodników zawsze zabiera 0 sekund.
 
-Przy analizie z uwzględnieniem rankingu graczy, zastosowane będą podziały kwartylowe. Rozkład rankingu wraz z zaznaczonymi kwartylami pokazany jest na rysunku \ref{rys:rozklad_elo}. Jak widać zbiega on do rozkładu normalnego. Anomalia dla rankingu 1500 związana jest z tym, że jest to ranking przyznawany każdemu graczowi przy jego pierwszej rozgrywce na platformie.
+Przy analizie z uwzględnieniem rankingu graczy, zastosowane będą podziały kwartylowe. Rozkład rankingu wraz z zaznaczonymi kwartylami pokazany jest na Rysunku \ref{rys:rozklad_elo}. Jak widać zbiega on do rozkładu normalnego. Anomalia dla rankingu 1500 związana jest z tym, że jest to ranking przyznawany każdemu graczowi przy jego pierwszej rozgrywce na platformie.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{ranking.png}
-	\caption{rozkład rankingu zawodników wraz z zaznaczonymi kwartylami}
+	\caption{Rozkład rankingu zawodników wraz z zaznaczonymi kwartylami}
 	\label{rys:rozklad_elo}
 \end{figure}
-W późniejszej części pracy pojawią się wykresy i analizy, w których dziedziną będzie numer wykonywanego ruchu. W związku z bardzo małą liczbą danych dla późniejszych ruchów, ich analiza jest zaburzona i niewiarygodna. Dlatego analizowane będą jedynie ruchy z indeksem poniżej 59, jako, że wynik 95\% gier pojawia się maksymalnie w 58 ruchach. Rozkład długości gier z bazy danych, który obrazuje przedstawioną sytuację zamieszczony jest na rysunku \ref{rys:dlugosc_gier}.
+W późniejszej części pracy pojawią się wykresy i analizy, w których dziedziną będzie numer wykonywanego ruchu. W związku z bardzo małą liczbą danych dla późniejszych ruchów, ich analiza jest zaburzona i niewiarygodna. Dlatego analizowane będą jedynie ruchy z indeksem poniżej 59, jako, że wynik 95\% gier pojawia się maksymalnie w 58 ruchach. Rozkład długości gier z bazy danych, który obrazuje przedstawioną sytuację zamieszczony jest na Rysunku \ref{rys:dlugosc_gier}.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{dlugosc_gry.png}
-	\caption{rozkład długości gier wraz z zaznaczonym kwantylem rzędu 0.95,  dla gier z formatu 300+0 oraz 600+0.}
+	\caption{Rozkład długości gier wraz z zaznaczonym kwantylem rzędu 0.95,  dla gier z formatu ,,300+0'' oraz ,,600+0''.}
 	\label{rys:dlugosc_gier}
 \end{figure}
 
@@ -390,13 +392,13 @@ Na początku tej części trzeba ustalić pewne założenia dotyczące zestawu d
 	\label{rys:sr_czas_na_ruch}
 \end{figure}
 
-Pierwszym elementem analizy, który pozwoli na określenie wstępnej różnicy między ruchami oznaczonymi jako błąd, a zbiorem wszystkich ruchów jest sprawdzenie zależności między indeksem ruchu, a średnim czasem na jego wykonanie dla obydwu zbiorów. Intuicja wskazuje, że błąd popełniamy poświęcając mniej czasu na ruch. Jak widać na rysunku \ref{rys:sr_czas_na_ruch}, dla każdego analizowanego ruchu, ruch oznaczony jako błędny zajął statystycznie więcej czasu - zarówno dla formatu 300+0 jak i 600+0, co przeczy intuicji. 
+Pierwszym elementem analizy, który pozwoli na określenie wstępnej różnicy między ruchami oznaczonymi jako błąd, a zbiorem wszystkich ruchów jest sprawdzenie zależności między indeksem ruchu, a średnim czasem na jego wykonanie dla obydwu zbiorów. Intuicja wskazuje, że błąd popełniamy poświęcając mniej czasu na ruch. Jak widać na Rysunku \ref{rys:sr_czas_na_ruch}, dla każdego analizowanego ruchu, ruch oznaczony jako błędny zajął statystycznie więcej czasu - zarówno dla formatu 300+0 jak i 600+0, co przeczy intuicji. 
 Przyczyną tego może być zaliczanie do zbioru wszystkich ruchów posunięć oczywistych, zajmujących niewielką ilość czasu, następujących dla pozycji, w której gracze na każdym poziomie zaawansowania rzadko kiedy popełniają błędy.
 Kolejną przyczyną takiego stanu rzeczy może być oczywista zależność skomplikowania pozycji od szansy na popełnienie błędu. W trudnych sytuacjach na szachownicy błędów pojawia się po prostu więcej, a trudnych sytuacji najwięcej jest w środkowej części partii, przez mnogość figur i możliwych legalnych ruchów. Trudno też znaleźć takie pozycje, ponieważ zależą one od przyjętej miary, o czym pisze D. H. Holding w swojej pracy zatytuowanej \textit{,,Evaluation of Chess Positions''} \cite{Holding1979TheEO}.  Dlatego też, co dobrze widoczne jest na wykresie, w środkowej części gry posunięcia zajmują najwięcej czasu.
 
-Po oznaczeniu \textit{D} jako zmienną określającą skomplikowanie pozycji, \textit{T} - zmienną określającą czas na wykonanie ruchu w danej pozycji, \textit{B} - zdarzenie polegające na tym, że posunięcie jest błędne i przy założeniu, że \textit{T} jest silnie dodatnio skorelowane z \textit{D}, według prawdopodobieństwa otrzymujemy %\textbf{SPRAWDZIĆ TO JESZCZE!}:
+Oznaczając przez \textit{D} zmienną określającą skomplikowanie pozycji, \textit{T} - zmienną określającą czas na wykonanie ruchu w danej pozycji, \textit{B} - zdarzenie polegające na tym, że posunięcie jest błędne i przy założeniu, że \textit{T} jest silnie dodatnio skorelowane z \textit{D}, według prawdopodobieństwa otrzymujemy %\textbf{SPRAWDZIĆ TO JESZCZE!}:
 \begin{equation}
-	P(B|D>d_0) > P(B|D\leq d_0) \rightarrow P(B|T>t_0) > P(B|T\leq t_0)
+	P(B|D>d_0) > P(B|D\leq d_0) \rightarrow P(B|T>t_0) > P(B|T\leq t_0),
 \end{equation}
 gdzie $d_0$ i $t_0$ określają punkty, od których według wybranej miary można określić, że pozycja jest skomplikowana ($D>d_0$) i czas na wykonanie posunięcia jest długi ($T>t_0$).
 
@@ -409,7 +411,7 @@ Może to tłumaczyć wyższą średnią czasu na wykonanie błędnego posunięci
 	\label{rys:std_czas_na_ruch}
 \end{figure}
 
-Badając w dalszym ciągu wykresy na rysunku \ref{rys:sr_czas_na_ruch} można zauważyć, że dla obydwu zbiorów posunięć początkowo niska średnia osiąga swój szczyt w okolicach dwudziestego ruchu, by później stopniowo się zmniejszać. Ma to związek z tym, że początkowe posunięcia są elementem teorii szachowej. Spora część graczy nauczyła się kilku, kilkunastu, bądź w przypadku gry na najwyższym poziomie - nawet ponad dwudziestu pierwszych ruchów niektórych otwarć. W związku z tym początkowe ruchy grane są relatywnie szybko. Końcowe posunięcia natomiast nie mogą zająć wiele czasu, ponieważ jest go zazwyczaj zbyt mało na zegarze, by gracz mógł sobie na to pozwolić. Dlatego też od pewnego momentu, wraz ze wzrostem indeksu średni czas poświęcony na ruch zbiega do zera. Zaznaczone na rysunku rozstępy międzykwartylowe dla każdego ruchu wskazują na znacznie większą wariancję czasu na wykonanie błędnego ruchu porównując do zbioru wszystkich ruchów. Potwierdza to rysunek \ref{rys:std_czas_na_ruch} pokazujący odchylenie standardowe dla kolejnych ruchów. 
+Badając w dalszym ciągu wykresy na Rysunku \ref{rys:sr_czas_na_ruch} można zauważyć, że dla obydwu zbiorów posunięć początkowo niska średnia osiąga swój szczyt w okolicach dwudziestego ruchu, by później stopniowo się zmniejszać. Ma to związek z tym, że początkowe posunięcia są elementem teorii szachowej. Spora część graczy nauczyła się kilku, kilkunastu, bądź w przypadku gry na najwyższym poziomie - nawet ponad dwudziestu pierwszych ruchów niektórych otwarć. W związku z tym początkowe ruchy grane są relatywnie szybko. Końcowe posunięcia natomiast nie mogą zająć wiele czasu, ponieważ jest go zazwyczaj zbyt mało na zegarze, by gracz mógł sobie na to pozwolić. Dlatego też od pewnego momentu, wraz ze wzrostem indeksu średni czas poświęcony na ruch zbiega do zera. Zaznaczone na wykresie rozstępy międzykwartylowe dla każdego ruchu wskazują na znacznie większą wariancję czasu na wykonanie błędnego ruchu porównując do zbioru wszystkich ruchów. Potwierdza to Rysunek \ref{rys:std_czas_na_ruch} pokazujący odchylenie standardowe dla kolejnych ruchów. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{sr_czas_na_ruch_ELO_1.png}
@@ -417,7 +419,7 @@ Badając w dalszym ciągu wykresy na rysunku \ref{rys:sr_czas_na_ruch} można za
 	\label{rys:sr_czas_na_ruch_ELO_1}
 \end{figure}
 
-Rysunki \ref{rys:sr_czas_na_ruch_ELO_1} i \ref{rys:sr_czas_na_ruch_ELO_2} wprowadzają do rozważań różnicę między średnim czasem na wykonanie ruchu dla graczy z poszczególnych przedziałów rankingowych. Można zauważyć, że zarówno w przypadku zbioru wszystkich ruchów (rysunek \ref{rys:sr_czas_na_ruch_ELO_1}) jak i pozdbioru ruchów błędnych (rysunek \ref{rys:sr_czas_na_ruch_ELO_2}), słabsi gracze mają tendencję do dłuższych rozważań nad początkowymi ruchami. Wraz ze wzrostem rankingu wydłuża się średni czas na wykonanie ruchu dla ruchów z indeksem od 20 do 30 - czyli tych, gdzie średnia jest najwyższa. Przy końcowych posunięciach, posunięcia zajmują podobną ilość czasu dla wszystkich rankingów. Warto zwrócić uwagę, że odsetek 25\% najniżej notowanych graczy przez zbyt długie początkowe ruchy zmuszona jest ruszać się szybciej w późniejszych posunięciach. Szczególnie widoczne jest to na pierwszym wykresie rysunku \ref{rys:sr_czas_na_ruch_ELO_2}. 
+Rysunki \ref{rys:sr_czas_na_ruch_ELO_1} i \ref{rys:sr_czas_na_ruch_ELO_2} wprowadzają do rozważań różnicę między średnim czasem na wykonanie ruchu dla graczy z poszczególnych przedziałów rankingowych. Można zauważyć, że zarówno w przypadku zbioru wszystkich ruchów (Rysunek \ref{rys:sr_czas_na_ruch_ELO_1}) jak i pozdbioru ruchów błędnych (Rysunek \ref{rys:sr_czas_na_ruch_ELO_2}), słabsi gracze mają tendencję do dłuższych rozważań nad początkowymi ruchami. Wraz ze wzrostem rankingu wydłuża się średni czas na wykonanie ruchu dla ruchów z indeksem od 20 do 30 - czyli tych, gdzie średnia jest najwyższa. Przy końcowych posunięciach, posunięcia zajmują podobną ilość czasu dla wszystkich rankingów. Warto zwrócić uwagę, że odsetek 25\% najniżej notowanych graczy przez zbyt długie początkowe ruchy zmuszona jest ruszać się szybciej w późniejszych posunięciach. Szczególnie widoczne jest to na pierwszym wykresie Rysunku \ref{rys:sr_czas_na_ruch_ELO_2}. 
 
 \begin{figure}[h]
 	\centering
@@ -433,7 +435,7 @@ Warto również zauważyć, że wykresy dla obydwu formatów czasowych wyglądaj
 	\caption{Stosunek średniego czasu na wykonanie ruchu w formacie 600+0 do czasu w formacie 300+0. Zaznaczone proste regresji obrazujące trend.}
 	\label{rys:stosunek_sr_czas}
 \end{figure}
-By móc przeanalizować zależność między rozgrywanym formatem, a wzrostem średniego czasu poświęconego na ruch, powstał wykres umieszczony na rysunku \ref{rys:stosunek_sr_czas}. Dopasowane metodą najmniejszych kwadratów opisanej w rozdziale \ref{teoria} proste regresji obrazują różnice w zachowanych trendach. Czas w formacie 600+0 jest dokładnie 2 razy dłuższy niż w formacie 300+0, jednak średni czas na wykonanie ruchu jest w pierwszym przypadku około 1,7 raza wyższy. Wartość stosunku jednak nie jest stała i wzrasta wraz z indeksem ruchu. Dla zbioru wszystkich posunięć dopasowana prosta regresji wskazuje na stosunek około 1,65 dla tych początkowych, do 1,85 przy końcowych. Znacznie większa rozpiętość w stosunku widoczna jest dla posunięć oznaczonych jako błąd. Stosunek wynosi około 1,55 dla początkowych wartości i powyżej 2 dla ruchów z indeksem powyżej 55. Warto zauważyć, że dla obu zbiorów w formacie 600+0 gracze nie są zmuszeni do podejmowania decyzji pod dużą presją czasu. Szczególnie różnicę tę da się zauważyć dla ruchów błędnych, nad którymi gracz musi się statystycznie dłużej zastanowić (rysunek \ref{rys:sr_czas_na_ruch} na stronie \pageref{rys:sr_czas_na_ruch}). Gracz posiadając 2 razy więcej czasu w tym formacie i myśląc nad każdym ruchem średnio od 1.55 do 1.95 raza dłużej,  ma w każdym momencie gry do dyspozycji statystycznie większy ułamek początkowego czasu niż w przypadku gry w formacie 300+0. Zestawienie pozostałego czasu pokazane jest na pierwszym wykresie na rysunku rysunku \ref{rys:pozostaly_czas}. Widać dość sporą różnicę w średnim pozostałym czasie narastającą podczas przebiegu gry. Drugi wykres zamieszczony na rysunku ukazuje różnicę w prawdopodobieństwie popełnienia błędu w konkretnym ruchu dla obu formatów. Warto zauważyć, że mimo znacznie większego czasu do dyspozycji w przypadku formatu ,,600+0'', do 20 ruchu szansa na błąd jest niemalże identyczna jak w przypadku formatu ,,300+0'' -- Krzywe odbiegają od siebie nieznacznie. W okolicach od 20 do 40 ruchu, szansa na popełnienie błędu w formacie ,,300+0'' jest około 5-10\% większa. Dobrze jest w tym miejscu dodać, że jest to przedział, w którym błędów występuje najwięcej.
+By móc przeanalizować zależność między rozgrywanym formatem, a wzrostem średniego czasu poświęconego na ruch, powstał wykres umieszczony na Rysunku \ref{rys:stosunek_sr_czas}. Dopasowane metodą najmniejszych kwadratów opisanej w rozdziale \ref{teoria} proste regresji obrazują różnice w zachowanych trendach. Czas w formacie 600+0 jest dokładnie 2 razy dłuższy niż w formacie 300+0, jednak średni czas na wykonanie ruchu jest w pierwszym przypadku około 1,7 raza wyższy. Wartość stosunku jednak nie jest stała i wzrasta wraz z indeksem ruchu. Dla zbioru wszystkich posunięć dopasowana prosta regresji wskazuje na stosunek około 1,65 dla tych początkowych, do 1,85 przy końcowych. Znacznie większa rozpiętość w stosunku widoczna jest dla posunięć oznaczonych jako błąd. Stosunek wynosi około 1,55 dla początkowych wartości i powyżej 2 dla ruchów z indeksem powyżej 55. Warto zauważyć, że dla obu zbiorów w formacie 600+0 gracze nie są zmuszeni do podejmowania decyzji pod dużą presją czasu. Szczególnie różnicę tę da się zauważyć dla ruchów błędnych, nad którymi gracz musi się statystycznie dłużej zastanowić (Rysunek \ref{rys:sr_czas_na_ruch} na stronie \pageref{rys:sr_czas_na_ruch}). Gracz posiadając 2 razy więcej czasu w tym formacie i myśląc nad każdym ruchem średnio od 1.55 do 1.95 raza dłużej,  ma w każdym momencie gry do dyspozycji statystycznie większy ułamek początkowego czasu niż w przypadku gry w formacie 300+0. Zestawienie pozostałego czasu pokazane jest na pierwszym wykresie na Rysunku \ref{rys:pozostaly_czas}. Widać dość sporą różnicę w średnim pozostałym czasie narastającą podczas przebiegu gry. Drugi wykres ukazuje różnicę w prawdopodobieństwie popełnienia błędu w konkretnym ruchu dla obu formatów. Warto zauważyć, że mimo znacznie większego czasu do dyspozycji w przypadku formatu ,,600+0'', do 20 ruchu szansa na błąd jest niemalże identyczna jak w przypadku formatu ,,300+0'' -- Krzywe odbiegają od siebie nieznacznie. W okolicach od 20 do 40 ruchu, szansa na popełnienie błędu w formacie ,,300+0'' jest około 5-10\% większa. Dobrze jest w tym miejscu dodać, że jest to przedział, w którym błędów występuje najwięcej.
 
 
 \begin{figure}[h]
@@ -449,9 +451,9 @@ By móc przeanalizować zależność między rozgrywanym formatem, a wzrostem ś
 	\caption{Prawdopodobieństwo popełnienia błędu w konkretnym ruchu dla różnych przedziałów rankingowych.}
 	\label{rys:prawd_blad_ELO}
 \end{figure}
-Różnica w prawdopodobieństwie popełnienia błędu pomiędzy poszczególnymi formatami nie jest tak duża jak ta pomiędzy rankingiem graczy. Na rysunku \ref{rys:prawd_blad_ELO} można zauważyć, że dla zarówno dla formatu ,,600+0'' jak i ,,300+0'' słabsi gracze mają tendencję do popełniania większej liczby błędów w początkowej fazie gry, niż ich wyżej notowani koledzy. Statystycznie, będąc w grupie 25\% najniżej notowanych graczy ma się około 6 razy większe prawdopodobieństwo na popełnienie błędu w 10 posunięciu, niż osoba z grupy 25\% najwyżej notowanych graczy. Format gry ma na to niewielki wpływ. Można wysunąć wniosek, że w przypadku gry pomiędzy dwoma takimi zawodnikami, dwukrotnie zwiększenie czasu niżej notowanego gracza z 5 do 10 minut będzie miało minimalny wpływ na finalny wynik gry (przy założeniu, że liczba błędów jest mocno skorelowana z wynikiem gry). krzywe zaczynają do siebie zbiegać od okolic 20 ruchu, by stać się praktycznie nierozróżnialne w okolicach 40 ruchu.
+Różnica w prawdopodobieństwie popełnienia błędu pomiędzy poszczególnymi formatami nie jest tak duża jak ta pomiędzy rankingiem graczy. Na Rysunku \ref{rys:prawd_blad_ELO} można zauważyć, że dla zarówno dla formatu ,,600+0'' jak i ,,300+0'' słabsi gracze mają tendencję do popełniania większej liczby błędów w początkowej fazie gry, niż ich wyżej notowani koledzy. Statystycznie, będąc w grupie 25\% najniżej notowanych graczy ma się około 6 razy większe prawdopodobieństwo na popełnienie błędu w 10 posunięciu, niż osoba z grupy 25\% najwyżej notowanych graczy. Format gry ma na to niewielki wpływ. Można wysunąć wniosek, że w przypadku gry pomiędzy dwoma takimi zawodnikami, dwukrotnie zwiększenie czasu niżej notowanego gracza z 5 do 10 minut będzie miało minimalny wpływ na finalny wynik gry (przy założeniu, że liczba błędów jest mocno skorelowana z wynikiem gry). Krzywe zaczynają do siebie zbiegać od okolic 20 ruchu, by stać się praktycznie nierozróżnialne w okolicach 40 ruchu.
 
-Wykres zależności prawdopodobieństwa od ruchu jest tym bardziej ,,spłaszczony'' im wyższa jest notacja elo zawodników. Brak szybkiego wzrostu dla początkowych posunięć sprawia, że statystyczne prawdopodobieństwo popełnienia błędu w pierwszych 10 ruchach niesamowicie różni się dla poszczególnych grup rankingowych.  Po oznaczeniu przez $X_i$ zmienną losową określającą popełnienie błędu w \textit{i}-tym posunięciu:
+Wykres zależności prawdopodobieństwa od ruchu jest tym bardziej ,,spłaszczony'' im wyższa jest notacja elo zawodników. Brak szybkiego wzrostu dla początkowych posunięć sprawia, że statystyczne prawdopodobieństwo popełnienia błędu w pierwszych 10 ruchach niesamowicie różni się dla poszczególnych grup rankingowych.  Po oznaczeniu przez $X_i$ zmiennej losowej określającej popełnienie błędu w \textit{i}-tym posunięciu:
 \begin{equation*}
 X_i =
 \begin{cases}
@@ -464,7 +466,7 @@ oraz założeniu, że $X_i$ oraz $X_j$ są niezależne dla $i \neq j$ (drugie pr
 \begin{multline}
 	\begin{split}
 	& P(X_1 = 1 \vee X_2 = 1 \vee \dots \vee X_n = 1)  = 1 - P(X_1 = 0, X_2 = 0,\dots, X_n = 0) = \\
-	& = P(X_1 = 0)P(X_2 = 0)\dots P(X_n = 0) = \prod_{i=1}^{n}P(X_i=0)
+	& = 1 - P(X_1 = 0)P(X_2 = 0)\dots P(X_n = 0) = 1- \prod_{i=1}^{n}P(X_i=0)
 	\end{split}
 \end{multline}
 Przy czym $P(X_i=0)$ można wyznaczyć empirycznie na podstawie danych.\\
@@ -485,9 +487,9 @@ Przy czym $P(X_i=0)$ można wyznaczyć empirycznie na podstawie danych.\\
 	\end{tabular}
 	\label{tab:blad_w_n_ruchach} 
 \end{table}
-W pierwszej części tabeli, dla 10 pierwszych ruchów, co ciekawe, prawdopodobieństwo popełnienia błędu w dłuższym formacie czasowym jest znacznie wyższe niż w krótszym, niezależnie od rankingu zawodnika. Dla większej liczby pierwszych ruchów ta różnica się zmniejsza, jednak cały czas dłuższy format oznacza statystycznie większą szansę na choć 1 popełniony błąd, co wydaje się być sprzeczne z intuicją, ponieważ gracze mają 2 razy więcej czasu na wszystkie posunięcia.
+ Co ciekawe, w pierwszej części tabeli, dla 10 pierwszych ruchów prawdopodobieństwo popełnienia błędu w dłuższym formacie czasowym jest wyższe niż w krótszym, niezależnie od rankingu zawodnika. Dla większej liczby pierwszych ruchów ta różnica się zmniejsza, jednak cały czas dłuższy format oznacza statystycznie większą szansę na choć 1 popełniony błąd, co wydaje się być sprzeczne z intuicją, ponieważ gracze mają 2 razy więcej czasu na wszystkie posunięcia.
 
-\subsection{zależność między czasem poświęconym na ruch, a jego oceną}
+\subsection{Zależność między czasem poświęconym na ruch, a jego oceną}
 
 
 Kolejnym problemem, który zostanie zbadany jest zależność pomiędzy czasem poświęconym na ruch, a jego oceną. Tak jak i we wcześniejszych częściach wartość oceny silnika rozróżniana będzie jedynie na ruchy oznaczone jako błąd i te bez takiego oznaczenia.
@@ -498,7 +500,7 @@ Kolejnym problemem, który zostanie zbadany jest zależność pomiędzy czasem p
 	\label{rys:rozklad_czasu}
 \end{figure}
 
-Pierwszym spojrzeniem na wymienioną wyżej zależność będzie przeanalizowanie rozkładu czasu na wykonanie ruchu osobno dla zbioru wszystkich ruchów i dla tych błędnych. Jak można zauważyć na rysunku \ref{rys:rozklad_czasu}, w każdym rozważanym formacie czasowym różnica w rozkładzie dla zbioru wszystkich ruchów i zbioru ruchów błędnych jest zauważalna. Oba zbiory mają zachowane podobne tendencje -- najwięcej posunięć zagrywana jest w ciągu od jednej do pięciu sekund. W każdym ze zbiorów wraz ze wzrostem czasu na wykonanie posunięcia, empiryczna gęstość rozkładu się zmniejsza. Ruchów błędnych jest widocznie mniej w porównaniu do zbioru wszystkich ruchów w przedziale od 0 do ok. 8 sekund. Natomiast w przedziale od ok. 8 do 30 sekund, posunięcia błędne są spotykane częściej.
+Pierwszym spojrzeniem na wymienioną wyżej zależność będzie przeanalizowanie rozkładu czasu na wykonanie ruchu osobno dla zbioru wszystkich ruchów i dla tych błędnych. Jak można zauważyć na Rysunku \ref{rys:rozklad_czasu}, w każdym rozważanym formacie czasowym różnica w rozkładzie dla zbioru wszystkich ruchów i zbioru ruchów błędnych jest zauważalna. Oba zbiory mają zachowane podobne tendencje -- najwięcej posunięć zagrywana jest w ciągu od jednej do pięciu sekund. W każdym ze zbiorów wraz ze wzrostem czasu na wykonanie posunięcia, empiryczna gęstość rozkładu się zmniejsza. Ruchów błędnych jest widocznie mniej w porównaniu do zbioru wszystkich ruchów w przedziale od 0 do ok. 8 sekund. Natomiast w przedziale od ok. 8 do 30 sekund, posunięcia błędne są spotykane częściej.
 Po przyjrzeniu się danym da się zauważyć, że mogą one pochodzić z rozkładu logarytmicznie-normalnego, co można uwarunkować tym, że w zdecydowanej większości pozycji zawodnik potrzebuje krótkiej chwili na odpowiedź na posunięcie przeciwnika, ponieważ samo zarejestrowanie zmian na planszy i fizyczne wykonanie posunięcia (przesunięcie figury na konkretne pole za pomocą myszki dla komputerów lub przeciągnięcie palcem dla smartfonów) zajmuje pewien czas, wykluczając sytuacje, w których zawodnik dokonuje tzw. ,,premove'', czyli podejmuje decyzję o wykonaniu konkretnego posunięcia zajmującego 0 sekund jeszcze przed zagraniem przeciwnika. Dla formatów ,,300+0'' i ,,600+0'' jest to jednak rzadkością - szczególnie podczas środkowej części gry.
 
 \begin{figure}[h]
@@ -513,11 +515,12 @@ Po przyjrzeniu się danym da się zauważyć, że mogą one pochodzić z rozkła
 	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym rozkładem log-normalnym. Zestaw ruchów błędnych.}
 	\label{rys:rozklad_lognorm2}
 \end{figure}
-Za pomocą metody momentów opisanej w rozdziale na stronie \ref{teoria} do każdego zbioru danych został dopasowany rozkład log-normalny. Na rysunku \ref{rys:rozklad_lognorm} przedstawiającym znormalizowany histogram dla zestawu wszystkich ruchów dla formatów ,,300+0'' i ,,600+0'' rozkład teoretyczny jest dobrze dopasowany i zgodny z rozkładem empirycznym. Dla zestawu ruchów oznaczonych jako błędne, dopasowanie (rysunek \ref{rys:rozklad_lognorm2}) w dużym stopniu odbiega od rozkładu empirycznego. Ruchy błędne zajmują statystycznie mniej czasu, niż wskazuje rozkład. Ze względu na wielkość prób wynoszących od ponad 500 tysięcy obserwacji dla najmniejszego z analizowanych zbiorów (format ,,300+0'', ruchy błędne) do aż 8,6 miliona (format ,,600+0'', wszystkie ruchy), najpopularniejsze testy statystyczne, wrażliwe na liczbę danych odrzuciły hipotezę ich pochodzenia z rozkładu log-normalnego. Problematyczną kwestią jest tutaj również digitalizacja danych, które są zaokrąglane do pełnych sekund. W związku z powyższym zastosowane zostało kilka poprawek, by móc lepiej ustalić tożsamość danych.
-Pierwszą z nich jest zmiana rozkładu log-normalnego na dyskretny rozkład lognormalny \cite{lognorm_disc}. Jest to drugi z opisanych rozkładów w tegorocznej pracy ,,Discrete lognormal distribution with application to insurence data'', którą napisali Jiahang Lyu oraz Saraless Nadarajah. Funkcja prawdopodobieństwa przedstawionego rozkładu opisana jest następującym wzorem
+Za pomocą metody momentów opisanej w rozdziale na stronie \ref{teoria} do każdego zbioru danych został dopasowany rozkład log-normalny. Na Rysunku \ref{rys:rozklad_lognorm} przedstawiającym znormalizowany histogram dla zestawu wszystkich ruchów dla formatów ,,300+0'' i ,,600+0'' rozkład teoretyczny jest dobrze dopasowany i zgodny z rozkładem empirycznym. Dla zestawu ruchów oznaczonych jako błędne, dopasowanie (Rysunek \ref{rys:rozklad_lognorm2}) w dużym stopniu odbiega od rozkładu empirycznego. Ruchy błędne zajmują statystycznie mniej czasu, niż wskazuje rozkład. Ze względu na wielkość prób wynoszących od ponad 500 tysięcy obserwacji dla najmniejszego z analizowanych zbiorów (format ,,300+0'', ruchy błędne) do aż 8,6 miliona (format ,,600+0'', wszystkie ruchy), najpopularniejsze testy statystyczne, wrażliwe na liczbę danych odrzuciły hipotezę ich pochodzenia z rozkładu log-normalnego. Problematyczną kwestią jest tutaj również digitalizacja danych, które są zaokrąglane do pełnych sekund. W związku z powyższym zastosowane zostało kilka poprawek, by móc lepiej ustalić tożsamość danych.
+Pierwszą z nich jest zmiana rozkładu log-normalnego na dyskretny rozkład log-normalny \cite{lognorm_disc}. Jest to drugi z badanych rozkładów w tegorocznej pracy ,,Discrete lognormal distribution with application to insurence data'', którą napisali Jiahang Lyu oraz Saraless Nadarajah. Funkcja prawdopodobieństwa przedstawionego rozkładu opisana jest następującym wzorem
 \begin{equation}\label{discrete}
 	p_{X}(i)= \Phi\left(\frac{\log i - \mu}{\sigma} \right) - \Phi\left(\frac{\log \left(i - 1\right) - \mu}{\sigma} \right)
 \end{equation}
+dla $i \in \mathbb{N}_+$,
 gdzie $\Phi(x)$ jest wartością dystrybuanty standardowego rozkładu normalnego w punkcie $x$.
 W celu estymacji parametrów $\mu$ i $\sigma$, z każdego ze wzorów wzięta została losowa próbka $(x_1, \dots, x_n)$ 100 tysięcy obserwacji, a następnie numerycznie znaleziona optymalna wartość funkcji największej wiarygodności opisanej równaniem
 \begin{equation}
@@ -527,7 +530,7 @@ W równaniu \ref{discrete} można zauważyć, że najniższą obserwacją należ
 \begin{equation*}
 	p_{X}(1) = \Phi\left(\frac{\log 1 - \mu}{\sigma} \right) - \Phi\left(\frac{\log \left(0\right) - \mu}{\sigma} \right) = \Phi\left(\frac{- \mu}{\sigma} \right).
 \end{equation*}
- Wyniki obserwacji przedstawione są na rysunkach \ref{rys:lognorm_disc} oraz \ref{rys:lognorm2_disc}. Na pierwszym z nich, zawierającym zestaw wszystkich ruchów, dyskretny rozkład normalny jest dobrze dopasowany w obydwu formatach czasowych. Także w przypadku zestawu ruchów błędnych (rys. \ref{rys:lognorm2_disc}) dopasowanie poprawiło się w znacznym stopniu względem rozkładu ciągłego. Wykonany został test Chi-kwadrat badający zgodność częstotliwości występujących w danych z tymi zadanymi przez rozkład. Dla losowych zestawów danych liczących 1000 próbek i po wykonaniu 100 prób Monte-Carlo, średnia p-wartość dla każdego z badanych zbiorów na poziomie istotności $\alpha = 0,05$ wskazuje na przyjęcie hipotezy zerowej mówiącej o pochodzeniu danych z dyskretnego rozkładu log-normalnego. Szczegółowe wyniki, wraz z wyznaczonymi wcześniej za pomocą metody największej wiarygodności parametrami rozkładu umieszczone są w tabeli \ref{tab:testy}. Na podstawie średniej p-wartości da się zauważyć, że pomimo zgodności dopasowania do każdego ze zbiorów, zestaw wszystkich ruchów jest lepiej opisany przez zadany rozkład teoretyczny, niż zestaw ruchów błędnych. Potwierdzają to odchylenia w okolicy ruchów z indeksem od 3 do 8 na rysunku \ref{rys:lognorm2_disc}, które są zauważalnie większe, niż odchylenia w zbiorze wszystkich ruchów na rysunku \ref{rys:lognorm_disc}.
+ Wyniki obserwacji przedstawione są na Rysunkach \ref{rys:lognorm_disc} oraz \ref{rys:lognorm2_disc}. Na pierwszym z nich, zawierającym zestaw wszystkich ruchów, dyskretny rozkład normalny jest dobrze dopasowany w obydwu formatach czasowych. Także w przypadku zestawu ruchów błędnych (rys. \ref{rys:lognorm2_disc}) dopasowanie poprawiło się w znacznym stopniu względem rozkładu ciągłego. Wykonany został test Chi-kwadrat badający zgodność częstotliwości występujących w danych z tymi zadanymi przez rozkład. Dla losowych zestawów danych liczących 1000 próbek i po wykonaniu 100 prób Monte-Carlo, średnia p-wartość dla każdego z badanych zbiorów na poziomie istotności $\alpha = 0,05$ wskazuje na przyjęcie hipotezy zerowej mówiącej o pochodzeniu danych z dyskretnego rozkładu log-normalnego. Szczegółowe wyniki, wraz z wyznaczonymi wcześniej za pomocą metody największej wiarygodności parametrami rozkładu umieszczone są w tabeli \ref{tab:testy}. Na podstawie średniej p-wartości da się zauważyć, że pomimo zgodności dopasowania do każdego ze zbiorów, zestaw wszystkich ruchów jest lepiej opisany przez zadany rozkład teoretyczny, niż zestaw ruchów błędnych. Potwierdzają to odchylenia w okolicy ruchów z indeksem od 3 do 8 na Rysunku \ref{rys:lognorm2_disc}, które są zauważalnie większe, niż odchylenia w zbiorze wszystkich ruchów na Rysunku \ref{rys:lognorm_disc}.
 
 \begin{figure}[h]
 	\centering
@@ -559,17 +562,17 @@ W równaniu \ref{discrete} można zauważyć, że najniższą obserwacją należ
 \chapter{Podsumowanie}
 Na podstawie bazy danych ze strony \textit{Lichess.com} dotyczących 17 524 012 posunięć ze 275 994 gier rozgrywanych na każdym poziomie rankingowym w formatach ,,300+0'' oraz ,,600+0'' zbadane zostało kilka statystyk i zależności związanych z szachami szybkimi. Pokrótce opisane zostaną teraz najważniejsze analizy, a także wnioski z nich płynące.
 
-Po wstępnym przygotowaniu danych i wyznaczeniu pierwszych statystyk, w pracy został określony został empiryczny rozkład długości gry. Niecałe 5\% gier z rozpatrywanych formatów czasowych zawiera więcej niż 57 ruchów. 
+Po wstępnym przygotowaniu danych i wyznaczeniu pierwszych statystyk, w pracy został określony empiryczny rozkład długości gry. Niecałe 5\% gier z rozpatrywanych formatów czasowych zawiera więcej niż 57 ruchów. 
 
 Przy badaniu zależności pomiędzy indeksem ruchu, a czasem poświęconym na posunięcie określony został średni czas na wykonanie posunięcia w zależności od jego indeksu. W obydwu formatach dla każdego numeru ruchu błędne posunięcia zajmowały średnio więcej czasu porównując z zestawem wszystkich ruchów, a także miały większą wariancję.
 Zaproponowana została przyczyna takiego stanu, mianowicie zarówno szansa na popełnienie błędu jak i czas na wykonanie posunięcia mogą być silnie zależne od stopnia skomplikowania pozycji, a wśród zestawu wszystkich ruchów średnia może być zaniżana przez ruchy oczywiste i forsowne (tylko jeden możliwy legalny ruch), które zajmują statystycznie mniej czasu.
-Analiza zależności pomiędzy numerem ruchu, a średnim poświęconym czasem została również przeprowadzona z podziałem na poszczególne grupy rankingowe. Dla każdego analizowanego formatu czasowego gracze z wyższym rankingiem mają tendencję do szybszego wykonywania początkowych posunięć, będących zazwyczaj elementem teorii otwarć szachowych, dla których szansa na popełnienie błędu jest najmniejsza. Zauważalnie dłużej natomiast wykonują posunięcia z indeksem od 20 do 30 - czyli te, gdzie prawdopodobieństwo popełnienia błędu jest największe, a nieznacznie dłużej ruchy z indeksem od 30. Dla zestawu ruchów błędnych, wyżej notowani gracze poświęcają na posunięcie zdecydowanie więcej czasu. Czas wydzielony na ruchy z największym prawdopodobieństwem na popełnienie błędu sprawia, że różnica w częstotliwości popełniania błędów pomiędzy lepszymi, a gorszymi graczami dla gry środkowej jest bardzo duża. Przy posunięciach z indeksem powyżej 40, szansa na pomyłkę jest podobna dla każdego rankingu. 25\% Najsłabszych graczy ma tendencję do popełniania nawet kilkukrotnie większej liczby błędów w ruchach z indeksem poniżej 10, niż ich wyżej notowani rywale. Wysuwa to wniosek, że nauka otwarć szachowych (wiążąca się z mniejszą liczbą błędów w początkowej fazie gry) może pozwolić początkującym zawodnikom na skuteczniejsze zdobycie punktów rankingowych.
+Analiza zależności pomiędzy numerem ruchu, a średnim poświęconym czasem została również przeprowadzona z podziałem na poszczególne grupy rankingowe. Dla każdego analizowanego formatu czasowego gracze z wyższym rankingiem mają tendencję do szybszego wykonywania początkowych posunięć, będących zazwyczaj elementem teorii otwarć szachowych, dla których szansa na popełnienie błędu jest najmniejsza. Zauważalnie dłużej natomiast wykonują posunięcia z indeksem od 20 do 30 - czyli te, gdzie prawdopodobieństwo popełnienia błędu jest największe, a nieznacznie dłużej ruchy z indeksem od 30. Dla zestawu ruchów błędnych, wyżej notowani gracze poświęcają na posunięcie zdecydowanie więcej czasu. Czas wydzielony na ruchy z największym prawdopodobieństwem na popełnienie błędu sprawia, że różnica w częstotliwości popełniania błędów pomiędzy lepszymi, a gorszymi graczami dla gry środkowej jest bardzo duża. Przy posunięciach z indeksem powyżej 40, szansa na pomyłkę jest podobna dla każdego rankingu. 25\% Najsłabszych graczy ma tendencję do popełniania nawet kilkukrotnie większej liczby błędów w ruchach z indeksem poniżej 10, niż ich wyżej notowani rywale. Nasuwa to wniosek, że nauka otwarć szachowych (wiążąca się z mniejszą liczbą błędów w początkowej fazie gry) może pozwolić początkującym zawodnikom na skuteczniejsze zdobycie punktów rankingowych.
 
-Badanie zależności pomiędzy formatem ,,300+0'' i ,,600+0'' pokazało kilka ciekawych cech. w formacie ,,600+0'' gracze mają do dyspozycji dokładnie dwa razy więcej czasu, niż w dla ,,300+0'', jednakże czas poświęcony na konkretny ruch nie jest prawie nigdy dwukrotnie większy. Dla zbioru wszystkich ruchów w początkowej fazie gry posunięcia w dłuższym formacie trwają średnio około 1,65 raza dłużej z tendencją rosnącą liniowo wraz ze wzrostem indeksu, aż do okolic 1,8 raza dłużej przy ruchach z indeksem powyżej 50. Natomiast stosunek czasu dla ruchów oznaczonych przez silnik jako błędne zachowuje podobne wartości do zestawu wszystkich ruchów w początkowej fazie gry, w przypadku gry końcowej jest jednak znacznie większy i dochodzi 2. Wiąże się to z większą średnią pozostałą procentową ilością czasu w formacie ,,600+0'', dzięki której zawodnik może pozwolić sobie na dłuższe zastanowienie się w późniejszej fazie meczu.
+Badanie zależności pomiędzy formatem ,,300+0'' i ,,600+0'' pokazało kilka ciekawych cech. W formacie ,,600+0'' gracze mają do dyspozycji dokładnie dwa razy więcej czasu, niż w dla ,,300+0'', jednakże czas poświęcony na konkretny ruch nie jest prawie nigdy dwukrotnie większy. Dla zbioru wszystkich ruchów w początkowej fazie gry posunięcia w dłuższym formacie trwają średnio około 1,65 raza dłużej z tendencją rosnącą liniowo wraz ze wzrostem indeksu, aż do okolic 1,8 raza dłużej przy ruchach z indeksem powyżej 50. Natomiast stosunek czasu dla ruchów oznaczonych przez silnik jako błędne zachowuje podobne wartości do zestawu wszystkich ruchów w początkowej fazie gry, w przypadku gry końcowej jest jednak znacznie większy i dochodzi 2. Wiąże się to z większą średnią pozostałą procentową ilością czasu w formacie ,,600+0'', dzięki której zawodnik może pozwolić sobie na dłuższe zastanowienie się w późniejszej fazie meczu.
 
 Prawdopodobieństwo popełnienia błędu w konkretnym ruchu jest bardzo zbliżone w obydwu analizowanych formatach w początkowej fazie gry. Od ruchu 20, szansa na błąd jest nieznacznie większa w krótszym formacie. Różnica prawdopodobieństwa na wykonanie choć jednego błędu w pierwszych 10, 20 lub 30 ruchach, przy założeniu niezależności ruchów jest mała. Mimo większej ilości czasu w formacie ,,600+0'', błędów w początkowej fazie gry pojawia się statystycznie nieznacznie więcej niż w krótszym formacie. Znacząca różnica jest natomiast widoczna pomiędzy poszczególnymi przedziałami rankingowymi. 25\% najgorzej radzących sobie graczy ma ponad 40\% szansy na błąd w pierwszych 10 ruchach, natomiast w przypadku graczy z rankingiem plasującym się pomiędzy 25, a 50 centylem jest to o prawie połowę mniej.
 
-Ostatnią analizowaną zależnością jest rozkład czasu poświęconego na wykonanie posunięcia, osobno dla zbioru wszystkich ruchów i dla oznaczonych przez silnik jako błędne. Dla obu formatów najwięcej posunięć zajmuje od jednej do pięciu sekund, by stopniowo maleć dla większej ilości czasu. Dominanta dla wszystkich zestawów wynosi 2, jednakże dla ruchów błędnych, histogram częstotliwości wystąpienia jest bardziej spłaszczony. Rozkład danych dla każdego zestawu jest wizualnie dobrze opisany przez rozkład log-normalny, a jeszcze lepiej - w związku z tym, że dane są dyskretne, przez dyskretny rozkład lognormalny z parametrami estymowanymi metodą największej wiarygodności. Potwierdza to test zgodności Chi-kwadrat.
+Ostatnią analizowaną zależnością jest rozkład czasu poświęconego na wykonanie posunięcia, osobno dla zbioru wszystkich ruchów i dla oznaczonych przez silnik jako błędne. Dla obu formatów najwięcej posunięć zajmuje od jednej do pięciu sekund, by stopniowo maleć dla większej ilości czasu. Dominanta dla wszystkich zestawów wynosi 2, jednakże dla ruchów błędnych, histogram częstotliwości wystąpienia jest bardziej spłaszczony. Rozkład danych dla każdego zestawu jest wizualnie dobrze opisany przez rozkład log-normalny, a jeszcze lepiej - w związku z tym, że dane są dyskretne, przez dyskretny rozkład log-normalny z parametrami estymowanymi metodą największej wiarygodności. Potwierdza to test zgodności Chi-kwadrat.
 
 Powyższe analizy i rozważania mogą zostać uzupełnione w dalszej pracy o inne formaty czasowe, ze szczególnym uwzględnieniem tych z czasem dodawanym po posunięciu. Dodatkowo, można wprowadzić miarę skomplikowania pozycji i uwzględnienia jej wpływu na wyniki analiz, wymaga to jednak dużej mocy obliczeniowej i dokładnego zbadania poszczególnych posunięć w każdej z analizowanych partii.
 
