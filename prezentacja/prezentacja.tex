@@ -349,6 +349,52 @@
 	\end{figure}
 \end{frame}
 
+\begin{frame}{Zależność między czasem poświęconym na ruch, a jego oceną}
+Jiahang Lyu, Saraless Nadarajah:\\ ,,Discrete lognormal distribution with application to insurence data'' \cite{lognorm_disc}
+	\begin{equation}\label{discrete}
+		p_{X}(i)= \Phi\left(\frac{\log i - \mu}{\sigma} \right) - \Phi\left(\frac{\log \left(i - 1\right) - \mu}{\sigma} \right)
+	\end{equation}
+dla $i \in \mathbb{N}_+$,
+gdzie $\Phi(x)$ jest wartością dystrybuanty standardowego rozkładu normalnego w punkcie $x$.
+\end{frame}
+\begin{frame}{Zależność między czasem poświęconym na ruch, a jego oceną}
+	Funkcja największej wiarygodności
+	\begin{equation}
+		L(\mu,\sigma) = \sum_{i=1}^{n} \log\left[ \Phi\left(\frac{\log x_i - \mu}{\sigma} \right) - \Phi\left(\frac{\log \left(x_i - 1\right) - \mu}{\sigma} \right)\right]
+	\end{equation}
+\end{frame}
+\begin{frame}{Zależność między czasem poświęconym na ruch, a jego oceną}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../Formatka/discrete_lognorm_1.png}
+	\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym dyskretnym rozkładem log-normalnym.}
+	\label{rys:lognorm_disc}
+\end{figure}
+\end{frame}
+\begin{frame}{Zależność między czasem poświęconym na ruch, a jego oceną}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{../Formatka/discrete_lognorm_2.png}
+		\caption{Rozkład czasu poświęconego na wykonanie posunięcia dla formatów ,,600+0'' i ,,300+0'' z dopasowanym dyskretnym rozkładem log-normalnym. Zestaw ruchów błędnych.}
+		\label{rys:lognorm2_disc}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Zależność między czasem poświęconym na ruch, a jego oceną}
+	\begin{table}[h]
+		\caption{Średnie wyniki testu zgodności Chi-kwadrat, średnia ze 100 prób Monte-Carlo dla losowych próbek o długości 1000. Poziom istotności $\alpha = 0,05$.}
+		\centering
+		\begin{tabular}{|l|l|l|l|}
+			\hline
+			\textbf{dane}                     & \textbf{parametry}& \textbf{p-wartość} & \textbf{wynik}     \\ \hline
+			,,300+0'',  & $\mu = 1,22$, $\sigma = 1,09$& 22,28\%                    & przyjęcie\\ \hline
+			,,600+0'',  & $\mu = 1,70$, $\sigma = 1,19$& 20,40\%                    & przyjęcie\\ \hline
+			,,300+0'', błędne    & $\mu = 1,67$, $\sigma = 1,06$& 7,14\%                     & przyjęcie\\ \hline
+			,,600+0'', błędne    & $\mu = 2,16$, $\sigma = 1,12$& 6,49\%                     & przyjęcie \\ \hline
+		\end{tabular}
+		\label{tab:testy} 
+	\end{table}
+\end{frame}
 \section{Podsumowanie}
 
 \begin{frame}{Wnioski}
@@ -360,12 +406,18 @@
 			\item błędne posunięcie ma też zawsze większą wariancje
 		\end{itemize}
 		\item największa szansa na błąd umiejscowiona jest w okolicach 20 ruchu
+	\end{itemize}
+\end{frame}
+\begin{frame}{Wnioski}
+	\begin{itemize}
+		
 		\item gracze z wyższym rankingiem szybciej wykonują ruchy początkowe, dłużej te z największą szansą na błąd
 		\begin{itemize}
 			\item w odniesieniu do graczy z niższym rankingiem
 			\item więcej czasu poświęconego na posunięcie\\ w okolicy 20 ruchu $\rightarrow$ mniejsza szansa na błąd
-		\end{itemize}
-		
+			\item więcej poświęconego czasu przy skomplikowanej pozycji
+			\item mniej przy znanej pozycji początkowej
+		\end{itemize}		
 		
 	\end{itemize}
 \end{frame}
@@ -378,7 +430,6 @@
 			\item słabsi gracze -- więcej błędów w środkowej części gry (ruchy 20 -- 30)
 			\item słabsi gracze -- podobna liczba błędów w fazie końcowej (ruchy 30+)
 		\end{itemize} 
-		\item lepsi gracze DŁUŻEJ wykonują ruchy BŁĘDNE
 		\item różnice między formatami
 		\begin{itemize}
 			\item dla ,,600+0'' ruchy zajmują nieliniowo więcej czasu, niż dla ,,300+0'' 
@@ -420,8 +471,5 @@
 	\bibliography{bibliografia} 
 \end{frame}
 
-\begin{frame}{Pytania?}
-	całość pracy dostępna pod adresem:\\ \url{shorturl.at/gkmKQ}
-\end{frame}
 
 \end{document}

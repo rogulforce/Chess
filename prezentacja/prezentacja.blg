@@ -6,45 +6,45 @@ The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: bibliografia.bib
 Warning--to sort, need author or key in stockfish
-You've used 3 entries,
+You've used 4 entries,
             2118 wiz_defined-function locations,
-            512 strings with 4313 characters,
-and the built_in function-call counts, 615 in all, are:
-= -- 57
-> -- 15
+            518 strings with 4439 characters,
+and the built_in function-call counts, 857 in all, are:
+= -- 80
+> -- 28
 < -- 0
-+ -- 9
-- -- 4
-* -- 24
-:= -- 106
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 10
++ -- 14
+- -- 8
+* -- 38
+:= -- 151
+add.period$ -- 12
+call.type$ -- 4
+change.case$ -- 15
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 29
-empty$ -- 63
-format.name$ -- 4
-if$ -- 131
+cite$ -- 5
+duplicate$ -- 39
+empty$ -- 80
+format.name$ -- 8
+if$ -- 179
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 3
-newline$ -- 18
-num.names$ -- 4
-pop$ -- 21
+int.to.str$ -- 4
+missing$ -- 4
+newline$ -- 23
+num.names$ -- 6
+pop$ -- 26
 preamble$ -- 1
-purify$ -- 8
+purify$ -- 12
 quote$ -- 0
-skip$ -- 18
+skip$ -- 26
 stack$ -- 0
-substring$ -- 17
-swap$ -- 3
+substring$ -- 22
+swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 10
+type$ -- 14
 warning$ -- 1
-while$ -- 4
-width$ -- 4
-write$ -- 32
+while$ -- 6
+width$ -- 5
+write$ -- 42
 (There was 1 warning)

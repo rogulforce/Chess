@@ -15,4 +15,9 @@ Mark Glickman.
 \newblock The glicko system.
 \newblock {\em Boston University}, 1999.
 
+\bibitem{lognorm_disc}
+Jiahang Lyu and Saralees Nadarajah.
+\newblock Discrete lognormal distributions with application to insurance data.
+\newblock {\em Springer}, 7 2021.
+
 \end{thebibliography}
